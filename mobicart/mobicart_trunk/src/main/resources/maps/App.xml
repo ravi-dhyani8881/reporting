@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="app" >
+  <resultMap id="BaseResultMap" type="com.mobicart.model.App" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="s_title" property="sTitle" jdbcType="VARCHAR" />
+    <result column="f_price" property="fPrice" jdbcType="DECIMAL" />
+    <result column="s_icon_image" property="sIconImage" jdbcType="VARCHAR" />
+    <result column="s_loader_image" property="sLoaderImage" jdbcType="VARCHAR" />
+    <result column="s_pn_certificate_path" property="sPnCertificatePath" jdbcType="VARCHAR" />
+    <result column="i_download_count" property="iDownloadCount" jdbcType="BIGINT" />
+    <result column="b_submission_to_apple" property="bSubmissionToApple" jdbcType="BIT" />
+    <result column="d_created_on" property="dCreatedOn" jdbcType="TIMESTAMP" />
+    <result column="d_updated_on" property="dUpdatedOn" jdbcType="TIMESTAMP" />
+    <result column="b_enabled" property="bEnabled" jdbcType="BIT" />
+    <result column="s_android_user_email" property="registeredAndroidUserEmail" jdbcType="VARCHAR" />
+    <result column="s_android_user_pass" property="registeredAndroidUserPass" jdbcType="VARCHAR" />
+     <result column="version" property="version" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="ResultMapWithBLOBs" type="com.mobicart.model.App" extends="BaseResultMap"  >
+    <result column="s_pn_password" property="sPnPassword" jdbcType="VARCHAR" />
+    <result column="s_description" property="sDescription" jdbcType="LONGVARCHAR" />
+    <result column="s_copyright" property="sCopyright" jdbcType="LONGVARCHAR" />
+    <association property="colorScheme"  column="id" select="color_schemes.selectByAppId"  />
+    <association property="features"  column="id" select="features.selectByAppId" />
+    <association property="territories"  column="id" select="territories.selectByAppId" />
+    <association property="companyLogo"  column="user_id" select="users.selectCompanyLogoByUserId" />
+    <association property="appSubmissionFee" column="id"  select="site_constants.selectAppSubmissionFee" />
+    <association property="appSubmissionRecurringFee" column="id"  select="site_constants.selectAppSubmissionRecurringFee" />
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+  
+    id, user_id, s_name, s_title, f_price, s_icon_image, s_loader_image, s_pn_certificate_path,s_pn_password, 
+    i_download_count, b_submission_to_apple, d_created_on, d_updated_on, b_enabled,s_android_user_email,s_android_user_pass,version
+  </sql>
+  <sql id="Blob_Column_List" >
+    s_description, s_copyright
+  </sql>
+  
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.mobicart.model.AppExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by $orderByClause$
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mobicart.model.AppExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from app
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+ 
+ <select id="selectAll" resultMap="BaseResultMap" parameterType="com.mobicart.model.App" >
+  	select
+   <include refid="Base_Column_List" />
+    from app
+  </select>
+  
+  
+  <select id="selectById" resultMap="ResultMapWithBLOBs" parameterType="com.mobicart.model.App" >
+   	select
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="selectAppById"  resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+ 	select
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app
+    where id = #{value}
+  </select>
+  
+  
+  <select id="selectAppIdByUserId" parameterType="long" resultType="long">
+  	select id
+    	from app
+    where user_id = #{value}
+  </select>
+  
+  
+  <select id="selectByUserId"  resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long">
+    select
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app
+    where user_id = #{value}
+  </select>
+ 
+ 
+  <select id="selectByPrimaryKey"  resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long"   >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+ 
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from app
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+ 
+  <delete id="deleteByExample" parameterType="com.mobicart.model.AppExample" >
+    delete from app
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+ 
+  <insert id="insert" parameterType="com.mobicart.model.App" >
+    insert into app (user_id, s_name, s_title, 
+      f_price, s_icon_image, s_loader_image, 
+      s_pn_certificate_path, i_download_count, b_submission_to_apple, 
+      d_created_on, d_updated_on, b_enabled,s_android_user_email,s_android_user_pass, 
+      s_description, s_copyright)
+    values (#{userId,jdbcType=BIGINT}, #{sName,jdbcType=VARCHAR}, #{sTitle,jdbcType=VARCHAR}, 
+      #{fPrice,jdbcType=DECIMAL}, #{sIconImage,jdbcType=VARCHAR}, #{sLoaderImage,jdbcType=VARCHAR}, 
+      #{sPnCertificatePath,jdbcType=VARCHAR}, #{iDownloadCount,jdbcType=BIGINT}, #{bSubmissionToApple,jdbcType=BIT}, 
+      #{dCreatedOn,jdbcType=TIMESTAMP}, #{dUpdatedOn,jdbcType=TIMESTAMP}, #{bEnabled,jdbcType=BIT},#{registeredAndroidUserEmail,jdbcType=VARCHAR},#{registeredAndroidUserPass,jdbcType=VARCHAR},
+      #{sDescription,jdbcType=LONGVARCHAR}, #{sCopyright,jdbcType=LONGVARCHAR})
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.mobicart.model.App" >
+    insert into app
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="sName != null" >
+        s_name,
+      </if>
+      <if test="sTitle != null" >
+        s_title,
+      </if>
+      <if test="fPrice != null" >
+        f_price,
+      </if>
+      <if test="sIconImage != null" >
+        s_icon_image,
+      </if>
+      <if test="sLoaderImage != null" >
+        s_loader_image,
+      </if>
+      <if test="sPnCertificatePath != null" >
+        s_pn_certificate_path,
+      </if>
+      <if test="iDownloadCount != null" >
+        i_download_count,
+      </if>
+      <if test="bSubmissionToApple != null" >
+        b_submission_to_apple,
+      </if>
+      <if test="dCreatedOn != null" >
+        d_created_on,
+      </if>
+      <if test="dUpdatedOn != null" >
+        d_updated_on,
+      </if>
+      <if test="bEnabled != null" >
+        b_enabled,
+      </if>
+       <if test="registeredAndroidUserEmail != null" >
+        s_android_user_email,
+      </if>
+       <if test="registeredAndroidUserPass != null" >
+        s_android_user_pass,
+      </if>
+      <if test="sDescription != null" >
+        s_description,
+      </if>
+      <if test="sCopyright != null" >
+        s_copyright,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="sName != null" >
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sTitle != null" >
+        #{sTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fPrice != null" >
+        #{fPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sIconImage != null" >
+        #{sIconImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoaderImage != null" >
+        #{sLoaderImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sPnCertificatePath != null" >
+        #{sPnCertificatePath,jdbcType=VARCHAR},
+      </if>
+      <if test="iDownloadCount != null" >
+        #{iDownloadCount,jdbcType=BIGINT},
+      </if>
+      <if test="bSubmissionToApple != null" >
+        #{bSubmissionToApple,jdbcType=BIT},
+      </if>
+      <if test="dCreatedOn != null" >
+        #{dCreatedOn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dUpdatedOn != null" >
+        #{dUpdatedOn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bEnabled != null" >
+        #{bEnabled,jdbcType=BIT},
+      </if>
+       <if test="registeredAndroidUserEmail != null" >
+        #{registeredAndroidUserEmail,jdbcType=VARCHAR},
+      </if>
+       <if test="registeredAndroidUserPass != null" >
+        #{registeredAndroidUserPass,jdbcType=VARCHAR},
+      </if>
+      <if test="sDescription != null" >
+        #{sDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sCopyright != null" >
+        #{sCopyright,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterType="com.mobicart.model.AppExample" resultType="java.lang.Integer" >
+    select count(*) from app
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update app
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.sName != null" >
+        s_name = #{record.sName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sTitle != null" >
+        s_title = #{record.sTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fPrice != null" >
+        f_price = #{record.fPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sIconImage != null" >
+        s_icon_image = #{record.sIconImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sLoaderImage != null" >
+        s_loader_image = #{record.sLoaderImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sPnCertificatePath != null" >
+        s_pn_certificate_path = #{record.sPnCertificatePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iDownloadCount != null" >
+        i_download_count = #{record.iDownloadCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.bSubmissionToApple != null" >
+        b_submission_to_apple = #{record.bSubmissionToApple,jdbcType=BIT},
+      </if>
+      <if test="record.dCreatedOn != null" >
+        d_created_on = #{record.dCreatedOn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dUpdatedOn != null" >
+        d_updated_on = #{record.dUpdatedOn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bEnabled != null" >
+        b_enabled = #{record.bEnabled,jdbcType=BIT},
+      </if>
+      
+      
+      <if test="record.registeredAndroidUserEmail != null" >
+        s_android_user_email = #{record.registeredAndroidUserEmail,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="record.registeredAndroidUserPass != null" >
+        s_android_user_pass = #{record.registeredAndroidUserPass,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="record.sDescription != null" >
+        s_description = #{record.sDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sCopyright != null" >
+        s_copyright = #{record.sCopyright,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update app
+    set id = #{record.id,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      s_title = #{record.sTitle,jdbcType=VARCHAR},
+      f_price = #{record.fPrice,jdbcType=DECIMAL},
+      s_icon_image = #{record.sIconImage,jdbcType=VARCHAR},
+      s_loader_image = #{record.sLoaderImage,jdbcType=VARCHAR},
+      s_pn_certificate_path = #{record.sPnCertificatePath,jdbcType=VARCHAR},
+      i_download_count = #{record.iDownloadCount,jdbcType=BIGINT},
+      b_submission_to_apple = #{record.bSubmissionToApple,jdbcType=BIT},
+      d_created_on = #{record.dCreatedOn,jdbcType=TIMESTAMP},
+      d_updated_on = #{record.dUpdatedOn,jdbcType=TIMESTAMP},
+      b_enabled = #{record.bEnabled,jdbcType=BIT},
+      s_android_user_email = #{record.registeredAndroidUserEmail,jdbcType=VARCHAR},
+      s_android_user_pass = #{record.registeredAndroidUserPass,jdbcType=VARCHAR},
+      s_description = #{record.sDescription,jdbcType=LONGVARCHAR},
+      s_copyright = #{record.sCopyright,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  <update id="updateByExample" parameterType="map" >
+   
+    update app
+    set id = #{record.id,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      s_title = #{record.sTitle,jdbcType=VARCHAR},
+      f_price = #{record.fPrice,jdbcType=DECIMAL},
+      s_icon_image = #{record.sIconImage,jdbcType=VARCHAR},
+      s_loader_image = #{record.sLoaderImage,jdbcType=VARCHAR},
+      s_pn_certificate_path = #{record.sPnCertificatePath,jdbcType=VARCHAR},
+      i_download_count = #{record.iDownloadCount,jdbcType=BIGINT},
+      b_submission_to_apple = #{record.bSubmissionToApple,jdbcType=BIT},
+      d_created_on = #{record.dCreatedOn,jdbcType=TIMESTAMP},
+      d_updated_on = #{record.dUpdatedOn,jdbcType=TIMESTAMP},
+      b_enabled = #{record.bEnabled,jdbcType=BIT},
+      s_android_user_email = #{record.registeredAndroidUserEmail,jdbcType=VARCHAR},
+      s_android_user_pass = #{record.registeredAndroidUserPass,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobicart.model.App" >
+    update app
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="sName != null" >
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sTitle != null" >
+        s_title = #{sTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fPrice != null" >
+        f_price = #{fPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sIconImage != null" >
+        s_icon_image = #{sIconImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoaderImage != null" >
+        s_loader_image = #{sLoaderImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sPnCertificatePath != null" >
+        s_pn_certificate_path = #{sPnCertificatePath,jdbcType=VARCHAR},
+      </if>
+      <if test="iDownloadCount != null" >
+        i_download_count = #{iDownloadCount,jdbcType=BIGINT},
+      </if>
+      <if test="bSubmissionToApple != null" >
+        b_submission_to_apple = #{bSubmissionToApple,jdbcType=BIT},
+      </if>
+      <if test="dCreatedOn != null" >
+        d_created_on = #{dCreatedOn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dUpdatedOn != null" >
+        d_updated_on = #{dUpdatedOn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bEnabled != null" >
+        b_enabled = #{bEnabled,jdbcType=BIT},
+      </if>
+      
+      <if test="registeredAndroidUserEmail != null" >
+        s_android_user_email = #{registeredAndroidUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredAndroidUserPass != null" >
+        s_android_user_pass = #{registeredAndroidUserPass,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="sDescription != null" >
+        s_description = #{sDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sCopyright != null" >
+        s_copyright = #{sCopyright,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mobicart.model.App" >
+    update app
+    set user_id = #{userId,jdbcType=BIGINT},
+      s_name = #{sName,jdbcType=VARCHAR},
+      s_title = #{sTitle,jdbcType=VARCHAR},
+      f_price = #{fPrice,jdbcType=DECIMAL},
+      s_icon_image = #{sIconImage,jdbcType=VARCHAR},
+      s_loader_image = #{sLoaderImage,jdbcType=VARCHAR},
+      s_pn_certificate_path = #{sPnCertificatePath,jdbcType=VARCHAR},
+      s_pn_password = #{sPnPassword,jdbcType=VARCHAR},
+      i_download_count = #{iDownloadCount,jdbcType=BIGINT},
+      b_submission_to_apple = #{bSubmissionToApple,jdbcType=BIT},
+      d_created_on = #{dCreatedOn,jdbcType=TIMESTAMP},
+      d_updated_on = #{dUpdatedOn,jdbcType=TIMESTAMP},
+      b_enabled = #{bEnabled,jdbcType=BIT},
+      s_android_user_email = #{registeredAndroidUserEmail,jdbcType=VARCHAR},
+      s_android_user_pass = #{registeredAndroidUserPass,jdbcType=VARCHAR},
+      s_description = #{sDescription,jdbcType=LONGVARCHAR},
+      s_copyright = #{sCopyright,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+ 
+  <update id="updateByPrimaryKey" parameterType="com.mobicart.model.App" >
+    update app
+    set user_id = #{userId,jdbcType=BIGINT},
+      s_name = #{sName,jdbcType=VARCHAR},
+      s_title = #{sTitle,jdbcType=VARCHAR},
+      f_price = #{fPrice,jdbcType=DECIMAL},
+      s_icon_image = #{sIconImage,jdbcType=VARCHAR},
+      s_loader_image = #{sLoaderImage,jdbcType=VARCHAR},
+      s_pn_certificate_path = #{sPnCertificatePath,jdbcType=VARCHAR},
+      i_download_count = #{iDownloadCount,jdbcType=BIGINT},
+      b_submission_to_apple = #{bSubmissionToApple,jdbcType=BIT},
+      d_created_on = #{dCreatedOn,jdbcType=TIMESTAMP},
+      d_updated_on = #{dUpdatedOn,jdbcType=TIMESTAMP},
+      b_enabled = #{bEnabled,jdbcType=BIT},
+      s_android_user_email = #{registeredAndroidUserEmail,jdbcType=VARCHAR},
+      s_android_user_pass = #{registeredAndroidUserPass,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateAppVersion" parameterType="com.mobicart.model.App" >
+    update app set 
+      version = #{version,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="get_custom_copyright_status" parameterType="String" resultType="int">
+  SELECT `b_custom_copyright_page` FROM `users` WHERE  `username` LIKE #{value}
+  
+  </select>
+  
+</mapper>

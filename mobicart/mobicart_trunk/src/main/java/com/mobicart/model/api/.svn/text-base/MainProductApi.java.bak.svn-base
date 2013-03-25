@@ -1,0 +1,72 @@
+package com.mobicart.model.api;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.codehaus.jackson.annotate.JsonWriteNullProperties;
+
+
+
+@JsonWriteNullProperties(false)
+public class MainProductApi implements Serializable{
+	
+	private Long storeId;
+	private Long departmentId;
+	private Long subDepartmentId;
+	private String storeName;
+	private String departmentName;
+	private String subDepartmentName;
+	private List<ProductApi> products;
+	
+	
+	
+	public List<ProductApi> getProducts() {
+		return products;
+	}
+	public void setProducts(List<ProductApi> products) {
+		this.products = products;
+	}
+	public Long getStoreId() {
+		return storeId;
+	}
+	public void setStoreId(Long storeId) {
+		this.storeId = storeId;
+	}
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+	public Long getSubDepartmentId() {
+		return subDepartmentId;
+	}
+	public void setSubDepartmentId(Long subDepartmentId) {
+		this.subDepartmentId = subDepartmentId;
+	}
+	public String getStoreName() {
+		return storeName;
+	}
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public String getSubDepartmentName() {
+		return subDepartmentName;
+	}
+	public void setSubDepartmentName(String subDepartmentName) {
+		this.subDepartmentName = subDepartmentName;
+	}
+	
+	
+	
+}

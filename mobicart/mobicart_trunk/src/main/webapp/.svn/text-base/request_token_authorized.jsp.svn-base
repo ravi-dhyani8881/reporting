@@ -1,0 +1,34 @@
+<%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+<title>MobiCart OAuth</title>
+<meta name="keywords" content="App builder, m-commerce, mobile commerce, iPhone, iPad, Android, BlackBerry, Apple, IOS, app store, shopping cart, store builder, CMS, ecommerce, e-commerce, native apps, free, API, UK, USA" > 
+<meta name="robots" content="all" > 
+<meta name="Revisit-After" content="7 days" > 
+<meta name="author" content="MobiCart" > 
+
+<meta charset=utf-8>
+<meta name="viewport" content="width=940">
+
+<link rel="stylesheet" href="<c:url value="/static/assets/css/main.css" /> " media="screen, projection">
+<!--[if gte IE 7]><link rel="stylesheet" href="<spring:url value="/static/assets/css/ie7.css" />" media="screen, projection"><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="<spring:url value="/static/assets/css/ie6.css" />" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="<c:url value="/static/assets/css/print.css" />" media="print">
+
+<!-- JS -->
+<script src="<c:url value="/static/assets/js/core.js" />" > </script>
+</head>
+
+<body id="page" class="admin signin">
+
+<div class="content group">
+  <h1>MobiCart</h1>
+
+  <div id="content">
+    <p>You have successfully authorized the request for a protected resource.</p>
+  </div>
+</div>
+</body>
+</html>

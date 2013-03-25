@@ -1,0 +1,156 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<title>Mobile commerce, store builder, mcommerce shopping cart, IOS, Android</title>
+  <meta name="description" content="iPhone, iPad, Android and HTML5 app builder. Build mobile sites and apps in seconds." > 
+  <meta name="keywords" content="Mcommerce, m-commerce, mobile commerce, shopping cart, ecommerce, e-commerce, app builder, native apps, HTML5, web apps, IOS, Apple, iPhone, iPad, Android, app store, easy to use, store, shop, API, USA, UK." > 
+  <meta name="robots" content="all" > 
+  <meta name="Revisit-After" content="7 days" > 
+  <meta name="author" content="MobiCart" >
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="static/assets/home/css/style.css">
+   <link rel="stylesheet" href="static/assets/home/css/fonts.css">
+  <!-- end CSS-->
+
+  <script src="static/assets/home/js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+  <header>
+  <div class="inner">
+    <h2 class="logo"><a href="/"><span>Mobile shops app builder software for IOS and Android apps</span></a></h2>
+    <nav role="primary" class="primary">
+      <ul>
+        <li id="nav-tour"><a href="tour.jsp" class="selected"><span>Tour</span></a></li>
+        <li id="nav-signup"><a href="pricing.jsp"><span>Pricing</span></a></li>
+        <li id="nav-gallery"><a href="gallery.jsp"><span>Gallery</span></a></li>
+        <li id="nav-blog"><a href="http://blog.mobi-cart.com/"><span>Blog</span></a></li>
+        <li id="nav-support"><a href="contact.jsp"><span>Contact</span></a></li>
+        <li id="nav-community"><a href="addons/index.jsp"><span>Extras</span></a></li>
+      </ul>
+    </nav>
+ 
+    </div>
+  </header>
+  <div class="content clearfix">
+  
+  
+  
+  <div class="titleblock">
+  <h1>Getting started</h1>
+  <p>Start using MobiCart in a few easy steps</p>
+      
+    </div>
+    
+   <nav role="secondary" class="secondary">
+    <ul>
+      <li><a href="tour.jsp">What is mobicart?</a></li>
+      <li><a href="getting-started.jsp" class="selected">Getting started</a></li>
+      <li><a href="screenshots.jsp">Screenshots</a></li>
+      <li><a href="features.jsp">Feature list</a></li>
+      <li><a href="native-vs-web.jsp">Native vs web apps</a></li>
+    </ul>
+   </nav>
+    
+  <div class="page clearfix gettingstarted">
+
+<div class="col-4">
+<h2 class="step">1</h2>
+<h3>Build <br>your apps</h3>
+<p>a. Enter your store settings, including company address, payment gateway, shipping and tax rates. You can also select what language and currency you would like to use.</p>
+<p>b. It’s now time to design your app. Upload your company logo and images, customise a colour scheme and choose what tabs you want to have.</p>
+</div>
+
+<div class="col-4">
+<h2 class="step">2</h2>
+<h3>Add your<br>
+products</h3>
+<p>a. You can add and manage products via the MobiCart admin or as a .CSV file. If you're a little more technical, you can also use our <a href="http://www.mobi-cart.com/docs/api/index.html">powerful API</a>.</p>
+<p>b. If you already have a website, you can automatically import all your products by installing one of our many live <a href="addons/shopping_carts.jsp">e-commerce connectors</a>.</p>
+</div>
+
+<div class="col-4">
+<h2 class="step">3</h2>
+<h3>Publish <br>
+  your apps</h3>
+<p>a. Your apps are ready to go live. You can download the files and submit your own native apps to the Apple and Google app stores. As for the web app, just add one line of code to your wesbite.</p>
+<p>b. If you don’t have time to submit your apps or need some help, we can manage the whole process for you. We will submit your apps and maintain them with regular updates.</p>
+</div>
+
+<div class="col-4 last">
+<h2 class="step">4</h2>
+<h3>Market <br>
+  your apps</h3>
+<p>a. Harness the power of mobile. Send powerful promotions using 'Push Notifications' to all your customers within a mile radius of any location.</p>
+<p>b. You can also send news bulletins to your customers which appear on each app, or import your Twitter or blog feed directly into MobiCart.</p>
+</div>
+
+</div>  
+   
+</div>
+  
+  </div>
+  <footer>
+    <div class="inner clearfix">
+      <div class="social clearfix">
+        <p class="socialblock twitter"><a href="http://twitter.com/mobicart">Follow Us<br>
+          <span>MobiCart</span></a></p>
+        <p class="socialblock newsletter">Newsletter Signup<br>
+          <span>Enter your Email Address</span></p>   <div class="newsletterbox">
+<form action="http://mobicart.createsend.com/t/r/s/kkyhti/" method="post" id="subForm"> 
+<p><input type="email" name="cm-kkyhti-kkyhti" id="kkyhti-kkyhti" placeholder="Enter your email address" required> 
+<button class="btn">Sign up</button></p> 
+</form>   
+</div>
+      </div>
+      <ul>
+        <li><a href="http://mobicart.zendesk.com/forums/20298521-faqs">FAQ</a></li>
+        <li><a href="press.jsp">Press</a></li>
+        <li><a href="terms.jsp">Terms</a></li>
+        <li><a href="http://www.mobi-cart.com/docs/api/index.html">API</a></li>
+        <li><a href="http://www.mobi-cart.com/account/login">Login</a></li>
+      </ul>
+      <p>All text and design is &copy; Copyright MobiCart. All rights reserved. </p>
+    </div>
+  </footer>
+</div>
+<!--! end of #wrapper -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="static/assets/home/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="static/assets/home/js/plugins.js"></script>
+  <script defer src="static/assets/home/js/script.js"></script>
+  <!-- end scripts-->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17710648-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>

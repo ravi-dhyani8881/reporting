@@ -1,0 +1,56 @@
+package com.mobicart.model.api;
+
+import java.util.List;
+
+import org.codehaus.jackson.annotate.JsonWriteNullProperties;
+
+@JsonWriteNullProperties(false)
+public class CategoryApi {
+
+	private Long subDepartmentId;
+	private Long parentSubDepartmentId;
+	private String subDepartmentName;
+    private String subDepartmentStatus;
+    private Integer productCount;
+    private List<MainCategoryApi> subDepartments;
+    
+    
+	public Long getSubDepartmentId() {
+		return subDepartmentId;
+	}
+	public void setSubDepartmentId(Long subDepartmentId) {
+		this.subDepartmentId = subDepartmentId;
+	}
+	public String getSubDepartmentName() {
+		return subDepartmentName;
+	}
+	public void setSubDepartmentName(String subDepartmentName) {
+		this.subDepartmentName = subDepartmentName;
+	}
+	public String getSubDepartmentStatus() {
+		return subDepartmentStatus;
+	}
+	public void setSubDepartmentStatus(String subDepartmentStatus) {
+		this.subDepartmentStatus = subDepartmentStatus;
+	}
+	public Integer getProductCount() {
+		return productCount;
+	}
+	public void setProductCount(Integer productCount) {
+		this.productCount = productCount;
+	}
+    public Long getParentSubDepartmentId() {
+		return parentSubDepartmentId;
+	}
+	public void setParentSubDepartmentId(Long parentSubDepartmentId) {
+		this.parentSubDepartmentId = parentSubDepartmentId;
+	}
+	
+	public List<MainCategoryApi> getChildSubDepartments() {
+		return subDepartments;
+	}
+	public void setChildSubDepartments(List<MainCategoryApi> subDepartments) {
+		this.subDepartments = subDepartments;
+	}
+
+}

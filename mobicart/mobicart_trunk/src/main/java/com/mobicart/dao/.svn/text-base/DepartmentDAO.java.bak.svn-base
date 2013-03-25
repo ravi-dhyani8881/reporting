@@ -1,0 +1,32 @@
+package com.mobicart.dao;
+
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+
+import com.mobicart.dto.DepartmentDto;
+import com.mobicart.model.Department;
+import com.mobicart.model.DepartmentExample;
+import com.mobicart.util.Pager;
+
+public interface DepartmentDAO extends GenericDAO<Department, Long> {
+	/**
+	 * Department  
+	 * @param departmentExample
+	 * @return
+	 * @throws DataAccessException
+	 */
+	public List<Department> findByExample(DepartmentExample departmentExample) throws DataAccessException;
+	
+	/**
+	 * find department to by example
+	 * @param departmentExample
+	 * @param pager
+	 * @return
+	 * @throws DataAccessException
+	 */
+	public List<DepartmentDto> findByExample(DepartmentExample departmentExample,Pager pager) throws DataAccessException;
+
+	public List<Department> findAPIByExample(DepartmentExample departmentExample) throws DataAccessException; 
+
+}

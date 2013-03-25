@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>MobiCart</display-name>
+
+	<description>MobiCart Application</description>
+ <welcome-file-list>
+  <welcome-file>index.jsp</welcome-file>  
+  </welcome-file-list>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>mobicart.root</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		/WEB-INF/spring/applicationContext-security.xml
+		classpath:applicationContext-business.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+
+	<!-- Character encoding filter -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<locale-encoding-mapping-list>
+		<locale-encoding-mapping>
+			<locale>en</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+		<locale-encoding-mapping>
+			<locale>no</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+		<locale-encoding-mapping>
+			<locale>ru</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+		<locale-encoding-mapping>
+			<locale>pl</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+
+		<locale-encoding-mapping>
+			<locale>ua</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+
+		<locale-encoding-mapping>
+			<locale>pa</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+		<locale-encoding-mapping>
+			<locale>hi</locale>
+			<encoding>UTF-8</encoding>
+		</locale-encoding-mapping>
+	</locale-encoding-mapping-list>
+
+   <!-- basic security filter -->
+<!--     <filter>
+    <filter-name>jsoneCheck</filter-name>
+    <filter-class>com.mobicart.web.security.filter.BasicAuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+    <filter-name>jsoneCheck</filter-name>
+    <url-pattern>/*</url-pattern>
+    </filter-mapping> -->
+    <!-- end -->
+	<!-- Spring security filter -->
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+
+  
+	<!-- - Map static resources to the default servlet - examples: - http://localhost:8080/static/images/logo.png 
+		- http://localhost:8080/static/styles/mobicart.css -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/static/*</url-pattern>
+		 
+	</servlet-mapping>
+	
+	<servlet>
+		<description>Initizer Servlet</description>
+		<display-name>Initizer Servlet</display-name>
+		<servlet-name>Initilizer</servlet-name>
+		<servlet-class>com.mobicart.util.Initilizer</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Initilizer</servlet-name>
+		<url-pattern>/servlet/Initilizer</url-pattern>
+	</servlet-mapping>
+	
+<servlet-mapping>
+		<servlet-name>default</servlet-name>
+
+		<url-pattern>/crossdomain.xml</url-pattern>
+		 
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		 
+		<url-pattern>/robots.txt</url-pattern>
+		 
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/codec/codec.zip</url-pattern>
+	</servlet-mapping>
+	<!-- - Servlet that dispatches request to registered handlers (Controller 
+		implementations). - Has its own application context, by default defined in 
+		"{servlet-name}-servlet.xml", - i.e. "mobicart-servlet.xml". - - A web app 
+		can contain any number of such servlets. - Note that this web app has a shared 
+		root application context, serving as parent - of all DispatcherServlet contexts. -->
+	<servlet>
+		<servlet-name>mobicart</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<!-- - Maps the mobicart dispatcher to "*.do". All handler mappings in - 
+		mobicart-servlet.xml will by default be applied to this subpath. - If a mapping 
+		isn't a /* subpath, the handler mappings are considered - relative to the 
+		web app root. - - NOTE: A single dispatcher can be mapped to multiple paths, 
+		like any servlet. -->
+	<servlet-mapping>
+		<servlet-name>mobicart</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- Add support for dwr 2 -->
+	<servlet-mapping>
+		<servlet-name>mobicart</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<filter>
+		<filter-name>httpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>httpMethodFilter</filter-name>
+		<servlet-name>mobicart</servlet-name>
+	</filter-mapping>
+
+	
+	
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+
+
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/WEB-INF/views/404_new.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>503</error-code>
+		<location>/WEB-INF/views/404_new.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/404_new.jsp</location>
+	</error-page>
+    
+    <error-page>
+		<error-code>401</error-code>
+		<location>/WEB-INF/views/login.jsp</location>
+		
+	</error-page>
+
+
+      <security-constraint>
+<web-resource-collection>
+<web-resource-name>mobi-cart</web-resource-name>
+<url-pattern>/*</url-pattern>
+</web-resource-collection>
+<user-data-constraint>
+<transport-guarantee>NONE</transport-guarantee>
+</user-data-constraint>
+</security-constraint>
+ 
+</web-app>

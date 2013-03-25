@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+
+	<excludes>
+  <!--  <pattern>/*.html</pattern> -->
+     <pattern>/*.*</pattern>  
+     <pattern>/account/login</pattern>
+	<pattern>/redirect/login</pattern>
+	<pattern>/account/password/forgot/send</pattern>  
+	<!-- <pattern>/contact.jsp</pattern>
+	<pattern>/tour.jsp</pattern>
+	<pattern>/contact.jsp</pattern>
+	<pattern>/index.jsp</pattern>
+	<pattern>/getting-started.jsp</pattern>
+	<pattern>/screenshots.jsp</pattern>
+	<pattern>/features*</pattern>
+	<pattern>/native-vs-web.jsp</pattern>
+	<pattern>/press*</pattern>
+	 <pattern>/pricing*</pattern>
+	  <pattern>/thanks*</pattern>
+	   <pattern>/experts/*</pattern>
+	   <pattern>/jobs/*</pattern>
+	   	<pattern>/addons/*</pattern>
+	   <pattern>/press.jsp</pattern>
+	   <pattern>/terms.jsp</pattern>
+	   <pattern>/privacy.jsp</pattern>
+	   <pattern>/gallery*</pattern>
+	   <pattern>/press*</pattern>	  -->
+	  
+	   
+	  
+	
+	<!--  <pattern>/indexinplace</pattern>
+	<pattern>/features</pattern>
+	<pattern>/faqs</pattern>
+	<pattern>/terms</pattern>
+	<pattern>/press</pattern>
+	<pattern>/contact</pattern>
+	<pattern>/contact/save</pattern>
+	<pattern>/credits</pattern>
+	<pattern>/blog</pattern>
+	<pattern>/home/index.html</pattern>
+	<pattern>/addons</pattern>
+	<pattern>/buzz</pattern>
+	<pattern>/documentation</pattern>-->
+	 
+	</excludes>
+  
+  <!-- Decorator for pages which need default header and footer -->
+  <decorator name="default" page="default.jsp">
+  	<pattern>/*</pattern>
+    <pattern>*.jsp</pattern>
+  </decorator>   
+  
+  <decorator name="admin" page="admin.jsp">
+    <pattern>/admin/*</pattern>   
+    <pattern>/admin/*.*</pattern> 
+    <pattern>/admin/*.jsp</pattern>   
+  </decorator>
+  
+    
+</decorators>

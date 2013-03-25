@@ -1,0 +1,239 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<title>M-commerce app builder, mobile commerce shopping cart, iPhone, iPad, Android, HTML5</title>
+  <meta name="description" content="Mcommerce shopping cart app builder for iPhone, iPad, Android and HTML5 web apps." > 
+  <meta name="keywords" content="Mcommerce, m-commerce, mobile commerce, shopping cart, ecommerce, e-commerce, app builder, native apps, HTML5, web apps, IOS, Apple, iPhone, iPad, Android, app store, easy to use, store, shop, API, USA, UK." > 
+  <meta name="robots" content="all" > 
+  <meta name="Revisit-After" content="7 days" > 
+  <meta name="author" content="MobiCart" > 
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="/home/css/style.css">
+   <link rel="stylesheet" href="/home/css/fonts.css">
+   <link rel="stylesheet" href="/home/css/slideshow.css">
+   <link rel="stylesheet" href="/home/css/jquery.fancybox-1.3.4.css">
+  <!-- end CSS-->
+
+  <script src="/home/js/libs/modernizr-2.0.6.min.js"></script>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+  
+  <script src="js/mylibs/jquery.fancybox-1.3.4.pack.js"></script>
+  <script src="js/mylibs/jquery.mousewheel-3.0.4.pack.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+  $("#videohome").fancybox({
+				'width'				: 640,
+				'height'			: 360,
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+			
+			});
+			</script>
+</head>
+
+<body id="home">
+<div id="wrapper">
+
+  <header>
+    <div class="inner">
+    <h2 class="logo"><a href="/"><span>Mobile shopping cart app builder for IOS and Android devices</span></a></h2>
+    <nav role="primary" class="primary">
+      <ul>
+        <li id="nav-tour"><a href="/home/tour.html"><span>Tour</span></a></li>
+        <li id="nav-signup"><a href="/home/pricing.html"><span>Pricing</span></a></li>
+        <li id="nav-gallery"><a href="/home/gallery.html"><span>Gallery</span></a></li>
+        <li id="nav-blog"><a href="http://blog.mobi-cart.com/"><span>Blog</span></a></li>
+        <li id="nav-support"><a href="/home/contact.html"><span>Contact</span></a></li>
+        <li id="nav-community"><a href="/home/addons/index.html"><span>Extras</span></a></li>
+      </ul>
+    </nav>
+    
+    </div>
+</header>
+  
+  <div class="wrapper-home">
+  
+  <div class="blockslideshow">
+  
+    <a href="#" class="next">
+        <span>Next Slide</span>
+    </a>
+     <a href="#" class="prev">
+        <span>Previous Slide</span>
+    </a>
+  		<div class="slideshow">
+<div class="slide slide1"> <a href="#"><img src="/home/img/home/banner1.jpg" width="960" height="410"></a> </div>
+<div class="slide slide2"> <a href="#"><img src="/home/img/home/banner2.jpg" width="960" height="410"></a></div>
+  		</div>
+        
+        </div>
+  
+  <div class="home-content clearfix">
+  
+  <div class="homelinks">
+  <h3>Next Webinar</h3>
+  <div class="homeblockpic">
+  <a href="http://support.mobi-cart.com/forums/20298516-webinars"><img src="img/home/webinar.jpg" width="278" height="130"></a>
+  </div>
+  </div>      
+        
+    <div class="homelinks">
+  <h3>App Gallery</h3>
+  <div class="homeblockpic">
+  <a href="gallery.html" style="background:none;"><img src="img/home/apps.png" width="278" height="130"></a>
+  </div>
+  </div>  
+  
+    <div class="homelinks" style="margin-right:0;">
+  <h3>What is MobiCart?</h3>
+  <div class="homeblockpic">
+  <a id="videohome" href="http://www.youtube.com/embed/56fSemQM8aU?rel=0&autoplay=1"><img src="img/home/video.jpg" width="278" height="130"></a>
+  </div>
+  </div>   
+       
+  <div class="presslogos">
+  <a href="press_reviews.html" class="logo1"><em>TechCrunch</em></a>
+  <a href="press_reviews.html" class="logo2"><em>VentureBeat</em></a>
+  <a href="press_reviews.html" class="logo3"><em>ReadWriteWeb</em></a>
+  <a href="press_reviews.html" class="logo4"><em>PC World</em></a>
+  <a href="press_reviews.html" class="logo5"><em>DEMO</em></a>
+  
+  </div>
+        
+  </div>
+ 
+  </div>
+  
+  <div class="content clearfix" style="position:relative;">
+    <div class="arrowtab2"></div> 
+
+  <div class="titleblock">
+  <h1>Why MobiCart?</h1>
+  <p>Easily build and manage your m-commerce store</p>
+      
+    </div>
+  <div class="page clearfix pagetour" style="margin-top:0;">
+    <div class="col-3">
+      <div class="block">
+        <h3>Your e-commerce store on mobile</h3>
+        <p>Turn your e-commerce store into an m-commerce app. Offer your products on a range of mobile devices.</p>
+      </div>
+      <div class="block">
+        <h3>10,000+ companies use MobiCart</h3>
+        <p>You're in safe hands! 10,000+ companies use MobiCart, from the world's largest to smallest brands. <a href="press_reviews.html">Read the buzz</a>.</p>
+      </div>
+     
+    </div>
+    <div class="col-3">
+      <div class="block">
+        <h3>Works with or without your existing website</h3>
+        <p>MobiCart works on its own, or links up to your existing website. We integrate with your favourite shopping cart software, check out our <a href="addons/shopping_carts.html">e-commerce connectors</a>.</p>
+      </div>
+      <div class="block">
+        <h3>It's your own store with your own brand</h3>
+        <p>MobiCart can be fully customised from the look and feel your mobile store will have, to adding products and pages to your app. It's your own store with your own brand.</p>
+      </div>
+      
+    </div>
+    <div class="col-3 last">
+      <div class="block">
+        <h3>Supports both native and web apps</h3>
+        <p>MobiCart supports native iPhone, iPad and Android apps you can download from the app store, as well as HTML5 web apps you can access from a mobile browser.</p>
+      </div>
+      <div class="block">
+        <h3>Your store in any language or currency</h3>
+        <p>Offer your mobile store in any language or currency. MobiCart features powerful language packs.</p>
+      </div>
+      
+          </div>
+    <div class="col-3 last">
+      <div class="block">
+        <h3>Market to your customers like only a mobile can</h3>
+        <p>Easily engage with your customers, from sending out powerful push notifications based on location, to keeping your customers up to date with your favourite blog or Twitter feed.</p>
+      </div>
+      
+          </div>
+    <div class="col-3 last">
+      <div class="block">
+        <h3>Mobile commerce is truly booming!</h3>
+        <p>Are you ready to tap into the billions of dollars already being spent on mobile devices? Check out the <a href="http://blog.mobi-cart.com/2012/01/12/m-commerce-is-truly-booming/">statistics</a>.</p>
+      </div>
+      
+          </div>
+    <div class="col-3 last">
+      <div class="block">
+        <h3>Get access to the source code</h3>
+        <p>Get full access to the source code for each native app and customise MobiCart, from changing the design, to developing new features.</p>
+      </div>
+     
+    </div>
+  </div>
+  </div>
+  <footer>
+    <div class="inner clearfix">
+      <div class="social clearfix">
+        <p class="socialblock twitter"><a href="http://twitter.com/mobicart">Follow Us<br>
+          <span>MobiCart</span></a></p>
+        <p class="socialblock newsletter">Newsletter Signup<br>
+          <span>Enter your Email Address</span></p>   <div class="newsletterbox">
+<form action="http://mobicart.createsend.com/t/r/s/kkyhti/" method="post" id="subForm"> 
+<p><input type="email" name="cm-kkyhti-kkyhti" id="kkyhti-kkyhti" placeholder="Enter your email address" required> 
+<button class="btn">Sign up</button></p> 
+</form>   
+</div>
+      </div>
+      <ul>
+        <li><a href="http://mobicart.zendesk.com/forums/20298521-faqs">FAQ</a></li>
+        <li><a href="/home/press.html">Press</a></li>
+        <li><a href="/home/terms.html">Terms</a></li>
+        <li><a href="http://www.mobi-cart.com/docs/api/index.html">API</a></li>
+        <li><a href="http://www.mobi-cart.com/account/login">Login</a></li>
+      </ul>
+      <p>All text and design is &copy; Copyright MobiCart. All rights reserved. </p>
+    </div>
+  </footer>
+</div>
+<!--! end of #wrapper -->
+
+<script src="js/mylibs/options.js"></script>
+<script src="js/mylibs/slides.jquery.js"></script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts-->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17710648-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>

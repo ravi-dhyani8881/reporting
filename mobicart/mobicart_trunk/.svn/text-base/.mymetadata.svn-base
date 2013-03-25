@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="mobi-cart"
+  id="myeclipse.1322308703439"
+  context-root="/mobi-cart"
+  j2ee-spec="6.0"
+  archive="mobi-cart.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

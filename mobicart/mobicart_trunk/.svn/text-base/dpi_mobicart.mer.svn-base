@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ERDiagram version="1.1">
+  <Connection session="com.mysql.jdbc.Driver" database="dpi_mobicart" />
+  <Drawing gridVisible="false" snapOn="false" fastRouting="false" labelsVisible="true" />
+  <Tables>
+    <Table name="api">
+      <Drawing expanded="true" location="1284,574" dimensions="273,229" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="api_key" primary_key="false" foreign_key="false" required="false" unique="true">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="oauth_secret" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="threshold_general_count" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="threshold_store_count" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="threshold_refresh_count" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="general_counter" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="store_counter" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="last_refresh_time" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="app_color_schemes">
+      <Drawing expanded="true" location="223,1744" dimensions="203,70" />
+      <Columns>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="color_scheme_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="app_device_tokens">
+      <Drawing expanded="true" location="1386,1376" dimensions="177,149" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="token_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="500" />
+        </Column>
+        <Column name="regdate" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATE" size="10" />
+        </Column>
+        <Column name="longitude" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DOUBLE" size="22" />
+        </Column>
+        <Column name="latitude" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DOUBLE" size="22" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="app_features">
+      <Drawing expanded="true" location="689,1744" dimensions="166,70" />
+      <Columns>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="feature_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="app_territories">
+      <Drawing expanded="true" location="471,1744" dimensions="173,70" />
+      <Columns>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="app">
+      <Drawing expanded="true" location="1486,0" dimensions="241,349" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="f_price" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="s_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="s_copyright" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="s_icon_image" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_loader_image" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_pn_certificate_path" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_pn_password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="i_download_count" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="b_submission_to_apple" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="d_created_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="d_updated_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="b_enabled" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="authorities">
+      <Drawing expanded="true" location="1402,1162" dimensions="186,150" />
+      <Columns>
+        <Column name="username" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="authority" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="b_users" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_orders" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_payment" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_content" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="billing">
+      <Drawing expanded="true" location="878,1376" dimensions="210,149" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="d_billing_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="s_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="18" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="color_schemes">
+      <Drawing expanded="true" location="273,888" dimensions="249,209" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="s_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="8" />
+        </Column>
+        <Column name="s_bg_color" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="7" />
+        </Column>
+        <Column name="s_fg_color" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="7" />
+        </Column>
+        <Column name="s_bg_image" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="s_product_item_bg_color" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="7" />
+        </Column>
+        <Column name="s_search_button_bg_color" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="7" />
+        </Column>
+        <Column name="s_price_tag_bg_color" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="7" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="contacts">
+      <Drawing expanded="true" location="931,1162" dimensions="197,169" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_heard_from" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_message" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="d_sent_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="departments_old">
+      <Drawing expanded="true" location="475,1570" dimensions="172,129" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="departments">
+      <Drawing expanded="true" location="317,1376" dimensions="257,149" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="parent_department_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_status" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="disk_space_pricing">
+      <Drawing expanded="true" location="936,1570" dimensions="194,109" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="i_min_limit" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="i_max_limit" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="f_price" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="features">
+      <Drawing expanded="true" location="1133,1376" dimensions="208,149" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_iphone_handle" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="f_fee" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="FLOAT" size="12" />
+        </Column>
+        <Column name="b_enabled" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="gallery_images">
+      <Drawing expanded="true" location="798,574" dimensions="200,249" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="250" />
+        </Column>
+        <Column name="s_thumbnail" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_preview" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_original" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="d_created_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="d_updated_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="label_keys">
+      <Drawing expanded="true" location="692,1570" dimensions="199,109" />
+      <Columns>
+        <Column name="label_key_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="label_key" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="80" />
+        </Column>
+        <Column name="label_value" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="255" />
+        </Column>
+        <Column name="tab_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="11" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="labels">
+      <Drawing expanded="true" location="0,1570" dimensions="202,129" />
+      <Columns>
+        <Column name="label_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="label_key_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="modified_text" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="merchant_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="date_added" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="merchant_services">
+      <Drawing expanded="true" location="0,574" dimensions="234,269" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="merchant_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_service_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="18" />
+        </Column>
+        <Column name="s_payment_status" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="10" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_payment_fee" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="txn_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="30" />
+        </Column>
+        <Column name="payer_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="15" />
+        </Column>
+        <Column name="d_payment_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATETIME" size="19" />
+        </Column>
+        <Column name="s_remarks" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="news">
+      <Drawing expanded="true" location="279,574" dimensions="226,269" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="250" />
+        </Column>
+        <Column name="s_image" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_body" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="s_feed_url" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="7" />
+        </Column>
+        <Column name="s_twitter_username" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="b_twitter_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_feed_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="d_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="orders">
+      <Drawing expanded="true" location="900,0" dimensions="265,469" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="order_item_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_end_username" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="d_order_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="s_order_status" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="10" />
+        </Column>
+        <Column name="s_payment_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="10" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_payment_fee" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="txn_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="payer_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="receipt_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_payer_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="250" />
+        </Column>
+        <Column name="d_payment_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="s_payment_remarks" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_app_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_app_territories" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="s_app_icon_image" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_app_loader_image" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="b_app_submission_to_apple" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="persistent_logins">
+      <Drawing expanded="true" location="1175,1570" dimensions="187,109" />
+      <Columns>
+        <Column name="username" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="64" />
+        </Column>
+        <Column name="series" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="64" />
+        </Column>
+        <Column name="token" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="64" />
+        </Column>
+        <Column name="last_used" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_images">
+      <Drawing expanded="true" location="0,1744" dimensions="178,109" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_location" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_options">
+      <Drawing expanded="true" location="816,888" dimensions="252,189" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_sale_label" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="f_quantity" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="i_available_quantity" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="i_to_be_shipped_quantity" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_order_items_temp_webapp">
+      <Drawing expanded="true" location="358,1162" dimensions="260,169" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="order_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_option_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="i_quantity" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="MEDIUMINT" size="7" />
+        </Column>
+        <Column name="s_order_source" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="60" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_order_items">
+      <Drawing expanded="true" location="619,1376" dimensions="214,149" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="order_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_option_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="i_quantity" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="MEDIUMINT" size="7" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_order_shipping_details">
+      <Drawing expanded="true" location="0,1376" dimensions="272,149" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT UNSIGNED" size="20" />
+        </Column>
+        <Column name="s_tracking_number" primary_key="false" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_carrier" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="6" />
+        </Column>
+        <Column name="s_shipping_remarks" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="s_shipping_status" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="11" />
+        </Column>
+        <Column name="product_order_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_orders_temp_webapp">
+      <Drawing expanded="true" location="302,0" dimensions="254,529" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="merchant_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_merchant_paypal_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_shipping_amount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_tax_amount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_total_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="s_buyer_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="s_buyer_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="i_buyer_phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_shipping_street" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_state" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_postal_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_country" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_street" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_state" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_postal_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_country" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="10" />
+        </Column>
+        <Column name="d_order_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="s_order_source" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="60" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_orders">
+      <Drawing expanded="true" location="601,0" dimensions="254,509" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="merchant_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_merchant_paypal_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_shipping_amount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_tax_amount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_total_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="s_buyer_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="s_buyer_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="i_buyer_phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_shipping_street" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_state" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_postal_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_shipping_country" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_street" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_state" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_postal_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_billing_country" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="10" />
+        </Column>
+        <Column name="d_order_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="product_reviews">
+      <Drawing expanded="true" location="663,1162" dimensions="223,169" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="product_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_reveiwer_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_reviewer_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_reviewer_location" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_review" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="i_rating" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="products">
+      <Drawing expanded="true" location="1210,0" dimensions="231,469" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="department_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="category_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="f_price" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="s_status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="7" />
+        </Column>
+        <Column name="f_discount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="s_product_url" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_video_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_video_url" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_sale_label" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="i_aggregate_quantity" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="i_purchase_count" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="MEDIUMINT" size="7" />
+        </Column>
+        <Column name="i_view_count" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="MEDIUMINT" size="7" />
+        </Column>
+        <Column name="b_stock_control" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_use_options" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_taxable" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_featured" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="push_notification">
+      <Drawing expanded="true" location="1043,574" dimensions="196,249" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="message" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="500" />
+        </Column>
+        <Column name="send_to" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="2" />
+        </Column>
+        <Column name="zipcode" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="15" />
+        </Column>
+        <Column name="radius" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="units" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="3" />
+        </Column>
+        <Column name="date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATETIME" size="19" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="ENUM" size="9" />
+        </Column>
+        <Column name="notified_count" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="recurring_payment_detail">
+      <Drawing expanded="true" location="0,888" dimensions="228,229" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="merchant_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="d_payment_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="s_service_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="ENUM" size="13" />
+        </Column>
+        <Column name="f_amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="s_remarks" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="300" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="f_payment_fee" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="txn_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="30" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="shipping">
+      <Drawing expanded="true" location="1113,888" dimensions="198,189" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="state_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_country" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="f_alone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_others" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_shipping_tax" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="site_constants">
+      <Drawing expanded="true" location="0,1162" dimensions="313,169" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="i_store_product_limit" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT" size="10" />
+        </Column>
+        <Column name="f_price_for_products_over_limit" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_app_submission_fee" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_app_submission_recurring_fee" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_eu_vat" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+        <Column name="f_remove_branding_fee" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="states">
+      <Drawing expanded="true" location="247,1570" dimensions="183,129" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="250" />
+        </Column>
+        <Column name="s_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="b_custom" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="static_pages">
+      <Drawing expanded="true" location="1356,888" dimensions="190,189" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="feature_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="app_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="s_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TEXT" size="65535" />
+        </Column>
+        <Column name="b_enabled" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="stores">
+      <Drawing expanded="true" location="550,574" dimensions="203,269" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_order_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_paypal_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_currency" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="d_created_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="d_updated_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="b_include_tax" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_tax_shipping" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_enabled" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="tax">
+      <Drawing expanded="true" location="1173,1162" dimensions="184,169" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="store_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="state_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_country" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="f_tax" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DECIMAL" size="10,2" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="territories">
+      <Drawing expanded="true" location="1407,1570" dimensions="180,109" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="s_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_currency" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="users_address">
+      <Drawing expanded="true" location="567,888" dimensions="204,209" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="s_address_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_address" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_state" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_zip" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_country" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="b_enabled" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="users">
+      <Drawing expanded="true" location="0,0" dimensions="257,529" />
+      <Columns>
+        <Column name="id" primary_key="false" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="username" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_first_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_last_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="d_birthday" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATE" size="10" />
+        </Column>
+        <Column name="s_company_reg_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_tax_reg_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_company_logo" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_paypal_address" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_heard_from" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="s_coupon_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="s_affiliate_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="d_joined_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="d_updated_on" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="TIMESTAMP" size="19" />
+        </Column>
+        <Column name="s_activation_key" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="350" />
+        </Column>
+        <Column name="b_custom_copyright_page" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="s_webapp_url_mapping" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="s_webapp_domain_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="150" />
+        </Column>
+        <Column name="b_iphone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_ipad" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_android" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="b_webapp" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="disk_space_pricing_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="enabled" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <Relationships />
+</ERDiagram>
+

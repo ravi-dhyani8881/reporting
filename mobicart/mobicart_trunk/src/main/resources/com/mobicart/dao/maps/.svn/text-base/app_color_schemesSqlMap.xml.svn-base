@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="app_color_schemes">
+  <resultMap class="com.mobicart.model.AppColorScheme" id="baseResultMap">
+    <result column="app_id" jdbcType="BIGINT" property="appId" />
+    <result column="color_scheme_id" jdbcType="BIGINT" property="colorSchemeId" />
+  </resultMap>
+  
+  <insert id="insert" parameterClass="com.mobicart.model.AppColorScheme">
+    insert into app_color_schemes (app_id, color_scheme_id)
+    values (#appId:BIGINT#, #colorSchemeId:BIGINT#)
+  </insert>
+
+	<update id="updateByAppId" parameterClass="com.mobicart.model.AppColorScheme">
+    	update app_color_schemes
+    	set   color_scheme_id = #colorSchemeId:BIGINT#
+    	where   app_id = #appId:BIGINT#
+</update>
+
+  
+</sqlMap>

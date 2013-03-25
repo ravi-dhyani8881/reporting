@@ -1,0 +1,33 @@
+package com.mobicart.model.api;
+
+import org.codehaus.jackson.annotate.JsonWriteNullProperties;
+
+
+@JsonWriteNullProperties(false)
+public class DepartmentApi {
+
+	private Long departmentId;
+    private String departmentName;
+    private String departmentStatus;
+    
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public String getDepartmentStatus() {
+		return departmentStatus;
+	}
+	public void setDepartmentStatus(String departmentStatus) {
+		this.departmentStatus = departmentStatus;
+	}
+	
+
+}

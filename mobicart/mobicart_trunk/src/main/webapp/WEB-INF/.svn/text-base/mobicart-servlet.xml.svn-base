@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	        http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	        http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+            http://www.directwebremoting.org/schema/spring-dwr  
+            http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
+            ">
+
+
+
+	<context:component-scan base-package="com.mobicart" />
+	 
+	<context:annotation-config />
+
+	<mvc:annotation-driven />
+
+	<mvc:interceptors>
+		<bean id="webContentInterceptor"
+			class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+			<property name="cacheSeconds" value="0" />
+			<property name="useExpiresHeader" value="true" />
+			<property name="useCacheControlHeader" value="true" />
+			<property name="requireSession" value="false" />
+			<property name="useCacheControlNoStore" value="true" />
+			<property name="cacheMappings">
+				<props>
+					<prop key="/**/*.html">2000</prop>
+					<prop key="/**/*.css">500000</prop>
+					<prop key="/**/*.js">0</prop>
+				</props>
+			</property>
+		</bean>
+	</mvc:interceptors>
+	
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key=".MissingServletRequestParameterException">redirectToHome</prop>
+				<prop key=".HttpSessionRequiredException">redirectToHome</prop>
+				<prop key=".AuthenticationCredentialsNotFoundException">redirectToLogin</prop>
+				<prop key=".IllegalStateException">redirectToLogin</prop>
+				<prop key=".NullPointerException">redirectToHome</prop>
+				<prop key=".AccessDeniedException">redirectToLogin</prop>
+				<prop key=".lang.Exception">404</prop>
+				<prop key=".DataAccessException">404</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean id="mappingJacksonHttpMessageConverter"
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+
+
+
+	<bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="html" value="text/html" />
+			</map>
+		</property>
+
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<constructor-arg>
+						<bean class="org.springframework.oxm.xstream.XStreamMarshaller" p:autodetectAnnotations="true">
+							<property name="aliases">
+								<map>
+									<entry key="Store" value="com.mobicart.model.api.StoreApi" />
+									<entry key="Shipping" value="com.mobicart.model.api.ShippingApi" />
+									<entry key="Tax" value="com.mobicart.model.api.TaxApi" />
+									<entry key="Product" value="com.mobicart.model.api.ProductApi" />
+									<entry key="ProductList" value="com.mobicart.model.api.MainProductApi" />
+									<entry key="OrderList" value="com.mobicart.model.api.MainOrderApi" />
+									<entry key="GalleryImage" value="com.mobicart.model.api.ImageApi" />
+									<entry key="MerchantProfile" value="com.mobicart.model.api.UserApi" />
+									<entry key="OrderDetails" value="com.mobicart.model.api.ProductOrderApi" />
+									<entry key="OrderItemDetails" value="com.mobicart.model.api.ProductOrderItemApi" />
+									<entry key="ProductImageDetails" value="com.mobicart.model.api.ProductImageApi" />
+									<entry key="ProductOptionDetails" value="com.mobicart.model.api.ProductOptionApi" />
+									<entry key="ProductOrderShippingDetail" value="com.mobicart.model.ProductOrderShippingDetail" />
+									<entry key="ProductReviewDetails" value="com.mobicart.model.api.ProductReviewApi" />
+									<entry key="DepartmentList" value="com.mobicart.model.api.MainDepartmentApi" />
+									<entry key="Department" value="com.mobicart.model.api.DepartmentApi" />
+									<entry key="Country" value="com.mobicart.model.api.TerritoryApi" />
+									<entry key="State" value="com.mobicart.model.api.StateApi" />
+									<entry key="SubDepartment" value="com.mobicart.model.api.CategoryApi" />
+									<entry key="SubDepartmentList" value="com.mobicart.model.api.MainCategoryApi" />
+									<entry key="GalleryImageList" value="com.mobicart.model.api.MainImageApi" />
+									<entry key="Message" value="com.mobicart.bo.Message" />
+									<entry key="Error" value="com.mobicart.bo.Error" />
+									<entry key="Labels" value="com.mobicart.model.Labels" />
+									<entry key="Label" value="com.mobicart.dto.LabelsDto" />
+									<entry key="Labels" value="com.mobicart.dto.IphoneLabelsDto" />
+									<entry key="newsitem" value="com.mobicart.dto.FeedDto" />
+									<entry key="ApiPartner" value="com.mobicart.model.ApiPartner" />
+									<entry key="Merchant" value="com.mobicart.model.MerchantPartner" />
+									
+
+
+								</map>
+							</property>
+							<property name="supportedClasses">
+								<list>
+									<value>java.util.List</value>
+									<value>java.lang.String</value>
+									<value>java.util.HashMap</value>
+									<value>com.mobicart.bo.Error</value>
+									<value>com.mobicart.bo.Message</value>
+									<value>com.mobicart.model.App</value>
+									<value>com.mobicart.model.Department</value>
+									<value>com.mobicart.model.GalleryImage</value>
+									<value>com.mobicart.model.Product</value>
+									<value>com.mobicart.model.ProductOrder</value>
+									<value>com.mobicart.model.ProductOrderWebapp</value>
+									<value>com.mobicart.model.Store</value>
+									<value>com.mobicart.model.Product</value>
+									<value>com.mobicart.model.User</value>
+									<value>com.mobicart.model.Address</value>
+									<value>com.mobicart.model.AppStoreUser</value>
+									<value>com.mobicart.model.Category</value>
+									<value>com.mobicart.model.ColorScheme</value>
+									<value>com.mobicart.dto.ColorSchemeDto</value>
+									<value>com.mobicart.model.Contact</value>
+									<value>com.mobicart.model.Feature</value>
+									<value>com.mobicart.model.News</value>
+									<value>com.mobicart.model.ProductOption</value>
+									<value>com.mobicart.model.ProductOrderItem</value>
+									<value>com.mobicart.model.ProductOrderItemWebapp</value>
+									<value>com.mobicart.model.ProductOrderShippingDetail</value>
+									<value>com.mobicart.model.ProductReview</value>
+									<value>com.mobicart.model.Shipping</value>
+									<value>com.mobicart.model.State</value>
+									<value>com.mobicart.model.StaticPage</value>
+									<value>com.mobicart.model.Tax</value>
+									<value>com.mobicart.model.TaxShipping</value>
+									<value>com.mobicart.model.Territory</value>
+									<value>com.mobicart.model.api.StoreApi</value>
+									<value>com.mobicart.model.api.ShippingApi</value>
+									<value>com.mobicart.model.api.TaxApi</value>
+									<value>com.mobicart.model.api.ProductApi</value>
+									<value>com.mobicart.model.api.MainProductApi</value>
+									<value>com.mobicart.model.api.UserApi</value>
+									<value>com.mobicart.model.api.ImageApi</value>
+									<value>com.mobicart.model.api.ProductOrderApi</value>
+									<value>com.mobicart.model.api.ProductOrderItemApi</value>
+									<value>com.mobicart.model.api.MainOrderApi</value>
+									<value>com.mobicart.model.api.ProductImageApi</value>
+									<value>com.mobicart.model.api.ProductOptionApi</value>
+									<value>com.mobicart.model.api.ProductReviewApi</value>
+									<value>com.mobicart.model.api.MainDepartmentApi</value>
+									<value>com.mobicart.model.api.DepartmentApi</value>
+									<value>com.mobicart.model.api.MainCategoryApi</value>
+									<value>com.mobicart.model.api.CategoryApi</value>
+									<value>com.mobicart.model.api.MainImageApi</value>
+									<value>com.mobicart.model.Labels</value>
+									<value>com.mobicart.dto.LabelsDto</value>
+									<value>com.mobicart.dto.FeedDto</value>
+									<value>com.mobicart.model.ApiPartner</value>
+								</list>
+							</property>
+						</bean>
+
+					</constructor-arg>
+				</bean>
+
+			</list>
+		</property>
+		<property name="defaultContentType" ref="htmlMediaType" />
+		<property name="ignoreAcceptHeader" value="true" />
+	</bean>
+
+	<bean id="htmlMediaType" class="org.springframework.http.MediaType">
+		<constructor-arg value="text" />
+		<constructor-arg value="html" />
+	</bean>
+
+	<bean id="jsonMediaType" class="org.springframework.http.MediaType">
+		<constructor-arg value="application" />
+		<constructor-arg value="json" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="2" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="order" value="3" />
+	</bean>
+
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order" value="4" />
+		<property name="mappings">
+			<props>
+				<prop key="/engine.js">dwrController</prop>
+				<prop key="/util.js">dwrController</prop>
+				<prop key="/interface/**">dwrController</prop>
+				<prop key="/call/**">dwrController</prop>
+				<prop key="/dwr/test/**">dwrController</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<!-- dwr 2 -->
+	<dwr:controller id="dwrController" debug="true" />
+
+	<!-- <dwr:annotation-config /> -->
+	<dwr:configuration />
+
+	<bean id="userService" class="com.mobicart.service.user.ImplUserService" />
+	<bean id="addressDAO" class="com.mobicart.dao.AddressDAOImpl" />
+	<bean id="appService" class="com.mobicart.service.ImplAppService" />
+	
+
+	<bean id="territoryDAO" class="com.mobicart.dao.TerritoryDAOImpl" />
+	<bean id="apiBO" class="com.mobicart.bo.ApiBO" />
+	<bean id="productBO" class="com.mobicart.bo.ProductBO" />
+	<bean id="featureBO" class="com.mobicart.bo.FeaturesBO" />
+	<bean id="pushNotificationBO" class="com.mobicart.bo.PushNotificationBO" />
+
+
+     <dwr:configuration>
+			<dwr:convert type="exception" class="java.lang.Exception">
+			<dwr:exclude method="stackTrace" />
+		</dwr:convert>
+ 
+	    </dwr:configuration>
+
+	<bean id="storeService" class="com.mobicart.service.ImplStoreService">
+	    
+		<dwr:remote javascript="StoreService">
+			<dwr:include method="updateStore" />
+			<dwr:include method="createDepartment" />
+			<dwr:include method="updateDepartment" />
+			<dwr:include method="deleteDepartment" />
+			<dwr:include method="createCategory" />
+			<dwr:include method="updateCategory" />
+			<dwr:include method="deleteCategory" />
+			<dwr:include method="deleteProduct" />
+			<dwr:include method="updateProduct" />
+			<dwr:include method="findDepartment" />
+			<dwr:include method="findDepartmentByStoreAndName" />
+			<dwr:include method="findCategoriesByDepartment" />
+			<dwr:include method="findActiveCategoriesByDepartment" />
+			<dwr:include method="createProductImage" />
+			<dwr:include method="createProductOption" />
+			<dwr:include method="deleteProductOption" />
+			<dwr:include method="updateProductOption" />
+			<dwr:include method="createShipping" />
+			<dwr:include method="updateShipping" />
+			<dwr:include method="deleteShipping" />
+			<dwr:include method="createTax" />
+			<dwr:include method="updateTax" />
+			<dwr:include method="deleteTax" />
+			<dwr:include method="deleteGalleryImage" />
+			<dwr:include method="deleteProductImage" />
+			<dwr:include method="deleteNewsItem" />
+			<dwr:include method="deleteNewsImage" />
+			<dwr:include method="deleteLogoImage" />
+			<dwr:include method="deleteStaticPage" />
+			<dwr:include method="updateStaticPage" />
+			<dwr:include method="updateStaticPageStatus" />
+			<dwr:include method="findTotalAmountByCountry" />
+			<dwr:include method="findStatesByTerritory" />
+			<dwr:include method="getStringOfFeaturedProducts" />
+			<dwr:include method="getStringOfGalleryImages" />
+			<dwr:include method="deleteAPIKey" />
+			<dwr:include method="generateAPIKey" />
+			<dwr:include method="isProductOptionUniqueTitleLimitValid" />
+			<dwr:include method="getJsonStringOfDepartments" />
+			<dwr:include method="getJsonStringOfSubDepartments" />
+			<dwr:include method="getJsonStringOfProductsByDepartment" />
+			<dwr:include method="getJsonStringOfProductsBySubDepartment" />
+			<dwr:include method="getJsonStringOfPages" />
+			<dwr:include method="getJsonStringOfPage" />
+			<dwr:include method="getJsonStringOfNewsItems" />
+			<dwr:include method="getJsonStringOfNews" />
+			<dwr:include method="getJsonStringOfProductsByStore" />
+			<dwr:include method="getJsonStringOfTweets" />
+			<dwr:include method="getTwitterUsername" />
+			<dwr:include method="getJsonStringOfFeedPosts" />
+            <dwr:include method="getBrandingFlag" />
+            <dwr:include method="getTaxInfoByStoreId" />
+            <dwr:include method="getCurrencyCodeByStoreId" />
+            <dwr:include method="getJsonStringOfAllDepartmentsByStore" />
+            
+           <dwr:convert type="bean" class="com.mobicart.dto.DepartmentDto">
+				<dwr:include method="id" />
+				<dwr:include method="name" />
+				<dwr:include method="categoryCount" />
+			</dwr:convert>
+
+			<dwr:convert type="bean" class="com.mobicart.model.Store">
+				<dwr:include method="id" />
+				<dwr:include method="userId" />
+				<dwr:include method="sSName" />
+				<dwr:include method="sSDescription" />
+				<dwr:include method="sOrderEmail" />
+				<dwr:include method="sPaypalEmail" />
+				<dwr:include method="sCurrency" />
+				<dwr:include method="sCurrencyCode" />
+				<dwr:include method="sCurrencySymbol" />
+				<dwr:include method="dCreatedOn" />
+				<dwr:include method="dUpdatedOn" />
+				<dwr:include method="sUserEmail" />
+				<dwr:include method="bTaxShipping" />
+				<dwr:include method="bIncludeTax" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.Department">
+				<dwr:include method="id" />
+				<dwr:include method="storeId" />
+				<dwr:include method="userId" />
+				<dwr:include method="parentDepartmentId" />
+				<dwr:include method="sName" />
+				<dwr:include method="sStatus" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.Category">
+				<dwr:include method="id" />
+				<dwr:include method="departmentId" />
+				<dwr:include method="sName" />
+				<dwr:include method="sStatus" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.ProductOption">
+				<dwr:include method="id" />
+				<dwr:include method="productId" />
+				<dwr:include method="sSaleLabel" />
+				<dwr:include method="sTitle" />
+				<dwr:include method="sName" />
+				<dwr:include method="iAvailableQuantity" />
+				<dwr:include method="pPrice" />		
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.Product">
+				<dwr:include method="id" />
+				<dwr:include method="storeId" />
+				<dwr:include method="categoryId" />
+				<dwr:include method="sName" />
+				<dwr:include method="sDescription" />
+				<dwr:include method="sVideoUrl" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.Shipping">
+				<dwr:include method="id" />
+				<dwr:include method="storeId" />
+				<dwr:include method="sCountry" />
+				<dwr:include method="sState" />
+				<dwr:include method="fAlone" />
+				<dwr:include method="fOthers" />
+				<dwr:include method="fShippingTax" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.Tax">
+				<dwr:include method="id" />
+				<dwr:include method="storeId" />
+				<dwr:include method="sCountry" />
+				<dwr:include method="sState" />
+				<dwr:include method="sType" />
+				<dwr:include method="fTax" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.ProductImage">
+				<dwr:include method="id" />
+				<dwr:include method="productId" />
+				<dwr:include method="sTitle" />
+				<dwr:include method="sLocation" />
+			</dwr:convert>
+
+			<dwr:convert type="bean" class="com.mobicart.model.GalleryImage">
+				<dwr:include method="id" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.News">
+				<dwr:include method="id" />
+				<dwr:include method="sImage" />
+			</dwr:convert>
+
+			<dwr:convert type="bean" class="com.mobicart.model.User">
+				<dwr:include method="id" />
+				<dwr:include method="sCompanyLogoImage" />
+			</dwr:convert>
+
+			<dwr:convert type="bean" class="com.mobicart.model.StaticPage">
+				<dwr:include method="id" />
+				<dwr:include method="bEnabled" />
+			</dwr:convert>
+			<dwr:convert type="bean" class="com.mobicart.model.Territory">
+				<dwr:include method="id" />
+				<dwr:include method="sName" />
+				<dwr:include method="sCode" />
+				<dwr:include method="isEUMember" />
+			</dwr:convert>
+
+			<dwr:convert type="bean" class="com.mobicart.model.State">
+				<dwr:include method="id" />
+				<dwr:include method="territory_id" />
+				<dwr:include method="sName" />
+				<dwr:include method="sCode" />
+			</dwr:convert>
+		</dwr:remote>
+	</bean>
+
+	<!-- - Message source for this context, loaded from localized "messages_xx" 
+		files. - Could also reside in the root application context, as it is -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource"
+		p:basename="messages" />
+
+
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="52428800" />
+		<property name="maxInMemorySize">
+			<value>10000</value>
+		</property>
+	</bean>
+
+
+<!--	<bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">-->
+<!--		<property name="publicKey" value="6Levk70SAAAAAEXNmsCgjWALYTByT2XbJee98wwj" />-->
+<!--		<property name="privateKey" value="6Levk70SAAAAAM_t41uH4NvYr8iuJUAYWMTU1zR8" />-->
+<!--		<property name="recaptchaServer" value="http://www.google.com/recaptcha/api/verify" />-->
+<!--		<property name="includeNoscript" value="false" />-->
+<!--	</bean>-->
+
+	<!-- live localhost sendmail -->
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.emailsrvr.com" />
+		<property name="port" value="25" />
+		<property name="protocol" value="smtp" />
+		<property name="username">
+			<value>smtp@mobi-cart.com</value>
+		</property>
+		<property name="password">
+			<value>AdmiN12</value>
+		</property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.debug">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sender" class="com.mobicart.util.Sender">
+		<property name="javaMailSender" ref="javaMailSender" />
+	</bean>
+	
+	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+  <property name="corePoolSize" value="5" />
+  <property name="maxPoolSize" value="10" />
+  <property name="queueCapacity" value="25" />
+</bean>
+
+<bean id="imageUploadTaskExecuter" class="com.mobicart.util.ImageUploadTaskExecuter">
+  <constructor-arg ref="taskExecutor" />
+</bean>
+
+</beans>

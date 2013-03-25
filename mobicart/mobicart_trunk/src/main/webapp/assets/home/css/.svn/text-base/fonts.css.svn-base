@@ -1,0 +1,76 @@
+
+/* ==|== fonts =====================================================
+   ========================================================================== */
+
+
+@font-face {
+/* This declaration targets Internet Explorer */
+font-family: 'genproRegular';
+src: url('fonts/genpro-regular-webfont.eot');
+}
+
+@font-face {
+/* This declaration targets everything else */
+font-family: 'genproRegular';
+src: url(//:) format('no404'), url('fonts/genpro-regular-webfont.woff') format('woff'), url('fonts/genpro-regular-webfont.ttf') format('truetype'), url('fonts/genpro-regular-webfont.svg#genproRegular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+/* This declaration targets Internet Explorer */
+font-family: 'genproMedium';
+src: url('fonts/genpro-medium-webfont.eot');
+}
+
+@font-face {
+/* This declaration targets everything else */
+font-family: 'genproMedium';
+src: url(//:) format('no404'), url('fonts/genpro-medium-webfont.woff') format('woff'), url('fonts/genpro-medium-webfont.ttf') format('truetype'), url('fonts/genpro-medium-webfont.svg#genproMedium') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+/* This declaration targets Internet Explorer */
+font-family: 'genproRegular';
+src: url('fonts/genpro-regular-webfont.eot');
+}
+
+@font-face {
+/* This declaration targets everything else */
+font-family: 'genproRegular';
+src: url(//:) format('no404'), url('fonts/genpro-regular-webfont.woff') format('woff'), url('fonts/genpro-regular-webfont.ttf') format('truetype'), url('fonts/genpro-regular-webfont.svg#genproRegular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+/* This declaration targets Internet Explorer */
+font-family: 'genproLight';
+src: url('fonts/genpro-light-webfont.eot');
+}
+
+@font-face {
+/* This declaration targets everything else */
+font-family: 'genproLight';
+src: url(//:) format('no404'), url('fonts/genpro-light-webfont.woff') format('woff'), url('fonts/genpro-light-webfont.ttf') format('truetype'), url('fonts/genpro-light-webfont.svg#genproLight') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+@font-face {
+/* This declaration targets Internet Explorer */
+font-family: 'genproBold';
+src: url('fonts/genpro-light-webfont.eot');
+}
+
+@font-face {
+/* This declaration targets everything else */
+font-family: 'genproBold';
+src: url(//:) format('no404'), url('fonts/genpro-bold-webfont.woff') format('woff'), url('fonts/genpro-bold-webfont.ttf') format('truetype'), url('fonts/genpro-bold-webfont.svg#genproBold') format('svg');
+font-weight: normal;
+font-style: normal;
+}

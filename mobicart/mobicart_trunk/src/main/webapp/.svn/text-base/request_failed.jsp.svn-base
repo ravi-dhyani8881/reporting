@@ -1,0 +1,6 @@
+<%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+fail
+<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION.message}">
+	<c:out value="SPRING_SECURITY_LAST_EXCEPTION.message"></c:out>
+</c:if>

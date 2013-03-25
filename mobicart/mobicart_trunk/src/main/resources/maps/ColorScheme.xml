@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="color_schemes" >
+  
+  <resultMap id="BaseResultMap" type="com.mobicart.model.ColorScheme" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="s_title" property="sTitle" jdbcType="VARCHAR" />
+    <result column="s_type" property="sType" jdbcType="CHAR" />
+    <result column="s_bg_color" property="sBgColor" jdbcType="VARCHAR" />
+    <result column="s_fg_color" property="sFgColor" jdbcType="VARCHAR" />
+    <result column="s_bg_image" property="sBgImage" jdbcType="VARCHAR" />
+    <result column="s_product_item_bg_color" property="sProductItemBgColor" jdbcType="VARCHAR" />
+    <result column="s_search_button_bg_color" property="sSearchButtonBgColor" jdbcType="VARCHAR" />
+    
+  </resultMap>
+  <resultMap id="BaseResultMapForEnhColorSchem" type="com.mobicart.dto.ColorSchemeDto" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="s_title" property="title" jdbcType="VARCHAR" />
+    <result column="s_type" property="type" jdbcType="CHAR" />
+    <result column="s_bg_color" property="theme_color" jdbcType="VARCHAR" />
+    <result column="s_fg_color" property="header_color" jdbcType="VARCHAR" />
+    <result column="s_bg_image" property="search_bar_bg_color" jdbcType="VARCHAR" />
+    <result column="s_product_item_bg_color" property="sub_header_color" jdbcType="VARCHAR" />
+    <result column="s_search_button_bg_color" property="label_color" jdbcType="VARCHAR" />
+    <result column="s_price_tag_bg_color" property="sPriceTagBgColor" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List"  >
+    id, s_title, s_type, s_bg_color, s_fg_color, s_bg_image, s_product_item_bg_color, 
+    s_search_button_bg_color, s_price_tag_bg_color
+  </sql>
+  
+  
+  <select id="selectAll" parameterType="com.mobicart.model.ColorScheme" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from color_schemes
+  </select>
+  
+   
+  <select id="selectAllDefault" parameterType="com.mobicart.model.ColorScheme" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from color_schemes where s_type='Default' and s_title='Blue'
+  </select>
+   
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mobicart.model.ColorSchemeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from color_schemes
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from color_schemes
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  
+  
+  <select id="selectByAppId" parameterType="long" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from color_schemes 
+    LEFT JOIN app_color_schemes
+    on color_schemes.id=app_color_schemes.color_scheme_id
+    where app_color_schemes.app_id=#{value}
+ </select>
+  
+  <select id="selectEnColorSchemeByid" parameterType="long" resultMap="BaseResultMapForEnhColorSchem"> 
+    SELECT id,s_title,
+    s_type,
+    s_bg_color,
+    s_fg_color,
+    s_bg_image,
+    s_product_item_bg_color,
+    s_search_button_bg_color 
+    FROM color_schemes
+    WHERE id=(SELECT   color_scheme_id FROM app_color_schemes WHERE app_id=#{value})
+   
+    
+ </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  
+    delete from color_schemes
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <delete id="deleteByExample" parameterType="com.mobicart.model.ColorSchemeExample" >
+    delete from color_schemes
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+    
+    
+   <update id="updateAppColorScheme" parameterType="com.mobicart.model.AppColorScheme">
+    UPDATE app_color_schemes SET color_scheme_id=#{colorSchemeId} WHERE app_id=#{appId}
+   </update>
+  <insert id="insertAppColorScheme" parameterType="com.mobicart.model.AppColorScheme">
+    insert into app_color_schemes (app_id, color_scheme_id)
+    values (#{appId,jdbcType=BIGINT}, #{colorSchemeId,jdbcType=BIGINT})
+  </insert>
+
+	<update id="fingExistingAppColorScheme" parameterType="com.mobicart.model.AppColorScheme">
+    	update app_color_schemes
+    	set   color_scheme_id = #{colorSchemeId,jdbcType=BIGINT}
+    	where  app_id = #{appId,jdbcType=BIGINT}
+	</update>
+  
+  
+  <insert id="insert" parameterType="com.mobicart.model.ColorScheme" useGeneratedKeys="true" keyProperty="id" >
+    insert into color_schemes (s_title, s_type, s_bg_color, 
+      s_fg_color, s_bg_image, s_product_item_bg_color, 
+      s_search_button_bg_color, s_price_tag_bg_color)
+    values (#{sTitle,jdbcType=VARCHAR}, #{sType,jdbcType=CHAR}, #{sBgColor,jdbcType=VARCHAR}, 
+      #{sFgColor,jdbcType=VARCHAR}, #{sBgImage,jdbcType=VARCHAR}, #{sProductItemBgColor,jdbcType=VARCHAR}, 
+      #{sSearchButtonBgColor,jdbcType=VARCHAR}, #{sPriceTagBgColor,jdbcType=VARCHAR})
+     
+     <!-- <selectKey resultType="java.lang.Long"  keyProperty="id" order="AFTER">
+     
+                        SELECT LAST_INSERT_ID();
+     </selectKey> --> 
+   
+  </insert>
+ <!--  <select id="selectMaxId" parameterType="java.lang.Long" resultType="java.lang.Long">
+    select max(id) from color_schemes  
+  </select> -->
+     <delete id="deleteAppsExistingColorScheme" parameterType="java.lang.Long"  >
+        delete from color_schemes  where s_type='custom' and id=#{id} 
+    </delete> 
+   <select id="fingExistingScheme"  parameterType="java.lang.Long"  resultType="java.lang.Long">
+       SELECT color_scheme_id FROM app_color_schemes WHERE  app_id=#{id} 
+  </select>   
+   
+  <insert id="insertSelective" parameterType="com.mobicart.model.ColorScheme" useGeneratedKeys="true" keyProperty="id" >
+  
+    insert into color_schemes
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sTitle != null" >
+        s_title,
+      </if>
+      <if test="sType != null" >
+        s_type,
+      </if>
+      <if test="sBgColor != null" >
+        s_bg_color,
+      </if>
+      <if test="sFgColor != null" >
+        s_fg_color,
+      </if>
+      <if test="sBgImage != null" >
+        s_bg_image,
+      </if>
+      <if test="sProductItemBgColor != null" >
+        s_product_item_bg_color,
+      </if>
+      <if test="sSearchButtonBgColor != null" >
+        s_search_button_bg_color,
+      </if>
+      <if test="sPriceTagBgColor != null" >
+        s_price_tag_bg_color,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sTitle != null" >
+        #{sTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="sType != null" >
+        #{sType,jdbcType=CHAR},
+      </if>
+      <if test="sBgColor != null" >
+        #{sBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sFgColor != null" >
+        #{sFgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sBgImage != null" >
+        #{sBgImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sProductItemBgColor != null" >
+        #{sProductItemBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sSearchButtonBgColor != null" >
+        #{sSearchButtonBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sPriceTagBgColor != null" >
+        #{sPriceTagBgColor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterType="com.mobicart.model.ColorSchemeExample" resultType="java.lang.Integer" >
+  
+    select count(*) from color_schemes
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+   
+    update color_schemes
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.sTitle != null" >
+        s_title = #{record.sTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sType != null" >
+        s_type = #{record.sType,jdbcType=CHAR},
+      </if>
+      <if test="record.sBgColor != null" >
+        s_bg_color = #{record.sBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sFgColor != null" >
+        s_fg_color = #{record.sFgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sBgImage != null" >
+        s_bg_image = #{record.sBgImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sProductItemBgColor != null" >
+        s_product_item_bg_color = #{record.sProductItemBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sSearchButtonBgColor != null" >
+        s_search_button_bg_color = #{record.sSearchButtonBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sPriceTagBgColor != null" >
+        s_price_tag_bg_color = #{record.sPriceTagBgColor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+   
+    update color_schemes
+    set id = #{record.id,jdbcType=BIGINT},
+      s_title = #{record.sTitle,jdbcType=VARCHAR},
+      s_type = #{record.sType,jdbcType=CHAR},
+      s_bg_color = #{record.sBgColor,jdbcType=VARCHAR},
+      s_fg_color = #{record.sFgColor,jdbcType=VARCHAR},
+      s_bg_image = #{record.sBgImage,jdbcType=VARCHAR},
+      s_product_item_bg_color = #{record.sProductItemBgColor,jdbcType=VARCHAR},
+      s_search_button_bg_color = #{record.sSearchButtonBgColor,jdbcType=VARCHAR},
+      s_price_tag_bg_color = #{record.sPriceTagBgColor,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobicart.model.ColorScheme" >
+   
+    update color_schemes
+    <set >
+      <if test="sTitle != null" >
+        s_title = #{sTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="sType != null" >
+        s_type = #{sType,jdbcType=CHAR},
+      </if>
+      <if test="sBgColor != null" >
+        s_bg_color = #{sBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sFgColor != null" >
+        s_fg_color = #{sFgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sBgImage != null" >
+        s_bg_image = #{sBgImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sProductItemBgColor != null" >
+        s_product_item_bg_color = #{sProductItemBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sSearchButtonBgColor != null" >
+        s_search_button_bg_color = #{sSearchButtonBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="sPriceTagBgColor != null" >
+        s_price_tag_bg_color = #{sPriceTagBgColor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobicart.model.ColorScheme" >
+   
+    update color_schemes
+    set s_title = #{sTitle,jdbcType=VARCHAR},
+      s_type = #{sType,jdbcType=CHAR},
+      s_bg_color = #{sBgColor,jdbcType=VARCHAR},
+      s_fg_color = #{sFgColor,jdbcType=VARCHAR},
+      s_bg_image = #{sBgImage,jdbcType=VARCHAR},
+      s_product_item_bg_color = #{sProductItemBgColor,jdbcType=VARCHAR},
+      s_search_button_bg_color = #{sSearchButtonBgColor,jdbcType=VARCHAR},
+      s_price_tag_bg_color = #{sPriceTagBgColor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

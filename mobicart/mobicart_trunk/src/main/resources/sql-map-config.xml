@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+<!--removed parameter  maxRequests="32" maxSessions="20" maxTransactions="10"-->
+ 	<settings cacheModelsEnabled="false" enhancementEnabled="false"
+		lazyLoadingEnabled="false"
+		 useStatementNamespaces="true"  /> 
+	<sqlMap resource="com/mobicart/dao/maps/users_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/appSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/featuresSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/app_featuresSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/authorities_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/color_schemesSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/app_color_schemesSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/stores_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/users_addressSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/territories_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/states_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/app_territoriesSqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/departmentsSqlMap.xml" />
+<!-- 	<sqlMap resource="com/mobicart/dao/maps/categoriesSqlMap.xml" /> -->
+	<sqlMap resource="com/mobicart/dao/maps/products_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/static_pages_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/product_imagesSqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/product_options_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/product_reviews_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/gallery_imagesSqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/news_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/shipping_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/tax_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/billing_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/orders_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/site_constants_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/product_orders_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/product_order_items_SqlMap.xml" />		
+	<sqlMap resource="com/mobicart/dao/maps/product_orders_temp_webapp_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/product_order_items_temp_webapp_SqlMap.xml" />		
+	<sqlMap resource="com/mobicart/dao/maps/contacts_SqlMap.xml" />	
+	<sqlMap resource="com/mobicart/dao/maps/api_SqlMap.xml" />		
+	<sqlMap resource="com/mobicart/dao/maps/app_device_tokens_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/push_notification_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/merchant_services_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/disk_space_pricing_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/recurring_payment_detail_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/product_order_shipping_details_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/label_keys_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/labels_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/api_partner_SqlMap.xml" />
+	<sqlMap resource="com/mobicart/dao/maps/merchant_partner_SqlMap.xml" />
+	
+	
+</sqlMapConfig>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Application context definition for PetClinic Datasource. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     ">
+	
+	  <!--  <context:component-scan base-package="com.mobiwebapp"></context:component-scan>   -->
+	 
+	
+	
+	<bean id="siteProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+
+
+	<bean id="appProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:app.properties" />
+	</bean>
+
+
+
+	<bean id="imageProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:image.properties" />
+	</bean>
+
+	
+ <!--	  DataSource configuration for Apache Commons DBCP. -->
+	   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}"
+		p:validationQuery="select 1" />   
+		
+<!-- 		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"
+		p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}"
+		/> -->
+	
+ 	<!-- <bean id="dataSource" 
+          class="com.mchange.v2.c3p0.ComboPooledDataSource" 
+          destroy-method="close">
+        
+        <property name="driverClass"><value>${jdbc.driverClassName}</value></property>
+        <property name="jdbcUrl"><value>${jdbc.url}</value></property>
+        <property name="user"><value>${jdbc.username}</value></property>
+        <property name="password"><value>${jdbc.password}</value></property>
+    </bean>	 
+		 -->
+		
+		
+
+ <!-- jndi configuartion -->
+ 
+<!--  <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/mspRestDataSource" /> 
+         -->
+      <!--   <bean name="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    <property name="jndiName" value="java:comp/env/jdbc/mspRestDataSource" />
+       </bean>  -->
+        
+        
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">
+	</bean>
+
+
+	<!-- ibatis 2 -->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean" lazy-init="default" autowire="default" >
+		<property name="configLocation" value="classpath:sql-map-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+
+	<!-- MyBatis needs the sqlSessionFactory Bean defined. -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+	</bean>
+
+
+	<bean id="appDAO" class="com.mobicart.dao.impl.AppDaoImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="colorSchemeDAO" class="com.mobicart.dao.impl.ColorSchemeDaoImpl">
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+
+	<bean id="storeDAO" class="com.mobicart.dao.StoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="departmentDAO" class="com.mobicart.dao.DepartmentDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="categoryDAO" class="com.mobicart.dao.CategoryDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="productDAO" class="com.mobicart.dao.ProductDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="productOptionDAO" class="com.mobicart.dao.ProductOptionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="apiPartnerDAO" class="com.mobicart.dao.impl.ApiPartnerDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="merchantPartnerDAO" class="com.mobicart.dao.impl.MerchantPartnerDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="productOrderDAO" class="com.mobicart.dao.ProductOrderDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+<bean id="productReviewDAO" class="com.mobicart.dao.ProductReviewDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="productOrderItemDAO" class="com.mobicart.dao.ProductOrderItemDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="productOrderWebappDAO" class="com.mobicart.dao.ProductOrderWebappDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="productOrderItemWebappDAO" class="com.mobicart.dao.ProductOrderItemWebappDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="productOrderShippingDetailDAO" class="com.mobicart.dao.ProductOrderShippingDetailDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+
+	<bean id="userDAO" class="com.mobicart.dao.UserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	 
+	
+	
+	<bean id="appDeviceTokensDAO" class="com.mobicart.dao.AppDeviceTokensDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="orderDAO" class="com.mobicart.dao.OrderDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	
+	<bean id="apiDao" class="com.mobicart.dao.ApiDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	
+	<bean id="galleryImageDAO" class="com.mobicart.dao.GalleryImageDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="labelsDAO" class="com.mobicart.dao.LabelsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+
+	<bean id="staticPageDAO" class="com.mobicart.dao.StaticPageDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="labelKeysDAO" class="com.mobicart.dao.LabelKeysDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="newsDAO" class="com.mobicart.dao.NewsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="billingDAO" class="com.mobicart.dao.BillingDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="diskSpacePricingDAO" class="com.mobicart.dao.DiskSpacePricingDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+	        <property name="messageConverters">
+	            <list>
+	    	            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+						<bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+						<bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter"/>
+		         </list>
+	        </property>
+	 </bean>
+
+
+
+</beans>

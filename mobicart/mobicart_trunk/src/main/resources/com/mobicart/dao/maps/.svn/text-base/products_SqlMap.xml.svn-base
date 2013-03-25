@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="products" >
+
+<!-- <cacheModel id="product-cache" type="LRU" readOnly="true" serialize="false">
+  <flushInterval hours="24"/>
+  <flushOnExecute  statement="insertSelective"/>
+  <flushOnExecute  statement="updateByPrimaryKeySelective"/>
+  <flushOnExecute  statement="deleteByPrimaryKey"/>
+  <property name="CacheSize" value="100"/>
+</cacheModel> -->
+
+  <resultMap id="baseResultMap" class="com.mobicart.model.Product" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="store_id" property="storeId" jdbcType="BIGINT" />
+    <result column="app_id" property="appId" jdbcType="BIGINT" />
+    <result column="department_id" property="departmentId" jdbcType="BIGINT" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="f_price" property="fPrice" jdbcType="DECIMAL" />
+    <result column="s_status" property="sStatus" jdbcType="CHAR" />
+    <result column="f_discount" property="fDiscount" jdbcType="DECIMAL" />
+    <result column="s_product_url" property="sProductUrl" jdbcType="VARCHAR" />
+    <result column="s_video_title" property="sVideoTitle" jdbcType="VARCHAR" />
+    <result column="s_video_url" property="sVideoUrl" jdbcType="VARCHAR" />
+    <result column="s_sale_label" property="sSaleLabel" jdbcType="VARCHAR" />
+    <result column="i_aggregate_quantity" property="iAggregateQuantity" jdbcType="INTEGER" />
+    <result column="i_purchase_count" property="iPurchaseCount" jdbcType="INTEGER" />
+    <result column="i_view_count" property="iViewCount" jdbcType="INTEGER" />
+    <result column="b_stock_control" property="bStockControl" jdbcType="BIT" />
+    <result column="b_use_options" property="bUseOptions" jdbcType="BIT" />
+    <result column="b_featured" property="bFeatured" jdbcType="BIT" />
+    
+    <result property="productOptions"  column="id" select="product_options.selectByProductId"  nullValue="-1"  />
+    <result property="productImages"  column="id" select="product_images.selectByProductId" />
+    <result property="productReviews"  column="id" select="product_reviews.selectByProductId" />
+<!--	<result property="categoryName"  column="category_id" select="categories.selectCategoryNameById" />-->
+	<result property="departmentName"  column="department_id" select="departments.selectDepartmentNameById" />
+	<result property="iToBeShippedQuantity"  column="id" select="product_options.selectToBeShippedQuantityByProductId" />
+    <result property="fAverageRating"  column="id" select="product_reviews.selectAverageRatingByProductId"/>
+    <result property="bTaxable" column="store_id" select="stores.selectIncludeTaxById" />
+   </resultMap>
+  
+   <resultMap id="productResultMap" class="com.mobicart.model.Product" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="store_id" property="storeId" jdbcType="BIGINT" />
+    <result column="app_id" property="appId" jdbcType="BIGINT" />
+    <result column="department_id" property="departmentId" jdbcType="BIGINT" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="f_price" property="fPrice" jdbcType="DECIMAL" />
+    <result column="s_status" property="sStatus" jdbcType="CHAR" />
+    <result column="f_discount" property="fDiscount" jdbcType="DECIMAL" />
+    <result column="s_product_url" property="sProductUrl" jdbcType="VARCHAR" />
+    <result column="s_video_title" property="sVideoTitle" jdbcType="VARCHAR" />
+    <result column="s_video_url" property="sVideoUrl" jdbcType="VARCHAR" />
+    <result column="s_sale_label" property="sSaleLabel" jdbcType="VARCHAR" />
+    <result column="i_aggregate_quantity" property="iAggregateQuantity" jdbcType="INTEGER" />
+    <result column="i_purchase_count" property="iPurchaseCount" jdbcType="INTEGER" />
+    <result column="i_view_count" property="iViewCount" jdbcType="INTEGER" />
+    <result column="b_stock_control" property="bStockControl" jdbcType="BIT" />
+    <result column="b_use_options" property="bUseOptions" jdbcType="BIT" />
+    <result column="b_featured" property="bFeatured" jdbcType="BIT" />
+    <result property="productImages"  column="id" select="product_images.selectByProductId" />
+    
+<!--    <result property="categoryName"  column="category_id" select="categories.selectCategoryNameById" />-->
+	<result column="s_description" property="sDescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  
+  
+  
+  <resultMap id="ResultMapWithBLOBs" class="com.mobicart.model.Product" extends="products.baseResultMap" >
+    <result column="s_description" property="sDescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  <resultMap id="APIBaseResultMap" class="com.mobicart.model.Product" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="store_id" property="storeId" jdbcType="BIGINT" />
+    <result column="app_id" property="appId" jdbcType="BIGINT" />
+    <result column="department_id" property="departmentId" jdbcType="BIGINT" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="f_price" property="fPrice" jdbcType="DECIMAL" />
+    <result column="s_status" property="sStatus" jdbcType="CHAR" />
+    <result column="f_discount" property="fDiscount" jdbcType="DECIMAL" />
+    <result column="s_product_url" property="sProductUrl" jdbcType="VARCHAR" />
+    <result column="s_video_title" property="sVideoTitle" jdbcType="VARCHAR" />
+    <result column="s_video_url" property="sVideoUrl" jdbcType="VARCHAR" />
+    <result column="s_sale_label" property="sSaleLabel" jdbcType="VARCHAR" />
+    <result column="i_aggregate_quantity" property="iAggregateQuantity" jdbcType="INTEGER" />
+    <result column="i_purchase_count" property="iPurchaseCount" jdbcType="INTEGER" />
+    <result column="i_view_count" property="iViewCount" jdbcType="INTEGER" />
+    <result column="b_stock_control" property="bStockControl" jdbcType="BIT" />
+    <result column="b_use_options" property="bUseOptions" jdbcType="BIT" />
+    <result column="b_featured" property="bFeatured" jdbcType="BIT" />
+  </resultMap>
+  
+   <resultMap id="APIResultMapWithBLOBs" class="com.mobicart.model.Product" extends="products.APIBaseResultMap" >
+    <result column="s_description" property="sDescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  <resultMap id="previewMap" class="com.mobicart.dto.ProductDto" >
+  	<result column="id" property="id" jdbcType="BIGINT" />
+  	<result column="s_name" property="name" jdbcType="VARCHAR" />
+  	<result column="f_price" property="price" jdbcType="DECIMAL" />
+  	<result column="f_discount" property="discount" jdbcType="DECIMAL" />
+  	<result column="s_status" property="status" jdbcType="CHAR" />
+  	<result property="image"  column="id" select="product_images.selectOneByProductId" />
+  	<result property="rating"  column="id" select="product_reviews.selectAverageRatingByProductId" nullValue="0.0"/>
+    <result column="currency" property="currency" jdbcType="VARCHAR"  />
+     <result column="b_taxable" property="bTaxable" jdbcType="BIT"  />
+    
+  </resultMap>
+  
+  
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  
+    <select id="apiSelectByExampleWithBLOBs" resultMap="APIResultMapWithBLOBs" parameterClass="com.mobicart.model.ProductExample" >
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+    <select id="apiSelectByPrimaryKey" resultMap="APIResultMapWithBLOBs" parameterClass="com.mobicart.model.Product" >
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products
+    where id = #id:BIGINT#
+  </select>
+  
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterClass="com.mobicart.model.ProductExample"   >
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  
+  <select id="selectCountByExampleWithBLOBs" resultClass="java.lang.Long" parameterClass="com.mobicart.model.ProductExample" cacheModel="product-cache" >
+    select count(id)
+    from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+   <select id="selectByDepartmentAndMaxRowNum" resultMap="ResultMapWithBLOBs" parameterClass="com.mobicart.model.Product" >
+   select * from (
+   select (select @rownum:=@rownum+1) rank,id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products,
+    (SELECT @rownum:=0) r
+    where  s_status!='hidden' and user_id=#userId#  order by id DESC  ) temp where department_id=#departmentId#  and rank &lt;= #maxRowNum#  
+  </select>
+  <select id="selectFeaturedProductByAppIdAndMaxRowNum" resultMap="ResultMapWithBLOBs" parameterClass="com.mobicart.model.Product" >
+   select * from (
+   select (select @rownum:=@rownum+1) rank,id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products,
+    (SELECT @rownum:=0) r
+    where  s_status!='hidden' and user_id=#userId# and b_featured=1 order by id DESC  ) temp where app_id=#appId#  and rank &lt;= #maxRowNum#  
+  </select>
+  <!--  <select id="selectFeaturedProductByStoreIdAndMaxRowNum" resultMap="previewMap" parameterClass="com.mobicart.model.Product" >
+   select * from (
+   select (select @rownum:=@rownum+1) rank,id,department_id, s_name, f_price, f_discount, s_status,(SELECT s_currency FROM  stores WHERE id=store_id) currency
+   ,b_taxable  from products,
+    (SELECT @rownum:=0) r
+    where  s_status='active' and user_id=#userId# and b_featured=1 order by id DESC  ) temp where store_id=#storeId#  and rank &lt;= #maxRowNum#  
+  </select> -->
+  <select id="selectPurchasedProductsWithPaging" resultMap="ResultMapWithBLOBs" parameterClass="com.mobicart.model.ProductExample"   >
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  <select id="selectByExample" resultMap="baseResultMap" parameterClass="com.mobicart.model.ProductExample" >
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control, b_taxable, b_featured
+    from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+
+  <select id="selectPreviewByExample" resultMap="previewMap" parameterClass="com.mobicart.model.ProductExample" >
+   select id, s_name, f_price, f_discount, s_status,(SELECT s_currency FROM  stores WHERE id=store_id) currency
+   ,b_taxable from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  
+  
+   <select id="selectPreviewByDepartmentAndMaxRowNum" resultMap="previewMap" parameterClass="com.mobicart.model.Product" >
+   select 
+    *
+    from (
+   select (select @rownum:=@rownum+1) rank,id,department_id, s_name, f_price, f_discount, s_status,(SELECT s_currency FROM  stores WHERE id=store_id) currency
+   ,b_taxable  from products,
+    (SELECT @rownum:=0) r
+    where  s_status!='hidden' and user_id=#userId# order by id DESC   ) temp where department_id=#departmentId#  and rank &lt;= #maxRowNum#  
+  </select>
+  
+   <statement id="selectProductCountByDptIdAndMaxRowNum"  parameterClass="long" resultClass="java.lang.Integer">
+  select 
+    count(*) 
+    from (
+   select (select @rownum:=@rownum+1) rank,id,department_id
+    from products,
+    (SELECT @rownum:=0) r
+    where s_status!='hidden'  and user_id=(SELECT user_id FROM departments WHERE id=#value#) order by id  DESC  ) temp 
+    where department_id=#value#  and  rank &lt;= ( 
+    SELECT 
+       dsp.`i_max_limit`
+FROM departments d
+INNER JOIN `users` usr  ON  usr.id=d.`user_id`
+INNER JOIN `disk_space_pricing` dsp ON dsp.`id`=usr.`disk_space_pricing_id`
+WHERE d.`id` =#value#
+   
+    )
+
+  	</statement>
+  
+  
+  <select id="selectProductList" resultMap="previewMap" parameterClass="long" >  
+   SELECT * FROM (SELECT id, s_name, f_price, f_discount, s_status,(SELECT s_currency FROM  stores WHERE id=store_id) currency,IF(category_id>0 ,category_id,department_id)  `department_id` 
+   ,b_taxable FROM products  ) d  WHERE d.department_id=#value#  order by id DESC
+  </select>
+  
+  <select id="selectCountByExample" resultClass="int" parameterClass="com.mobicart.model.ProductExample" >
+    select count(id)
+    from products
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  
+   <select id="selectFeatured" parameterClass="com.mobicart.model.ProductExample" resultMap="productResultMap">
+    select distinct(p.id),p.id, p.user_id, p.store_id, p.app_id, p.department_id, p.category_id, p.s_name, p.s_description,
+      p.f_price, p.s_status, p.f_discount, p.s_product_url, p.s_video_title, p.s_video_url, p.s_sale_label,
+      p.i_purchase_count, p.i_view_count, p.b_taxable, p.b_featured,p.b_use_options, p.i_aggregate_quantity, p.b_stock_control
+    from products p , departments d, categories c  
+    <isParameterPresent>
+      <include refid="products.Example_Where_Clause" />
+      AND p.department_id = d.id  AND d.s_status='active' AND c.s_status='active' AND p.s_status NOT LIKE 'hidden'
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+    <isNotParameterPresent>
+      WHERE p.department_id = d.id AND d.s_status='active' AND c.s_status='active' AND p.s_status NOT LIKE 'hidden'
+    </isNotParameterPresent>
+  </select>
+  
+  
+  <select id="selectActiveByExample" parameterClass="com.mobicart.model.ProductExample" resultMap="ResultMapWithBLOBs">
+    select p.id, p.user_id, p.store_id, p.app_id, p.department_id, p.category_id, p.s_name, p.s_description,
+      p.f_price, p.s_status, p.f_discount, p.s_product_url, p.s_video_title, p.s_video_url, p.s_sale_label,
+      p.i_purchase_count, p.i_view_count, p.b_taxable, p.b_featured,p.b_use_options, p.i_aggregate_quantity, p.b_stock_control
+    from products p   <!--, departments d, categories c  -->  <!--  This is commented because when searching by NAme throws error of having same sName in dept and category -->
+    <isParameterPresent>
+      <include refid="products.Example_Where_Clause" />
+      AND p.s_status NOT LIKE 'hidden' <!--AND p.department_id = d.id    AND p.category_id = c.id AND d.s_status='active' AND c.s_status='active' -->
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+    <isNotParameterPresent>
+      WHERE  p.s_status NOT LIKE 'hidden' <!--p.department_id = d.id  AND AND p.category_id = c.id AND d.s_status='active' AND c.s_status='active' -->
+    </isNotParameterPresent>
+  </select>
+
+
+	<statement id="selectPurchasedByUserId" parameterClass="long" resultMap="ResultMapWithBLOBs">
+     select distinct(p.id), p.user_id, p.store_id, p.app_id, p.department_id, p.category_id, p.s_name, p.s_description,
+      p.f_price, p.s_status, p.f_discount, p.s_product_url, p.s_video_title, p.s_video_url, p.s_sale_label,
+      p.i_purchase_count, p.i_view_count,p.b_use_options, p.b_taxable, p.b_featured, p.i_aggregate_quantity, p.b_stock_control
+    from products p , product_orders po
+     where p.user_id = #value# and p.store_id=po.store_id
+  </statement>
+  
+  
+  <select id="selectAll" parameterClass="com.mobicart.model.Product" resultMap="baseResultMap">
+   select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products
+  </select>
+
+
+	<statement id="selectProductsByCategory" parameterClass="long" resultMap="ResultMapWithBLOBs">
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+     from products 
+     where category_id = #value#
+  </statement>
+  
+
+	<statement id="selectProductNameById" resultClass="String" parameterClass="long" >
+    	 select  s_name
+     	from products 
+     	where id = #value#
+  	</statement>
+    
+  
+  <statement id="selectProductPriceAfterDiscountById" resultClass="java.math.BigDecimal" parameterClass="java.lang.Long" >
+    	select  ROUND((f_price-(f_price*f_discount)/100),2) from products  
+    	where id = #value#
+  	</statement>
+    
+  
+  
+  	<statement id="selectProductCountByCategory" parameterClass="long" resultClass="java.lang.Integer">
+  			select count(*) from  products where department_id = #value#   and s_status !='hidden'
+  	</statement>	
+  
+  
+     <statement id="selectProductCountByDepartment" parameterClass="long" resultClass="java.lang.Integer">
+  			select count(*) from  products where department_id = #value#   and s_status !='hidden'
+  	</statement>
+  
+    <statement id="selectProductUnderDepartment" parameterClass="long" resultClass="java.lang.Integer">
+  			select count(*) from  products where department_id = #value# or category_id = #value# and s_status !='hidden'
+  	</statement>
+    
+   
+  	<statement id="selectProductCountByUserId" parameterClass="long" resultClass="java.lang.Integer">
+  			select count(*) from  products where user_id = #value#
+  	</statement>
+  
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterClass="com.mobicart.model.Product" >
+    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,
+      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,
+      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description
+    from products
+    where id = #id:BIGINT#
+  </select>
+ 
+  <delete id="deleteByPrimaryKey" parameterClass="com.mobicart.model.Product" >
+    delete from products
+    where id = #id:BIGINT#
+  </delete>
+ 
+  <delete id="deleteByExample" parameterClass="com.mobicart.model.ProductExample" >
+    delete from products
+    <include refid="products.Example_Where_Clause" />
+  </delete>
+ 
+  <insert id="insert" parameterClass="com.mobicart.model.Product" >
+    insert into products (id, user_id, store_id, app_id, department_id, category_id, s_name,
+      f_price, s_status, f_discount, s_product_url, s_video_title, s_video_url, s_sale_label,
+      i_aggregate_quantity, i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured,
+      s_description)
+    values (#id:BIGINT#, #userId:BIGINT#, #storeId:BIGINT#, #appId:BIGINT#, #departmentId:BIGINT#,
+      #categoryId:BIGINT#, #sName:VARCHAR#, #fPrice:DECIMAL#, #sStatus:CHAR#, #fDiscount:DECIMAL#,
+      #sProductUrl:VARCHAR#, #sVideoTitle:VARCHAR#, #sVideoUrl:VARCHAR#, #sSaleLabel:VARCHAR#,
+      #iAggregateQuantity:INTEGER#, #iPurchaseCount:INTEGER#, #iViewCount:INTEGER#,
+      #bStockControl:BIT#,#bUseOptions:BIT#, #bTaxable:BIT#, #bFeatured:BIT#, #sDescription:LONGVARCHAR#)
+       <selectKey resultClass="long" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+ 
+  <insert id="insertSelective" parameterClass="com.mobicart.model.Product" >
+ 
+    insert into products
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="userId" >
+        user_id
+      </isNotNull>
+      <isNotNull prepend="," property="storeId" >
+        store_id
+      </isNotNull>
+      <isNotNull prepend="," property="appId" >
+        app_id
+      </isNotNull>
+      <isNotNull prepend="," property="departmentId" >
+        department_id
+      </isNotNull>
+      <isNotNull prepend="," property="categoryId" >
+        category_id
+      </isNotNull>
+      <isNotNull prepend="," property="sName" >
+        s_name
+      </isNotNull>
+      <isNotNull prepend="," property="fPrice" >
+        f_price
+      </isNotNull>
+      <isNotNull prepend="," property="sStatus" >
+        s_status
+      </isNotNull>
+      <isNotNull prepend="," property="fDiscount" >
+        f_discount
+      </isNotNull>
+      <isNotNull prepend="," property="sProductUrl" >
+        s_product_url
+      </isNotNull>
+      <isNotNull prepend="," property="sVideoTitle" >
+        s_video_title
+      </isNotNull>
+      <isNotNull prepend="," property="sVideoUrl" >
+        s_video_url
+      </isNotNull>
+      <isNotNull prepend="," property="sSaleLabel" >
+        s_sale_label
+      </isNotNull>
+      <isNotNull prepend="," property="iAggregateQuantity" >
+        i_aggregate_quantity
+      </isNotNull>
+      <isNotNull prepend="," property="iPurchaseCount" >
+        i_purchase_count
+      </isNotNull>
+      <isNotNull prepend="," property="iViewCount" >
+        i_view_count
+      </isNotNull>
+      <isNotNull prepend="," property="bStockControl" >
+        b_stock_control
+      </isNotNull>
+      <isNotNull prepend="," property="bUseOptions" >
+        b_use_options
+      </isNotNull>
+      <isNotNull prepend="," property="bTaxable" >
+        b_taxable
+      </isNotNull>
+      <isNotNull prepend="," property="bFeatured" >
+        b_featured
+      </isNotNull>
+      <isNotNull prepend="," property="sDescription" >
+        s_description
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="userId" >
+        #userId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="storeId" >
+        #storeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="appId" >
+        #appId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="departmentId" >
+        #departmentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryId" >
+        #categoryId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="sName" >
+        #sName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fPrice" >
+        #fPrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="sStatus" >
+        #sStatus:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fDiscount" >
+        #fDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="sProductUrl" >
+        #sProductUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sVideoTitle" >
+        #sVideoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sVideoUrl" >
+        #sVideoUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sSaleLabel" >
+        #sSaleLabel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="iAggregateQuantity" >
+        #iAggregateQuantity:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="iPurchaseCount" >
+        #iPurchaseCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="iViewCount" >
+        #iViewCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="bStockControl" >
+        #bStockControl:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="bUseOptions" >
+        #bUseOptions:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="bTaxable" >
+        #bTaxable:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="bFeatured" >
+        #bFeatured:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="sDescription" >
+        #sDescription:LONGVARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="long" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+  <select id="countByExample" parameterClass="com.mobicart.model.ProductExample" resultClass="java.lang.Integer" >
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Fri Dec 10 17:51:20 IST 2010.
+    -->
+    select count(*) from products
+    <include refid="products.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Fri Dec 10 17:51:20 IST 2010.
+    -->
+    update products
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.userId" >
+        user_id = #record.userId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.storeId" >
+        store_id = #record.storeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.appId" >
+        app_id = #record.appId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.departmentId" >
+        department_id = #record.departmentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.categoryId" >
+        category_id = #record.categoryId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sName" >
+        s_name = #record.sName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fPrice" >
+        f_price = #record.fPrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sStatus" >
+        s_status = #record.sStatus:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fDiscount" >
+        f_discount = #record.fDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sProductUrl" >
+        s_product_url = #record.sProductUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sVideoTitle" >
+        s_video_title = #record.sVideoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sVideoUrl" >
+        s_video_url = #record.sVideoUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sSaleLabel" >
+        s_sale_label = #record.sSaleLabel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.iAggregateQuantity" >
+        i_aggregate_quantity = #record.iAggregateQuantity:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.iPurchaseCount" >
+        i_purchase_count = #record.iPurchaseCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.iViewCount" >
+        i_view_count = #record.iViewCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bStockControl" >
+        b_stock_control = #record.bStockControl:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bUseOptions" >
+        b_use_options = #record.bStockControl:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bTaxable" >
+        b_taxable = #record.bTaxable:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bFeatured" >
+        b_featured = #record.bFeatured:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sDescription" >
+        s_description = #record.sDescription:LONGVARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExampleWithBLOBs" >
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Fri Dec 10 17:51:20 IST 2010.
+    -->
+    update products
+    set id = #record.id:BIGINT#,
+      user_id = #record.userId:BIGINT#,
+      store_id = #record.storeId:BIGINT#,
+      app_id = #record.appId:BIGINT#,
+      department_id = #record.departmentId:BIGINT#,
+      category_id = #record.categoryId:BIGINT#,
+      s_name = #record.sName:VARCHAR#,
+      f_price = #record.fPrice:DECIMAL#,
+      s_status = #record.sStatus:CHAR#,
+      f_discount = #record.fDiscount:DECIMAL#,
+      s_product_url = #record.sProductUrl:VARCHAR#,
+      s_video_title = #record.sVideoTitle:VARCHAR#,
+      s_video_url = #record.sVideoUrl:VARCHAR#,
+      s_sale_label = #record.sSaleLabel:VARCHAR#,
+      i_aggregate_quantity = #record.iAggregateQuantity:INTEGER#,
+      i_purchase_count = #record.iPurchaseCount:INTEGER#,
+      i_view_count = #record.iViewCount:INTEGER#,
+      b_stock_control = #record.bStockControl:BIT#,
+      b_use_options = #record.bUseOptions:BIT#,
+      b_taxable = #record.bTaxable:BIT#,
+      b_featured = #record.bFeatured:BIT#,
+      s_description = #record.sDescription:LONGVARCHAR#
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Fri Dec 10 17:51:20 IST 2010.
+    -->
+    update products
+    set id = #record.id:BIGINT#,
+      user_id = #record.userId:BIGINT#,
+      store_id = #record.storeId:BIGINT#,
+      app_id = #record.appId:BIGINT#,
+      department_id = #record.departmentId:BIGINT#,
+      category_id = #record.categoryId:BIGINT#,
+      s_name = #record.sName:VARCHAR#,
+      f_price = #record.fPrice:DECIMAL#,
+      s_status = #record.sStatus:CHAR#,
+      f_discount = #record.fDiscount:DECIMAL#,
+      s_product_url = #record.sProductUrl:VARCHAR#,
+      s_video_title = #record.sVideoTitle:VARCHAR#,
+      s_video_url = #record.sVideoUrl:VARCHAR#,
+      s_sale_label = #record.sSaleLabel:VARCHAR#,
+      i_aggregate_quantity = #record.iAggregateQuantity:INTEGER#,
+      i_purchase_count = #record.iPurchaseCount:INTEGER#,
+      i_view_count = #record.iViewCount:INTEGER#,
+      b_stock_control = #record.bStockControl:BIT#,
+      b_use_options = #record.bUseOptions:BIT#,
+      b_taxable = #record.bTaxable:BIT#,
+      b_featured = #record.bFeatured:BIT#
+    <isParameterPresent >
+      <include refid="products.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.mobicart.model.Product" >
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Fri Dec 10 17:51:20 IST 2010.
+    -->
+    update products
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="userId" >
+        user_id = #userId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="storeId" >
+        store_id = #storeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="appId" >
+        app_id = #appId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="departmentId" >
+        department_id = #departmentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryId" >
+        category_id = #categoryId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="sName" >
+        s_name = #sName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fPrice" >
+        f_price = #fPrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="sStatus" >
+        s_status = #sStatus:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fDiscount" >
+        f_discount = #fDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="sProductUrl" >
+        s_product_url = #sProductUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sVideoTitle" >
+        s_video_title = #sVideoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sVideoUrl" >
+        s_video_url = #sVideoUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sSaleLabel" >
+        s_sale_label = #sSaleLabel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="iAggregateQuantity" >
+        i_aggregate_quantity = #iAggregateQuantity:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="iPurchaseCount" >
+        i_purchase_count = #iPurchaseCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="iViewCount" >
+        i_view_count = #iViewCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="bStockControl" >
+        b_stock_control = #bStockControl:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="bUseOptions" >
+        b_use_options = #bUseOptions:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="bTaxable" >
+        b_taxable = #bTaxable:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="bFeatured" >
+        b_featured = #bFeatured:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="sDescription" >
+        s_description = #sDescription:LONGVARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterClass="com.mobicart.model.Product" >
+    update products
+    set user_id = #userId:BIGINT#,
+      store_id = #storeId:BIGINT#,
+      app_id = #appId:BIGINT#,
+      department_id = #departmentId:BIGINT#,
+      category_id = #categoryId:BIGINT#,
+      s_name = #sName:VARCHAR#,
+      f_price = #fPrice:DECIMAL#,
+      s_status = #sStatus:CHAR#,
+      f_discount = #fDiscount:DECIMAL#,
+      s_product_url = #sProductUrl:VARCHAR#,
+      s_video_title = #sVideoTitle:VARCHAR#,
+      s_video_url = #sVideoUrl:VARCHAR#,
+      s_sale_label = #sSaleLabel:VARCHAR#,
+      i_aggregate_quantity = #iAggregateQuantity:INTEGER#,
+      i_purchase_count = #iPurchaseCount:INTEGER#,
+      i_view_count = #iViewCount:INTEGER#,
+      b_stock_control = #bStockControl:BIT#,
+      b_use_options = #bUseOptions:BIT#,
+      b_taxable = #bTaxable:BIT#,
+      b_featured = #bFeatured:BIT#,
+      s_description = #sDescription:LONGVARCHAR#
+    where id = #id:BIGINT#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.mobicart.model.Product" >
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Fri Dec 10 17:51:20 IST 2010.
+    -->
+    update products
+    set user_id = #userId:BIGINT#,
+      store_id = #storeId:BIGINT#,
+      app_id = #appId:BIGINT#,
+      department_id = #departmentId:BIGINT#,
+      category_id = #categoryId:BIGINT#,
+      s_name = #sName:VARCHAR#,
+      f_price = #fPrice:DECIMAL#,
+      s_status = #sStatus:CHAR#,
+      f_discount = #fDiscount:DECIMAL#,
+      s_product_url = #sProductUrl:VARCHAR#,
+      s_video_title = #sVideoTitle:VARCHAR#,
+      s_video_url = #sVideoUrl:VARCHAR#,
+      s_sale_label = #sSaleLabel:VARCHAR#,
+      i_aggregate_quantity = #iAggregateQuantity:INTEGER#,
+      i_purchase_count = #iPurchaseCount:INTEGER#,
+      i_view_count = #iViewCount:INTEGER#,
+      b_stock_control = #bStockControl:BIT#,
+      b_use_options = #bUseOptions:BIT#,
+      b_taxable = #bTaxable:BIT#,
+      b_featured = #bFeatured:BIT#
+    where id = #id:BIGINT#
+  </update>
+  
+    <select id="findTaxByStoreId_fun" parameterClass="long" resultClass="String">  
+    SELECT findTaxOnProductFunc(#val#) as taxinfo    
+    </select>
+     
+         
+      <parameterMap id="taxmap"  class="java.util.Map"  >
+    	<parameter property="id"   jdbcType="BIGINT" javaType="java.lang.Long" mode="IN"/>
+    	 <parameter property="totalCount" jdbcType="varchar" javaType="java.lang.String" mode="OUT"/>
+      </parameterMap> 
+      <procedure id="findTaxInfoByStoreId"  parameterMap="taxmap"  resultClass="java.lang.String" >
+	   {CALL dpi_mobicart.findTaxOnProduct(?,?)} 
+	  </procedure> 
+     
+     
+    <!-- To call stored procedure. -->
+  
+     <parameterMap id="getProductsMapCall" class="java.util.Map">
+  		<parameter property="storeId" jdbcType="BIGINT" javaType="java.lang.Long" mode="IN"/>
+     	<parameter property="sortOrder" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>
+     	<parameter property="sortBy" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>
+     	<parameter property="txtSearch" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>
+        <parameter property="lowerLimit" jdbcType="NUMERIC" javaType="java.lang.Integer" mode="IN"/>
+   		<parameter property="upperLimit" jdbcType="NUMERIC" javaType="java.lang.Integer" mode="IN"/>  
+        <parameter property="totalCount" jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT"/>
+    </parameterMap>
+	
+	<procedure id="searchStoreProducts" resultMap="ResultMapWithBLOBs" parameterMap="getProductsMapCall">
+	   {CALL search_store_products(?,?,?,?,?,?,?)} 
+	</procedure>
+	
+	
+</sqlMap>

@@ -1,0 +1,25 @@
+<div align="center">
+    <table cellpadding="0" cellspacing="0" border="0" width="540">
+        <tr>
+            <td><img src="_BASEPATH_/static/assets/img/logo.png" alt="MobiCart"/></td>
+        </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="540" style="border: 1px solid #999999;">
+        <tr>
+            <td>
+                <table cellpadding="10" cellspacing="0" border="0" width="538">
+                    <tr valign="top">
+                        <td width="508">
+                            <font style="font-size: 12px" size="1" color="#000000" face="Arial, Helvetica, sans-serif">
+
+                                <p>
+                                _ERROR_
+                                </p>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

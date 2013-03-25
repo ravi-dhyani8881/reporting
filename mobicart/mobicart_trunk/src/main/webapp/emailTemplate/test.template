@@ -1,0 +1,48 @@
+<div align="center">
+
+    <table cellpadding="0" cellspacing="0" border="0" width="540">
+        <tr>
+            
+        </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="540" style="border: 1px solid #999999;">
+        <tr>
+            <td>
+                <table cellpadding="10" cellspacing="0" border="0" width="538">
+                    <tr valign="top">
+                        <td width="508">
+                            <font style="font-size: 12px" size="1" color="#000000" face="Arial, Helvetica, sans-serif">
+
+                                <p>
+                                <h4>
+                                	URL
+                                </h4>
+                                <h4>
+                                   _URL_
+                                </h4>
+                                
+                                	
+                                </p>
+                                <td>Merchant Id</td>
+                                <td>_MERCHANTID_</td>
+                                <td>Product Id</td>
+                                <td>_PRODUCTID_</td>
+                                <td>Order Id</td>
+                                <td>_ORDERID_</td>
+                                <td>Prduct quantity</td>
+                                <td>_QUANTITY_</td>
+                                <td>Product Amount</td>
+                                <td>_AMOUNT_</td>
+                                <td>Product Option Id</td>
+                                <td>_POPTIONID_</td>
+                               
+                                
+
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+/*
+
+Stuff and Nonsense Ltd.
+The Cow Shed Studio,
+Gwaenysgor,
+Flintshire, North Wales
+LL18 6EP, UK
++44 1745 851848
+http://stuffandnonsense.co.uk
+http://forabeautifulweb.com
+http://transcendingcss.com
+http://twitter.com/malarkey
+
+IE7.CSS 
+
+*/
+
+.ui-tabs { 
+zoom : 1; }
+
+header[role="banner"] nav[role="navigation"] a {
+line-height : 30px; }
+
+a.twitter {
+background-image : none; }
+
+.addons article {
+height : 120px; }
+
+.admin .dismiss {
+width : 60%; }
+
+.ui-tabs .ui-tabs-nav { 
+height : 31px; }
+
+.admin form .group {
+min-height : 60px; }
+

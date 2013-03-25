@@ -1,0 +1,245 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<title>MobiCart publications and reviews</title>
+  <meta name="description" content="A range of different materials and corporate assets for your reference." > 
+  <meta name="keywords" content="Mcommerce, m-commerce, mobile commerce, shopping cart, ecommerce, e-commerce, app builder, native apps, HTML5, web apps, IOS, Apple, iPhone, iPad, Android, app store, easy to use, store, shop, API, USA, UK." > 
+  <meta name="robots" content="all" > 
+  <meta name="Revisit-After" content="7 days" > 
+  <meta name="author" content="MobiCart" > 
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="static/assets/home/css/style.css">
+   <link rel="stylesheet" href="static/assets/home/css/fonts.css">
+  <!-- end CSS-->
+
+  <script src="static/assets/home/js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+  <header>
+  <div class="inner">
+    <h2 class="logo"><a href="/"><span>MobiCart</span></a></h2>
+    <nav role="primary" class="primary">
+      <ul>
+        <li id="nav-tour"><a href="tour.jsp"><span>Tour</span></a></li>
+        <li id="nav-signup"><a href="pricing.jsp"><span>Pricing</span></a></li>
+        <li id="nav-gallery"><a href="gallery.jsp"><span>Gallery</span></a></li>
+        <li id="nav-blog"><a href="http://blog.mobi-cart.com/"><span>Blog</span></a></li>
+        <li id="nav-support"><a href="contact.jsp"><span>Contact</span></a></li>
+        <li id="nav-community"><a href="addons/index.jsp"><span>Extras</span></a></li>
+      </ul>
+    </nav>
+
+    </div>
+  </header>
+  <div class="content clearfix">
+    <div class="titleblock">
+      <h1>Digital Press Kit</h1>
+      <p>A range of materials and assets for your reference</p>
+    </div>
+    <div class="page clearfix col2">
+      <div id="side">
+      <div class="panel clearfix">
+        <h3>Mobicart Press Kit</h3>
+        <ul>
+          <li><a href="press_releases.jsp">Press releases &amp; milestones</a></li>
+          <li><a href="press_awards.jsp">Awards &amp; achievements</a></li>
+          <li><a href="press_reviews.jsp">Publications &amp; reviews</a></li>
+          <li><a href="press_testimonials.jsp">Customer testimonials</a></li>
+        </ul>
+        <h3>External links</h3>
+        <ul>
+          <li><a href="screenshots.jsp">Product screenshots</a></li>
+          <li><a href="http://www.youtube.com/user/MobiCartltd">MobiCart videos</a></li>
+          <li><a href="http://www.flickr.com/photos/mobicart/sets/72157624519333079/">MobiCart logos</a></li>
+          <li><a href="http://www.flickr.com/photos/mobicart/sets/72157625107368002/">Founder &amp; team photos</a></li>
+        </ul>
+      </div>
+      </div>
+    <div id="main" role="main">
+
+<h2>Publications &amp; reviews</h2>
+
+<h3>TechCrunch</h3>
+
+<ul class="list-generic">
+  <li><a href="http://techcrunch.com/2011/05/25/mobicart-bags-100k-from-ex-google-director-who-also-joins-as-chairman/">MobiCart bags &pound;100k from ex-Google director who also joins as Chairman</a></li>
+  <li><a href="http://techcrunch.com/2011/03/29/mobicart-secures-500k-seed-round/">MobiCart secures &dollar;500k seed round</a></li>
+  <li><a href="http://techcrunch.com/2010/11/22/mobicart-exits-beta-to-let-anyone-build-a-free-ios-powered-store/">MobiCart exits Beta to let anyone build a free iOS-powered store</a></li>
+  <li><a href="http://techcrunch.com/2010/09/15/mobicart-offers-free-storefront-builder-for-ios-and-android/">MobiCart offers free storefront builder for iOS and Android</a></li>
+</ul>
+
+<h3>ReadWriteWeb</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.readwriteweb.com/mobile/2010/11/mobicart-diy-mobile-storefronts-free-for-all.php">MobiCart: DIY Mobile Storefronts, Now Open to All</a></li>
+</ul>
+
+<h3>VentureBeat</h3>
+
+<ul class="list-generic">
+  <li><a href="http://venturebeat.com/2010/09/14/demo-mobicart-lets-anyone-build-and-manage-their-own-mobile-web-store/">DEMO: MobiCart lets anyone build and manage their own mobile web store</a></li>
+</ul>
+
+<h3>PC World</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.pcworld.com/article/205651/whats_next_for_the_iphone_hint_not_from_apple.jsp">What's Next for the iPhone? (Hint: Not from Apple)</a></li>
+</ul>
+
+<h3>mocoNews</h3>
+
+<ul class="list-generic">
+  <li><a href="http://moconews.net/article/419-money-flows-to-mobile-startups-appia-apperian-bubble-motion-and-others/">Money Flows To Mobile Startups: Appia, Apperian, Bubble Motion, And Others</a></li>
+</ul>
+
+<h3>TMCnet</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.tmcnet.com/news/2011/04/01/5417635.htm">Mobicart Closes &dollar;500,000 Seed Funding Round; Plans to Enhance Its App Builder</a></li>
+</ul>
+
+<h3>ForbesOnTech</h3>
+
+<ul class="list-generic">
+  <li><a href="http://forbesontech.typepad.com/my_weblog/2010/09/my-three-high-tide-picks-for-demo-fall-2010-dynamics-card-20copia-interactive-and-mobicart.jsp">My Three High Tide Picks for Demo Fall 2010 - Dynamics' Card 2.0, Copia Interactive and MobiCart.</a></li>
+</ul>
+
+<h3>makeuseof</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.makeuseof.com/dir/mobicart-mobile-store-app/">MobiCart: Create Your Own Mobile Store App Easily</a></li>
+</ul>
+
+<h3>new media monthly</h3>
+
+<ul class="list-generic">
+  <li><a href="http://newmediamonthly.co.uk/2011/05/25/former-google-director-excited-to-join-mobicart/">Former Google Director excited to join MobiCart</a></li>
+  <li><a href="http://newmediamonthly.co.uk/2010/08/19/a-newcastle-based-digital-firm-showcases-in-california/">A Newcastle-based digital firm to showcase in California</a></li>
+</ul>
+
+<h3>The Journal</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.nebusiness.co.uk/business-news/latest-business-news/2011/05/25/former-google-boss-stephen-lusty-joins-mobicart-51140-28757694/">Former Google boss Stephen Lusty joins MobiCart</a></li>
+  <li><a href="http://www.nebusiness.co.uk/business-news/science-and-technology/2010/12/09/mobile-phone-websites-are-a-hit-51140-27791737/">Mobile phone websites are a hit</a></li>
+  <li><a href="http://www.nebusiness.co.uk/business-news/science-and-technology/2010/09/02/showcase-could-secure-vital-1m-investment-51140-27181236/">Showcase could secure vital $1m investment</a></li>
+</ul>
+
+<h3>Fuzzly</h3>
+
+<ul class="list-generic">
+  <li><a href="http://blog.mobi-cart.com/2011/04/19/create-an-iphone-app-mcommerce-estore-with-mobi-cart/">Create an iPhone App MCommerce estore with Mobi-Cart</a></li>
+</ul>
+
+<h3>intomobile</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.intomobile.com/2011/03/31/mcommerce-pioneer-mobicart-secures-500000-seed-funding-round/">M-commerce pioneer MobiCart secures &dollar;500,000 seed funding round</a></li>
+</ul>
+
+<h3>StartupGazette</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.startupgazette.com/2011/03/mobicart-raises-half-a-million-in-seed-funding/">Mobicart raises Half a Million in Seed Funding</a></li>
+</ul>
+
+<h3>YourStory.in</h3>
+
+<ul class="list-generic">
+  <li><a href="http://yourstory.in/2011/03/m-commerce-startup-mobicart-secures-500000-funding-round/">M-commerce startup MobiCart secures &dollar;500,000 funding round</a></li>
+  <li><a href="http://yourstory.in/2010/11/wladimir-baranoff-rossine-mobicart-a-free-and-simple-way-for-you-to-build-and-manage-your-m-commerce-store/">Wladimir Baranoff-Rossine, Mobicart : A free and simple way for you to build and manage your m-commerce store</a></li>
+</ul>
+
+<h3>MobileMarketing</h3>
+
+<ul class="list-generic">
+  <li><a href="http://mobilemarketingmagazine.com/content/mobicart-secures-500000-funding">MobiCart Secures &dollar;500,000 Funding</a></li>
+  <li><a href="http://www.mobilemarketingmagazine.com/content/mobicart-launches-mobile-app-platform">MobiCart Launches Mobile App Platform</a></li>
+</ul>
+
+<h3>mobileentertainment</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.mobile-ent.biz/news/read/mobicart-launches-instant-m-commerce-apps">MobiCart launches instant m-commerce apps</a></li>
+</ul>
+
+<h3>freshapps</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.freshapps.com/review-mobicart/">Review: MobiCart</a></li>
+</ul>
+
+<h3>KillerStartups</h3>
+
+<ul class="list-generic">
+  <li><a href="http://www.killerstartups.com/Mobile/mobi-cart-com-have-your-very-own-mobile-store">Mobi-Cart.Com - Have Your Very Own Mobile Store</a></li>
+</ul>
+
+    </div>
+</div>
+  
+  </div>
+  <footer>
+    <div class="inner clearfix">
+      <div class="social clearfix">
+        <p class="socialblock twitter"><a href="http://twitter.com/mobicart">Follow Us<br>
+          <span>MobiCart</span></a></p>
+        <p class="socialblock newsletter">Newsletter Signup<br>
+          <span>Enter your Email Address</span></p>   <div class="newsletterbox">
+<form action="http://mobicart.createsend.com/t/r/s/kkyhti/" method="post" id="subForm"> 
+<p><input type="email" name="cm-kkyhti-kkyhti" id="kkyhti-kkyhti" placeholder="Enter your email address" required> 
+<button class="btn">Sign up</button></p> 
+</form>   
+</div>
+      </div>
+      <ul>
+        <li><a href="http://mobicart.zendesk.com/forums/20298521-faqs">FAQ</a></li>
+        <li><a href="press.jsp">Press</a></li>
+        <li><a href="terms.jsp">Terms</a></li>
+        <li><a href="http://www.mobi-cart.com/docs/api/index.html">API</a></li>
+        <li><a href="http://www.mobi-cart.com/account/login">Login</a></li>
+      </ul>
+      <p>All text and design is &copy; Copyright MobiCart. All rights reserved. </p>
+    </div>
+  </footer>
+</div>
+<!--! end of #wrapper -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="static/assets/home/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="static/assets/home/js/plugins.js"></script>
+  <script defer src="static/assets/home/js/script.js"></script>
+  <!-- end scripts-->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17710648-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>

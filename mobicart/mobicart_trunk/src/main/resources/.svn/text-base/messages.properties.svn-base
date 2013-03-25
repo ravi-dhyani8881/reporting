@@ -1,0 +1,203 @@
+#Notification
+notification=true
+
+ 
+#local
+rootUrl=http://192.168.0.77:8080
+appUrl=http://192.168.0.77:8080/mobi-cart
+os=linux
+folder=mobi-cart
+logFolder=D://logs
+android.mobicart=http://122.180.40.8:8080/androidapp/AppGenerator
+couchcascheurl=http://192.168.0.77:8091/pools
+couchcaschetime=36000
+#android.mobicart=http://192.168.0.77:8080/andoidapp/AppGenerator
+#h=on
+sh=on
+#staging 2 
+#rootUrl=http://192.168.0.226:8080
+#appUrl=http://192.168.0.226:8080/mobi-cart
+#os=linux
+#folder=mobi-cart
+
+
+#staging
+#rootUrl=http://122.180.40.8:8080
+#appUrl=http://122.180.40.8:8080/mobicart
+#os=linux
+#folder=mobicart	
+
+#live
+#rootUrl=http://www.mobi-cart.com
+#appUrl=http://www.mobi-cart.com
+#os=linux
+#folder=mobi-cart	
+#logFolder=/var/lib/tomcat6/logs
+
+
+
+#new staging
+#rootUrl=184.106.119.106:8181
+#appUrl=184.106.119.106:8181/mobi-cart
+#os=linux
+#folder=mobi-cart
+#logFolder=/usr/local/tomcat/logs/
+
+
+#------------------------------------------
+
+#adminEmail=admin@mobi-cart.com
+#wladEmail=wladimir@mobi-cart.com
+#infoEmail=info@mobi-cart.com
+adminEmail=narender.rana@netsolutionsindia.com
+wladEmail=narender.rana@netsolutionsindia.com
+infoEmail=narender.rana@netsolutionsindia.com
+devEmail=rajul.aggarwal@netsolutionsindia.com
+bccEmail=tilak.raj@netsolutionsindia.com
+
+
+
+live=false
+#domainUrl=http://mobicart.landingpages.tv
+#domainUrl=http://localhost:8080/mobicart
+#domainUrl=http://122.180.40.8:8080/mobicart
+
+#live=true
+#domainUrl=http://www.mobi-cart.com
+
+#live=true
+domainUrl=http://www.cannyapps.com
+
+#---------------------------------------------
+
+#sandbox
+paypalUrl=https://www.sandbox.paypal.com/cgi-bin/webscr
+paypalEmail=netsol_1288615242_biz@gmail.com
+
+#live
+#paypalUrl=https://www.paypal.com/cgi-bin/webscr
+#paypalEmail=wladimir@mobi-cart.com
+
+#----------------------------------------------
+
+PUSH_NOTIFICATION_NOTIFY_COUNT=20
+EU_VAT_PERCENTAGE=17.5
+
+
+#PAYPAL LIVE DETAIL
+#ENV = live 
+#DEV= developer
+#DEFAULT_USER_NAME = wladimir_api1.mobi-cart.com
+#DEFAULT_PASSWORD = EB3A74Y2J9D9CYUH
+#DEFAULT_SIGNATURE = AstJVNtGHti2zPtTP-bWFQOukAymAlcNoQOzbtnV-zW4ZytWTCUK55Ua
+
+
+#FEDEX WEB  API DETAILS
+accountNumber=510087887
+meterNumber=118541445
+accountKey=yiPeWQ0HDcl30RFI 
+accountPassword=1V7ucLwXfR57RlXanubV8Uaxc
+
+
+
+
+welcome=Welcome
+required=is required
+notFound=has not been found
+duplicate=is already in use
+nonNumeric=must be all numeric
+duplicateFormSubmission=Duplicate form submission is not allowed
+typeMismatch.date=invalid date
+typeMismatch.birthDate=invalid date
+
+#register form
+NotEmpty.registerForm.firstName=First name has to be entered  
+Length.registerForm.firstName=First name must be between 2 and 20 characters	
+NotEmpty.registerForm.lastName=Last name has to be entered  
+Length.registerForm.lastName=Last name must be between 3 and 20 characters
+NotEmpty.registerForm.storeName=Store name has to be entered  
+Length.registerForm.storeName=Store name must be between 3 and 20 characters
+NotEmpty.registerForm.username=Email address has to be entered  
+Length.registerForm.username=Email address must be between 3 and 20 characters
+Length.registerForm.username=It must be a valid email address
+Duplicate.registerForm.username=This email address is already being used.
+Error.registerForm.common=Some error occurred in registration process.
+Error.registerForm.captcha=Some error occurred captcha processing.
+Error.registerForm.invalid_captcha=The two words (Captcha) you entered are incorrect. Please try again.
+
+Error.products.exist.department=Please delete the existing products(s) in department first.
+Error.sub-departments.exist.department=Please delete the existing sub-department(s) in department first.
+Error.products.exist.sub-department=Please delete the existing products(s) in sub-department first.
+
+
+NotEmpty.contact.sName= Name has to be entered
+NotEmpty.contact.sEmail= Email address has to be entered
+Email.contact.sEmail= It must be a valid email address
+
+Error.app.apperrance=Some error occurred
+Error.app.colorscheme=Some error in saving colorscheme
+Error.app.features=Some error in saving tabs
+NotEmpty.app.mobicart_terms=You must agree to MobiCart terms and conditions
+NotEmpty.app.apple_terms=You must agree to Apple terms and conditions
+
+
+#store settings
+NotEmpty.store.ssName=Store Name has to be entered
+Email.store.sOrderEmail=It must be a valid email address	
+
+#MESSAGES
+USER_PRODUCT_ORDER_UPDATE=Your settings have been updated successfully.
+USER_ERROR_INVALID_CAPTCHA=Error, Invalid captcha
+USER_ERROR_ACCOUNT_UPDATE=Some error occurred in account settings update.
+USER_ERROR_ACCOUNT_UPDATE=Some error occurred in account settings update.
+USER_ACCOUNT_UPDATE=Your settings have been updated successfully.
+
+
+
+#product add screen
+# /store/product/add
+store.heading=Store
+product.heading=Product
+product.sName=Name
+product.bFeatured=Is this a featured product?
+product.bTaxable=Is this a taxable product?
+product.bStockControl=Use stock quantity on product
+product.bUseOptions=Use stock quantity on options 
+product.fPrice=Price
+product.fDiscount=Discount
+product.departmentId=Department
+product.categoryId=Sub-department
+product.sSaleLabel=SKU
+product.sDescription=Description
+productStock.heading=Stock control
+product.iAggregateQuantity=Quantity in stock
+productOption.heading=Options (sizes, colours etc.)
+productOption.sOptionTitle=Title
+productOption.sOptionName=Name
+productOption.fQuantity=Qty in stock
+productOption.button=Add Option
+productVideo.heading=Video
+productVideo.link=Add video
+productVideo.sVideoUrl=URL of youtube video
+productVideo.button=Add Video
+productImage.heading=Images
+productImage.link=Add images
+productImage.file=Image location
+productImage.button=Add Image
+product.sStatus=Status
+product.button=Save settings
+product.link.cancel=Cancel
+
+
+QuantityError.product.iAggregateQuantity=You have not entered any quantity. Either enter quantity or select Coming soon as status.
+QuantityError.product.sStatus=You have not entered any quantity. Either enter quantity or select Coming soon as status.
+RangeError.product.fDiscount=Discount can not exceed 100 %
+Required.product.departmentId=Department is required.
+Required.product.fPrice=Product price is required.
+Required.product.sName=Product name is required.  
+
+required.setting.taxtype=Tax type is required
+
+
+## Push Notification
+push.heading= Send notification

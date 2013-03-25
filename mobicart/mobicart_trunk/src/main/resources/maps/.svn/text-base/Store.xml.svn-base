@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mobicart.persistence.StoreMapper">
+
+	<resultMap id="BaseResultMap" type="com.mobicart.model.Store">
+		<result property="id" column="id" jdbcType="BIGINT" />
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+		<result property="sSName" column="s_name" jdbcType="VARCHAR" />
+		<result property="sSDescription" column="s_description"
+			jdbcType="VARCHAR" />
+		<result property="sOrderEmail" column="s_order_email" jdbcType="VARCHAR" />
+		<result property="sPaypalEmail" column="s_paypal_email"
+			jdbcType="VARCHAR" />
+		<result property="sCurrency" column="s_currency" jdbcType="VARCHAR" />
+		<result property="dCreatedOn" column="d_created_on" jdbcType="TIMESTAMP" />
+		<result property="dUpdatedOn" column="d_updated_on" jdbcType="TIMESTAMP" />
+		<result property="bIncludeTax" column="b_include_tax" jdbcType="BIT" />
+		<result property="bTaxShipping" column="b_tax_shipping"
+			jdbcType="BIT" />
+		<result property="bEnabled" column="b_enabled" jdbcType="BIT" />
+		<association property="shippingList" select="shipping.selectByStoreId"
+			column="id" />
+		<association property="taxList" select="tax.selectByStoreId"
+			column="id" />
+		<association property="sUserEmail" select="users.selectUserNameById"
+			column="user_id" />
+		<association property="territoryName" select="users.selectTerroitoryNameByUser"
+			column="user_id" />
+		<association property="territoryId" select="users.selectTerroitoryIdByUser"
+			column="user_id" />
+	</resultMap>
+
+
+	<!-- API Maps -->
+
+	<resultMap id="APIResultMap" type="com.mobicart.model.Store">
+
+		<result property="id" column="id" jdbcType="BIGINT" />
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+		<result property="sSName" column="s_name" jdbcType="VARCHAR" />
+		<result property="sSDescription" column="s_description"
+			jdbcType="VARCHAR" />
+		<result property="sOrderEmail" column="s_order_email" jdbcType="VARCHAR" />
+		<result property="sPaypalEmail" column="s_paypal_email"
+			jdbcType="VARCHAR" />
+		<result property="sCurrency" column="s_currency" jdbcType="VARCHAR" />
+		<result property="dCreatedOn" column="d_created_on" jdbcType="TIMESTAMP" />
+		<result property="dUpdatedOn" column="d_updated_on" jdbcType="TIMESTAMP" />
+		<result property="bIncludeTax" column="b_include_tax" jdbcType="BIT" />
+		<result property="bTaxShipping" column="b_tax_shipping"
+			jdbcType="BIT" />
+
+	</resultMap>
+
+	<resultMap id="APIShippingResultMap" type="com.mobicart.model.Store">
+		<result property="id" column="id" jdbcType="BIGINT" />
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+		<result property="sSName" column="s_name" jdbcType="VARCHAR" />
+		<result property="sSDescription" column="s_description"
+			jdbcType="VARCHAR" />
+		<association property="shippingList" select="shipping.selectByStoreId"
+			column="id" />
+
+	</resultMap>
+
+
+	<resultMap id="APITaxResultMap" type="com.mobicart.model.Store">
+		<result property="id" column="id" jdbcType="BIGINT" />
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+		<result property="sSName" column="s_name" jdbcType="VARCHAR" />
+		<result property="sSDescription" column="s_description"
+			jdbcType="VARCHAR" />
+		<association property="taxList" select="tax.selectByStoreId"
+			column="id" />
+
+	</resultMap>
+  
+  
+	<insert id="save" parameterType="com.mobicart.model.Store">
+    INSERT INTO stores 
+    (id, user_id, s_name, s_description, s_order_email, s_paypal_email,
+      s_currency, d_created_on, d_updated_on, b_include_tax, b_tax_shipping,b_enabled)
+    VALUES (#id:BIGINT#, #userId:BIGINT#, #{sSName,jdbcType=VARCHAR}, #{sSDescription,jdbcType=VARCHAR},
+      #{sOrderEmail,jdbcType=VARCHAR}, #{sPaypalEmail,jdbcType=VARCHAR}, #{sCurrency,jdbcType=VARCHAR}, #{dCreatedOn,jdbcType=TIMESTAMP},
+      #{dUpdatedOn,jdbcType=TIMESTAMP}, #bIncludeTax:BIT#, #bTaxShipping:BIT#,#bEnabled:BIT#)
+       <selectKey keyProperty="id" resultType="long">
+			SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+
+  
+</mapper>

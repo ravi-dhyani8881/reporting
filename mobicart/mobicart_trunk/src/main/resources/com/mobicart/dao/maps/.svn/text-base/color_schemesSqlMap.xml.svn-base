@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="color_schemes">
+  <resultMap class="com.mobicart.model.ColorScheme" id="baseResultMap">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="s_title" jdbcType="VARCHAR" property="sTitle" />
+    <result column="s_bg_color" jdbcType="VARCHAR" property="sBgColor" />
+    <result column="s_fg_color" jdbcType="VARCHAR" property="sFgColor" />
+    <result column="s_bg_image" jdbcType="VARCHAR" property="sBgImage" />
+    <result column="s_product_item_bg_color" jdbcType="VARCHAR" property="sProductItemBgColor" />
+    <result column="s_search_button_bg_color" jdbcType="VARCHAR" property="sSearchButtonBgColor" />
+    <result column="s_price_tag_bg_color" jdbcType="VARCHAR" property="sPriceTagBgColor" />
+  </resultMap>
+  
+  
+  <select id="selectAll" parameterClass="com.mobicart.model.ColorScheme" resultMap="baseResultMap">
+    select id, s_title, s_bg_color, s_fg_color, s_bg_image, s_product_item_bg_color,
+      s_search_button_bg_color, s_price_tag_bg_color
+    from color_schemes
+  </select>
+  
+  
+  <select id="selectByAppId" parameterClass="long" resultMap="baseResultMap">
+    select id, s_title, s_bg_color, s_fg_color, s_bg_image, s_product_item_bg_color,
+      s_search_button_bg_color, s_price_tag_bg_color
+    from color_schemes 
+    LEFT JOIN app_color_schemes
+    on color_schemes.id=app_color_schemes.color_scheme_id
+    where app_color_schemes.app_id=#value#
+ </select>
+  
+  
+
+</sqlMap>  

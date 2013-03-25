@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+
+	<class name="com.mobicart.geo.Location" auto-complete="false">
+		<map-to xml="Location" />
+		<field name="latitude" type="double">
+			<bind-xml name="lat" node="element" />
+		</field>
+		<field name="longitude" type="double">
+			<bind-xml name="lng" node="element" />
+		</field>
+	</class>
+
+	<class name="com.mobicart.geo.Area" auto-complete="false">
+		<map-to xml="Area" />
+		<field name="southWest" type="com.mobicart.geo.Location">
+			<bind-xml name="southwest" node="element" />
+		</field>
+		<field name="northEast" type="com.mobicart.geo.Location">
+			<bind-xml name="northeast" node="element" />
+		</field>
+	</class>
+
+	<class name="com.mobicart.geo.Geometry" auto-complete="false">
+		<map-to xml="Geometry" />
+		<field name="locationType" type="string">
+			<bind-xml name="location_type" node="element" />
+		</field>
+		<field name="location" type="com.mobicart.geo.Location">
+			<bind-xml name="location" node="element" />
+		</field>
+		<field name="viewport" type="com.mobicart.geo.Area">
+			<bind-xml name="viewport" node="element" />
+		</field>
+		<field name="bounds" type="com.mobicart.geo.Area">
+			<bind-xml name="bounds" node="element" />
+		</field>
+	</class>
+
+	<class name="com.mobicart.geo.AddressComponent" auto-complete="false">
+		<map-to xml="AddressComponent" />
+		<field name="longName" type="string">
+			<bind-xml name="long_name" node="element" />
+		</field>
+		<field name="shortName" type="string">
+			<bind-xml name="short_name" node="element" />
+		</field>
+		<field name="types" type="string" collection="arraylist">
+			<bind-xml name="type" node="element" />
+		</field>
+	</class>
+
+	<class name="com.mobicart.geo.Geocode" auto-complete="false">
+		<map-to xml="Geocode" />
+		<field name="formattedAddress" type="string">
+			<bind-xml name="formatted_address" node="element" />
+		</field>
+		<field name="types" type="string" collection="arraylist">
+			<bind-xml name="type" node="element" />
+		</field>
+		<field name="addressComponents" type="com.mobicart.geo.AddressComponent"
+			collection="arraylist">
+			<bind-xml name="address_component" node="element" />
+		</field>
+		<field name="geometry" type="com.mobicart.geo.Geometry">
+			<bind-xml name="geometry" node="element" />
+		</field>
+		<field name="partialMatch" type="boolean">
+			<bind-xml name="partial_match" node="element" />
+		</field>
+	</class>
+
+	<class name="com.mobicart.geo.GeocodeResponse" auto-complete="false">
+		<map-to xml="GeocodeResponse" />
+		<field name="status" type="string">
+			<bind-xml name="status" node="element" />
+		</field>
+		<field name="geocodes" type="com.mobicart.geo.Geocode" collection="arraylist">
+			<bind-xml name="result" node="element" />
+		</field>
+	</class>
+
+</mapping>

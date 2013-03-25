@@ -1,0 +1,223 @@
+package com.mobicart.bo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
+/**
+ * Error class for api errors
+ * 
+ * @author jasdeep.singh
+ * 
+ */
+@XStreamAlias("error")
+public class Error {
+
+	int errorcode;
+	
+	String message;
+
+	
+    private static Error instance = null;
+	
+	
+	 
+	@XStreamOmitField
+	Map<Integer, String> errorMap = null;
+
+	/**
+	 * Generate Error Message
+	 */
+
+	public static String MISSING_AUTH_PARAMETERS = "Missing authentication parameters.";// 1003
+	public static String MISSING_PARAMETERS = "Missing parameters.";// 1001
+	public static String AUTHENTICATION_FAIL = "Authentication failed.";// 1002
+	public static String DATABASE_ERROR = "Error in accessing data.";
+	public static String MAX_API_HITS = "No more api methods can be called. Please note that API calls are limited to making a maximum of 300 calls to a particular store, or 3000 calls in total, whichever happens first. This limit resets every 600 seconds. If your application needs a higher limit, contact admin@mobi-cart.com";
+	public static String MAX_STORE_API_HITS = "No more store methods can be called. Please note that API calls are limited to making a maximum of 300 calls to a particular store, or 3000 calls in total, whichever happens first. This limit resets every 600 seconds. If your application needs a higher limit, contact admin@mobi-cart.com";
+	public static String MAX_LIMIT = "Somewhere you entered greater length than max limit.";
+	
+	public Error() {
+		errorMap = new HashMap<Integer, String>();
+		// generic
+		errorMap.put(1001, MISSING_PARAMETERS);
+		errorMap.put(1002, AUTHENTICATION_FAIL);
+		errorMap.put(1003, MISSING_AUTH_PARAMETERS);
+		errorMap.put(1004, DATABASE_ERROR);
+		errorMap.put(1005, MAX_API_HITS);
+		errorMap.put(1006, MAX_STORE_API_HITS);
+		errorMap.put(1007, MAX_LIMIT);
+		// store
+		errorMap.put(2001, "Store ID must be numeric.");
+		errorMap.put(2002, "No store found associated with the specified user.");
+		errorMap.put(2003, "No store found with the specified store ID.");
+		errorMap.put(2004, "Store ID is not associated with the specified user.");
+		errorMap.put(2005, "Country ID must be numeric.");
+		errorMap.put(2006, "Country ID does not exist.");
+		errorMap.put(2007, "No state found associated with this country ID.");
+		errorMap.put(2008, "State ID must be numeric.");
+		errorMap.put(2009, "State ID does not exist.");
+		errorMap.put(2010, "State ID does not belong to the country ID.");
+		errorMap.put(2011, "No shipping rate exist for the specified store, country and state combination.");
+		errorMap.put(2012, "Shipping Rate must be numeric.");
+		errorMap.put(2013, "Shipping ID must be numeric.");
+		errorMap.put(2014, "No shipping found with the specified shipping ID.");
+		errorMap.put(2015, "Shipping ID is not associated with the specified user.");
+		// product
+		errorMap.put(3001, "Product ID must be numeric.");
+		errorMap.put(3002, "No products found within the specified store.");
+		errorMap.put(3003, "No products found within the specified department.");
+		errorMap.put(3004, "No products found within the specified sub-department.");
+		errorMap.put(3005, "No product found with the specified product ID.");
+		errorMap.put(3006, "Price must be decimal.");
+		errorMap.put(3007, "Discount must be a decimal.");
+		errorMap.put(3008, "Aggregate quantity must be numeric.");
+		errorMap.put(3009, "Option quantity must be numeric.");
+		errorMap.put(3010, "Product ID is not associated with the specified user.");
+		errorMap.put(3011, "Product option could not be added.");
+		errorMap.put(3012, "Product option ID must be numeric.");
+		errorMap.put(3013, "No product option found with the specified Product Option ID.");
+		errorMap.put(3014, "Product option ID does not represent the product that belongs to the specified user.");
+		errorMap.put(3015, "Specified image url is not a valid URL.");
+		errorMap.put(3016, "Specified image url is not an image.");
+		errorMap.put(3017, "Could not locate specified image URL.");
+		errorMap.put(3018, "Product image ID must be numeric.");
+		errorMap.put(3019, "No product image found with the specified product image ID.");
+		errorMap.put(3020, "Product image ID is not associated with the specified user.");
+		errorMap.put(3021, "Status must be one of these : [active, hidden, sold, coming].");
+		errorMap.put(3022, "Featured must be numeric either 0 or 1.");
+		errorMap.put(3023, "Product could not be added as you have reached your max limit.");
+		errorMap.put(3024, "Product option could not be updated.");
+		errorMap.put(3025, "Some error occured while copying specified file.");
+		errorMap.put(3026, "Product could not be added as department has got some sub-departments.");
+		errorMap.put(3027, "Product discount can not be greater than 100 percent.");
+		errorMap.put(3028, "Price can be maximum of eight digits.");
+		errorMap.put(3029, "Product could not be added due to the duplicate name in the same department.");
+		errorMap.put(3030, "UseProductOption must be numeric either 0 or 1.");
+		errorMap.put(3031, "Product could not be updated due to the duplicate name in the same department.");
+		// images
+		errorMap.put(4001, "No image found under the specified store.");
+		errorMap.put(4002, "File name is not a valid image.");
+		errorMap.put(4003, "Image ID must be numeric.");
+		errorMap.put(4004, "No image found with the specified Image ID.");
+		errorMap.put(4005, "Image ID is not associated with the specified user.");
+		errorMap.put(4005, "Image ID is not associated with the specified user.");
+		// orders
+		errorMap.put(5001, "Order ID must be numeric.");
+		errorMap.put(5002, "No order found with the specified order ID.");
+		errorMap.put(5003, "No shipping details found associated with this tracking number."); // order is redundant changed it to tracking number
+		errorMap.put(5004, "Order does not belong to the user.");
+		errorMap.put(5005, "Date must be entered in (YYYY-MM-DD) format.");
+		errorMap.put(5006, "No order found with the specified user.");
+		errorMap.put(5007, "No order found between the specified dates.");
+		errorMap.put(5008, "Shipping carrier must be one of these : [fedex, ups, other].");
+		errorMap.put(5009, "Shipping status must be one of these : [pickedup, intransit, arrived, delivered].");
+		errorMap.put(5010, "Shipping detail is not associated with the specified user.");
+		errorMap.put(5011, "Buyer phone must be numeric.");
+		errorMap.put(5012, "Amount must be decimal.");
+		errorMap.put(5013, "Quantity must be numeric.");
+		errorMap.put(5014, "Order item ID must be numeric.");
+		errorMap.put(5015, "No order item found with the specified order item ID.");
+		errorMap.put(5016, "Order item ID is not associated with the specified user.");
+		errorMap.put(5017, "Shipping detail is not specified for the Store, Territory & State combination.");		
+		// department
+		errorMap.put(6001, "No department found within the specified store ID.");
+		errorMap.put(6002, "Department ID must be numeric.");
+		errorMap.put(6003, "No department found with the specified department ID.");
+		errorMap.put(6004, "No sub-department found within the specified department ID.");
+		errorMap.put(6005, "Sub-department can not be added as department has got some products.");
+		errorMap.put(6006, "Sub-Department can not be added as parent sub-department is not empty.");
+		errorMap.put(6007, "Department ID is not associated with the specified user.");
+		errorMap.put(6008, "Department can not be deleted as department has got some sub-departments.");
+		errorMap.put(6009, "Department can not be deleted as department has got some products.");
+		errorMap.put(6010, "Department could not be added due to duplicate name.");
+		errorMap.put(6011, "Department could not be updated due to duplicate name.");
+		errorMap.put(6012, "Department could not added as you reached your max limit.");
+		errorMap.put(6013, "Given department ID is actully not a department.");
+		// sub-department
+		errorMap.put(7002, "Sub-department ID must be numeric.");
+		errorMap.put(7003, "No sub-department found with the specified sub-department ID.");
+		errorMap.put(7004, "Sub-department ID is not associated with the specified user.");
+		errorMap.put(7005, "Sub-department ID does not belong to specified department ID.");
+		errorMap.put(7006, "Sub-department is not empty as sub-department has got some nested sub-departments.");
+		errorMap.put(7007, "Sub-department can not be deleted as sub-department has got some products.");
+		errorMap.put(7008, "Sub-department could not be added due to duplicate name.");
+		errorMap.put(7009, "Sub-department could not be updated due to duplicate name.");
+		errorMap.put(7010, "Parent sub-department ID must be numeric.");
+		errorMap.put(7011, "Sub-department can not be added as department has got some products.");
+		errorMap.put(7012, "Sub-department can not be added as parent sub-department has got some products.");
+		errorMap.put(7013, "No parent sub-department found associated with the specified parent sub-department ID.");
+		errorMap.put(7014, "Parent sub-department ID is not associated with the specified department ID.");
+		errorMap.put(7015, "Parent sub-department ID and sub-department ID are not associated with the same department.");
+		errorMap.put(7016, "Sub-department could not be updated as parent sub-department has got some products.");
+		errorMap.put(7017, "Given sub-department ID is not actully a sub-department.");
+		errorMap.put(7018, "Sub-department could not be added due to duplicate name in the same department.");
+		//company image
+		errorMap.put(8001, "Some error occured saving company image.");
+		//For Partner Usage
+		errorMap.put(9001, "No merchant found with the specified email.");
+		errorMap.put(9002, "Partner email already exist.");
+		
+		
+	}
+
+	public Error(Integer errorcode) {
+		this();
+		this.errorcode = errorcode;
+	}
+
+	public Error(Integer errorcode, String message) {
+		this();
+		this.errorcode = errorcode;
+		this.message = message;
+	}
+
+	public int getErrorcode() {
+		return errorcode;
+	}
+
+	public void setErrorcode(int errorcode) {
+		this.errorcode = errorcode;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	
+	public void appendToMessage(String message) {
+		this.message = this.message+message;
+	}
+
+	
+	/**
+	 * Generates Error message
+	 * 
+	 * @param code
+	 * @return
+	 */
+	public Error generateError(int errorcode) {
+		Error error = new Error();
+		error.setErrorcode(errorcode);
+		error.setMessage(errorMap.get(errorcode));
+		return error;
+	}
+	
+	 public static Error getInstance() {
+	      if(instance == null) {
+	         instance = new Error();
+	      }
+	      return instance;
+	   }
+	 
+	 
+	 public String toString() {
+			return errorcode + "," + message ;
+		}
+}

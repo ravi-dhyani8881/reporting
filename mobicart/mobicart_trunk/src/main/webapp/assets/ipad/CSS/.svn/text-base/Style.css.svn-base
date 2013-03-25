@@ -1,0 +1,49 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+s|Label
+{
+	fontFamily: Arial;
+}
+
+.titleHeader
+{	
+	fontFamily: Arial;
+	fontSize: 24;
+	fontWeight: bold;
+	paddingLeft: 40;
+}
+
+.departmentList
+{
+	
+	fontFamily: Arial;
+	fontSize: 12;
+	fontWeight: bold;
+
+}
+
+.productCount
+{
+	
+	fontFamily: Arial;
+	fontSize: 10;
+	fontWeight: bold;
+	
+}
+.productprice
+{
+	
+	fontFamily: Arial;
+	fontSize: 10;	
+}
+
+
+	
+/*.TitleWindow{
+	border-skin: Embed("/com/mobicart/assets/images/dividerPopUp.png",scaleGridLeft="44",scaleGridRight="360",scaleGridTop="54",scaleGridBottom="219");
+	paddingTop: 55;
+	paddingLeft: 45;
+	paddingRight: 45;
+	paddingBottom: 40;
+}*/

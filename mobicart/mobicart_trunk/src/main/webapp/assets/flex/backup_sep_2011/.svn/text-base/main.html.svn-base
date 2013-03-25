@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">	
+    <!-- 
+    Smart developers always View Source. 
+    
+    This application was built using Adobe Flex, an open source framework
+    for building rich Internet applications that get delivered via the
+    Flash Player or to desktops via Adobe AIR. 
+    
+    Learn more about Flex at http://flex.org 
+    // -->
+    <head>
+        <title></title>         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
+		     the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+			 the percentage of the height of its parent container, which has to be set explicitly.  Initially, 
+			 don't display flashContent div so it won't show if JavaScript disabled.
+		-->
+        <style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; text-align:center; 
+			       background-color: #ffffff; }   
+			#flashContent { display:none; }
+        </style>
+		
+		<!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+        <!-- BEGIN Browser History required section -->
+        <link rel="stylesheet" type="text/css" href="history/history.css" />
+        <script type="text/javascript" src="history/history.js"></script>
+        <!-- END Browser History required section -->  
+		    
+        <script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript">
+        
+        function getFeaturedProducts()
+        {
+        	return "http://122.180.40.8:8080/mobicartimages/productimages/1/16022011/8.jpg#$ 5.00 Inc vat.,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/blue_cream_maroon_wool_gloves_med.jpg#$ 66.00 Inc.vat,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/woolen_cap1.jpg#$ 425.00,#$ 0.00,#$ 3333.00,#$ 0.00";
+        }
+        
+         function getGalleryImages()
+        {
+        	return "http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/blue_cream_maroon_wool_gloves_med.jpg,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/woolen_cap1.jpg,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/ADOVE_Winter_Wear_Over.jpg,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/enjour-winter-wear_1.jpg,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/cap1_250x250.JPG,http://122.180.40.8:8080/mobicartimages/gallery/1/17122010/I04-A501-Smile_MED.jpg,http://122.180.40.8:8080/mobicartimages/gallery/1/15012011/3982540354_6a2a1c5401_z.jpg";
+        }
+        
+         function changeTabs()
+        {
+        	return "1#Home,2#Store,3#News,4#My Account,5#About Us,6#Contact Us,7#Terms,8#Privacy,9#Page 1,10#Page 2";
+        }
+        
+        function changePreview()
+        {
+        	return "0x17ACE3,0xFF00FF,0xFF00FF";
+        }
+        function getDepartments()
+        {
+        	return "[{\"name\":\"adfda45\",\"id\":1765,\"categoryCount\":0,\"productCount\":0},{\"name\":\"helloram\",\"id\":1767,\"categoryCount\":0,\"productCount\":0},{\"name\":\"helloram32\",\"id\":1768,\"categoryCount\":0,\"productCount\":0},{\"name\":\"helloram3234\",\"id\":1769,\"categoryCount\":0,\"productCount\":0},{\"name\":\"hmm\",\"id\":1786,\"categoryCount\":1,\"productCount\":67},{\"name\":\"newnwnwn\",\"id\":1763,\"categoryCount\":0,\"productCount\":0},{\"name\":\"pharma\",\"id\":1253,\"categoryCount\":1,\"productCount\":1},{\"name\":\"sdsdsdsd\",\"id\":1764,\"categoryCount\":0,\"productCount\":0},{\"name\":\"sdsdsdsdsdsd\",\"id\":1766,\"categoryCount\":0,\"productCount\":0},{\"name\":\"test\",\"id\":1781,\"categoryCount\":0,\"productCount\":66},{\"name\":\"tetee\",\"id\":535,\"categoryCount\":6,\"productCount\":1855},{\"name\":\"tvt\",\"id\":1803,\"categoryCount\":1,\"productCount\":1}]";
+        }
+        function getSubDepartments(departmentId)
+        {
+        	//535
+        	return "[{\"name\":\"Jeans\",\"id\":530,\"productCount\":1854},{\"name\":\"nenenen\",\"id\":2048,\"productCount\":0},{\"name\":\"sdsdsd\",\"id\":2049,\"productCount\":0},{\"name\":\"Shirts\",\"id\":531,\"productCount\":1},{\"name\":\"test\",\"id\":2058,\"productCount\":0},{\"name\":\"tests\",\"id\":2059,\"productCount\":0}]";
+        }
+        function getProductsByDepartment(departmentId)
+        {
+        	//1781
+        	return "[{\"name\":\"Birthday Greeting cards\",\"id\":15692,\"currency\":\"$\",\"status\":\"active\",\"taxType\":null,\"price\":4.0,\"image\":\"/mobicartimages/productimages/1/19052011/stock-vector-assorted-baby-cards-set-baby-shower-birth-announcements-first-birthday-28800571.jpg\",\"imageMedium\":\"/mobicartimages/productimages/1/19052011/stock-vector-assorted-baby-cards-set-baby-shower-birth-announcements-first-birthday-28800571_medium.jpg\",\"imageSmall\":\"/mobicartimages/productimages/1/19052011/stock-vector-assorted-baby-cards-set-baby-shower-birth-announcements-first-birthday-28800571_small.jpg\",\"rating\":0.0,\"discount\":5.0,\"discountedPrice\":3.8}]";
+        }
+        function getProductsBySubDepartment(subDepartmentId)
+        {
+        	//530
+        	return "[{\"name\":\"formal Shirt\'s\",\"id\":17824,\"currency\":\"$\",\"status\":\"active\",\"taxType\":null,\"price\":1000.0,\"image\":\"/mobicartimages/productimages/1/18072011/ACQYR-2007-Desktop-Wallpapers-19-1280x1024.jpg\",\"imageMedium\":\"/mobicartimages/productimages/1/18072011/ACQYR-2007-Desktop-Wallpapers-19-1280x1024_medium.jpg\",\"imageSmall\":\"/mobicartimages/productimages/1/18072011/ACQYR-2007-Desktop-Wallpapers-19-1280x1024_small.jpg\",\"rating\":0.0,\"discount\":10.0,\"discountedPrice\":900.0}]";
+        }
+        
+        function getNewsItems()
+        {
+        	//530
+        	return "[{\"id\":241,\"date\":1309425199000,\"shortDescription\":\"Hello there...\",\"title\":\"My News\",\"longDescription\":null,\"image\":null},{\"id\":242,\"date\":1309440916000,\"shortDescription\":\"Hello...\",\"title\":\"ji\",\"longDescription\":null,\"image\":null},{\"id\":243,\"date\":1309441648000,\"shortDescription\":\"jkldgkldfjkg hgjkhdkjf hkjdfh\\r\\n\\\\jghdjkfhg\\r\\nhgdjfhg\\r\\nghjdh \\r\\ngdfghdjkfhg \\r\\nghdfghjkdhdfhgjdfhgjk \\r\\ngh...\",\"title\":\"yunger sport\",\"longDescription\":null,\"image\":\"/mobicartimages/news/2309/Water-lilies.jpg\"},{\"id\":244,\"date\":1309441695000,\"shortDescription\":\"fjkhyjkdfhg hfgjkdh djkhg\\r\\n\\\\hdkghdhg\\r\\ng kdhgjkdh\\r\\n  ghkdjhfhgkjd\\r\\ndhgjkhdkfgh \\r\\ngdgkhdkhf\\r\\ngjkhjghj\\r...\",\"title\":\"buddy\",\"longDescription\":null,\"image\":\"/mobicartimages/news/2309/Blue-hills.jpg\"}]";
+        }
+        
+        function getTweets()
+        {
+        	return "[{\"name\":\"MobiCart\",\"text\":\"RT @AzharKamar: MobiCart | CrunchBase Profile http://t.co/B0RMfo9\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1309170709000},{\"name\":\"MobiCart\",\"text\":\"The MobiCart Daily is out! http://bit.ly/f42wkU \u25B8 Top stories today via @icomsoftware @bwbradioshow @hbsmktg @kaorumeikodn @peterpokorny\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1309081635000},{\"name\":\"MobiCart\",\"text\":\"RT @JeweleryStore: I just built my first mcommerce app using @MobiCart\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1309007282000},{\"name\":\"MobiCart\",\"text\":\"The MobiCart Daily is out! http://bit.ly/dvxnqu \u25B8 Top stories today via @miguelangel_ch @modelpages @netinsight @jcfripp @21chopesamrew\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308995250000},{\"name\":\"MobiCart\",\"text\":\"@ThinkingDigital - Thank you and yes seen that one. Some impressive #mcommerce stats flying around.\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308946610000},{\"name\":\"MobiCart\",\"text\":\"@TVdionysus @merlot_girl - Thank you, that\'s very kind of you.\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308925978000},{\"name\":\"MobiCart\",\"text\":\"RT @TVdionysus: I am liking Mobi Cart! Tx for info RT @Merlot_Girl: 8 tools for developing mobile apps http://bit.ly/kWMh7x\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308925944000},{\"name\":\"MobiCart\",\"text\":\"@AlanMSuggett @ryancarson - They\'re a great way to monitor your SaaS app.\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308925810000},{\"name\":\"MobiCart\",\"text\":\"One-fourth of iPhone owners and one-fifth of Android owners use m-commerce apps - http://fb.me/v3HeNgXb\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308910994000},{\"name\":\"MobiCart\",\"text\":\"The MobiCart Daily is out! http://bit.ly/f42wkU \u25B8 Top stories today via @elpellegrini @bricksandmobile @madeinecommerce @klobaugh\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308908832000},{\"name\":\"MobiCart\",\"text\":\"The MobiCart Daily is out! http://bit.ly/dvxnqu \u25B8 Top stories today via @fiercemobico @sororitynews @rantltd @branderltd @lulabellalondon\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308822484000},{\"name\":\"MobiCart\",\"text\":\"RT @_fuzzly: Create an iPhone App MCommerce estore with Mobi-Cart http://t.co/Kl8RwON\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308870991000},{\"name\":\"MobiCart\",\"text\":\"@ThinkingDigital - Thank you, really appreciated.\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308770971000},{\"name\":\"MobiCart\",\"text\":\"The MobiCart Daily is out! http://bit.ly/f42wkU \u25B8 Top stories today via @mobixy @kmages @dolores_oconnor @nyandcompany @future_biz\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308736078000},{\"name\":\"MobiCart\",\"text\":\"@sanimoyo - Thank you and we\'re here if you need help with anything or have any questions.\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308678917000},{\"name\":\"MobiCart\",\"text\":\"RT @sanimoyo: Mobicart now there\'s a service I really need http://bit.ly/kxRJ2z\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308678861000},{\"name\":\"MobiCart\",\"text\":\"@candymok - Excellent, thank you.\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308657604000},{\"name\":\"MobiCart\",\"text\":\"Over 10,000+ people have looked at our Native App / Web App / Admin Screenshots. Have you? http://fb.me/10FMZ1kpw\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308654942000},{\"name\":\"MobiCart\",\"text\":\"The MobiCart Daily is out! http://bit.ly/f42wkU \u25B8 Top stories today via @jbplbarbara @diederickubels @camhrcom @e_tail @enricabestany\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308649684000},{\"name\":\"MobiCart\",\"text\":\"My week on twitter: 5 retweets received, 23 new followers, 2 mentions. Via: http://20ft.net/p\",\"image\":\"http://a0.twimg.com/profile_images/1115187510/mobi-icon_normal.jpg\",\"createdAt\":1308649183000}]";
+        }
+        
+        function getFeedPosts()
+        {
+         	return "[{\"shortDescription\":\"Though internet spreads the word at lightening speed, but i came to know about Ada Lovelace Day 3 da...\",\"title\":\"Ada Lovelace Day \u2013 Leah Culver\",\"longDescription\":\"Though internet spreads the word at lightening speed, but i came to know about Ada Lovelace Day 3 days late.\u00A0 Pardon my ignorance. To quote from website http://findingada.com/ Ada Lovelace Day is an international day of blogging to draw attention to women excelling in technology Who was Ada ? Ada Lovelace wrote the world\u2019s first [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=114&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1238161080000},{\"shortDescription\":\"Why Sat Nav(s) are not for Indian customers : Intersting article and conversation on viability of GP...\",\"title\":\"Daily Links 12/01/09\",\"longDescription\":\"Why Sat Nav(s) are not for Indian customers : Intersting article and conversation on viability of GPS devices in India What type of feminist are you? : An argumentative conversation on noida rape case and incidents like this Quillpad has improved its multilingual editor . tweet : #punjabi word for the day : high spirits [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=102&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1231774589000},{\"shortDescription\":\"Most countries in modern history have built their wealth on the foundations of the oppression of pow...\",\"title\":\"Silence of the Poor\",\"longDescription\":\"Most countries in modern history have built their wealth on the foundations of the oppression of powerless people. India is taking giant economic strides within a functioning democracy. We still have the time to resolve that we will not build our prosperity on the sufferings of ordinary people. This quote is concluding remark of\u00A0 HT [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=73&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1224066724000},{\"shortDescription\":\"The Sprouted Delhi BarCamp 5 was exhilarating an experience, Although it was not as glittering as ex...\",\"title\":\"Delhi Barcamp5 \u2013 Takeaways\",\"longDescription\":\"The Sprouted Delhi BarCamp 5 was exhilarating an experience, Although it was not as glittering as expected from the sponsorships and registrations. The formal/informal inauguration was done by the behind the scenes slide show and video by picturulize featuring the key guys behind this wonderful unconference. Then the talks/sessions proceeded, I attended a talk on [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=69&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1223970660000},{\"shortDescription\":\"The Delhi Barcamp4 was quite an eye opener and great learning experience for me as it was first Barc...\",\"title\":\"Delhi Barcamp5 \u2013 Sprouted !\",\"longDescription\":\"The Delhi Barcamp4 was quite an eye opener and great learning experience for me as it was first Barcamp. To quote from DelhiBarCamp5 blog : The seeds have germinated. A lot of sunlight and some water sprinkles have softened the outer shell. Little sprouts can be seen carving out themselves. Lets\u00A0 see wats in store [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=66&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1223635645000},{\"shortDescription\":\"In my Google Reader, I have subscribed to the articles feed of http://www.sikhchic.com/ , which is a...\",\"title\":\"Why Sikhism fears Christian conversions !\",\"longDescription\":\"In my Google Reader, I have subscribed to the articles feed of http://www.sikhchic.com/ , which is an online magazine run by Sikh/Punjabi Intellectual elite from North America, and I came across &#8220;Beware&#8230; Punjab is being Invaded &#8230;Again!&#8221; which states and provides reference to a report by Tehelka.com : The people of Punjab and India are [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=63&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1222439403000},{\"shortDescription\":\"May be this shirt quote is witty enough, Some one will finally love me The origin of above quote is ...\",\"title\":\"Attention Guys , Kwippy here !\",\"longDescription\":\"May be this shirt quote is witty enough, Some one will finally love me The origin of above quote is xkcd . Its human instinct to seek attention. Its deep rooted in our genes. The T-shirt quotes are one example. Same goes for the IM status.\u00A0 The IM is yet another communication tool that has [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=49&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1215630201000},{\"shortDescription\":\"I got a direct message on twitter from Shankar Bakshi about Chandigarh bloggers meet on Sunday. I wa...\",\"title\":\"Chandigarh Bloggers haz a meet up !\",\"longDescription\":\"I got a direct message on twitter from Shankar Bakshi about Chandigarh bloggers meet on Sunday. I was in huge excitement straightaway, I said yes, yes like i had found\u00A0 some lost treasure. So I was the first guy to reach the venue,then came Shankar the self confessed dot com guru and the other guys [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=53&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1215453243000},{\"shortDescription\":\"Firefox achieved the world record for most number of downloads in a day. I was a downloader too. So ...\",\"title\":\"I am a World Record Holder :)\",\"longDescription\":\"Firefox achieved the world record for most number of downloads in a day. I was a downloader too. So i got this certificate From Mozilla. I am part of a world record for a browser that changed the world of browsing,challenged the market hegemenoy of Internet Explorer and created an ecosystem of applications around firefox [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=50&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1215180151000},{\"shortDescription\":\"At my present job , Most of the time, I have to do changes in the legacy Java code to improve perfor...\",\"title\":\"Joys of Python and APIs\",\"longDescription\":\"At my present job , Most of the time, I have to do changes in the legacy Java code to improve performance. But this time i was asked to tell the extent of performance improvement due to my changes . I tried to use some Java Profiler , I tried Eclipse TPTP and HPROF but [...]<img alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://stats.wordpress.com/b.gif?host=jasdeepsingh.wordpress.com&#38;blog=1115136&#38;post=44&#38;subd=jasdeepsingh&#38;ref=&#38;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" />\",\"author\":\"Jasdeep\",\"publishedOn\":1213278645000}]";
+       	}
+            <!-- For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. --> 
+            var swfVersionStr = "10.0.0";
+            <!-- To use express install, set to playerProductInstall.swf, otherwise the empty string. -->
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            var flashvars = {};
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "main";
+            attributes.name = "main";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "main.swf", "flashContent", 
+                "380", "744", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+			<!-- JavaScript enabled so display the flashContent div in case it is not replaced with a swf object. -->
+			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        </script>
+    </head>
+    <body>
+        <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+			 JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+			 when JavaScript is disabled.
+		-->
+        <div id="flashContent">
+        	<p>
+	        	To view this page ensure that Adobe Flash Player version 
+				10.0.0 or greater is installed. 
+			</p>
+			<script type="text/javascript"> 
+				var pageHost = ((document.location.protocol == "https:") ? "https://" :	"http://"); 
+				document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+								+ pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+			</script> 
+        </div>
+	   	
+       	<noscript>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="380" height="744" id="main">
+                <param name="movie" value="main.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#ffffff" />
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="allowFullScreen" value="true" />
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="main.swf" width="380" height="744">
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#ffffff" />
+                    <param name="allowScriptAccess" value="sameDomain" />
+                    <param name="allowFullScreen" value="true" />
+                <!--<![endif]-->
+                <!--[if gte IE 6]>-->
+                	<p> 
+                		Either scripts and active content are not permitted to run or Adobe Flash Player version
+                		10.0.0 or greater is not installed.
+                	</p>
+                <!--<![endif]-->
+                    <a href="http://www.adobe.com/go/getflashplayer">
+                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                    </a>
+                <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+	    </noscript>		
+   </body>
+</html>

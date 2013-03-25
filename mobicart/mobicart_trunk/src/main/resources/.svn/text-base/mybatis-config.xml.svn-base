@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//www.mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	<mappers>
+		<mapper resource="maps/App.xml"  />
+		<mapper resource="maps/ColorScheme.xml" />
+		<mapper resource="maps/User.xml" />
+		<mapper resource="maps/Territory.xml" />
+		<mapper resource="maps/Feature.xml" />
+		<mapper resource="maps/SiteConstant.xml" />
+	</mappers>
+</configuration>
+
+
+

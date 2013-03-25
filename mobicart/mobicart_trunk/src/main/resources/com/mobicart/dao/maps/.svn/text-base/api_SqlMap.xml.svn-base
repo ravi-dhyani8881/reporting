@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="api" >
+ 
+  <resultMap id="BaseResultMap" class="com.mobicart.model.Api" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="api_key" property="apiKey" jdbcType="VARCHAR" />
+    <result column="oauth_secret" property="oauthSecret" jdbcType="VARCHAR" />
+    <result column="threshold_general_count" property="thresholdGeneralCount" jdbcType="INTEGER" />
+    <result column="threshold_store_count" property="thresholdStoreCount" jdbcType="INTEGER" />
+    <result column="threshold_refresh_count" property="thresholdRefreshCount" jdbcType="INTEGER" />
+    <result column="general_counter" property="generalCounter" jdbcType="INTEGER" />
+    <result column="store_counter" property="storeCounter" jdbcType="INTEGER" />
+    <result column="last_refresh_time" property="lastRefreshTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.mobicart.model.ApiExample" >
+    select id, user_id, api_key, oauth_secret, threshold_general_count, threshold_store_count,
+      threshold_refresh_count, general_counter, store_counter, last_refresh_time
+    from api
+    <isParameterPresent >
+      <include refid="api.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.mobicart.model.Api" >
+    select id, user_id, api_key, oauth_secret, threshold_general_count, threshold_store_count,
+      threshold_refresh_count, general_counter, store_counter, last_refresh_time
+    from api
+    where id = #id:BIGINT#
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterClass="com.mobicart.model.Api" >
+    delete from api
+    where id = #id:BIGINT#
+  </delete>
+  
+  <delete id="deleteByExample" parameterClass="com.mobicart.model.ApiExample" >
+    delete from api
+    <include refid="api.Example_Where_Clause" />
+  </delete>
+  
+  <insert id="insert" parameterClass="com.mobicart.model.Api" >
+    insert into api (id, user_id, api_key, oauth_secret, threshold_general_count,
+      threshold_store_count, threshold_refresh_count, general_counter, store_counter,
+      last_refresh_time)
+    values (#id:BIGINT#, #userId:BIGINT#, #apiKey:VARCHAR#, #oauthSecret:VARCHAR#,
+      #thresholdGeneralCount:INTEGER#, #thresholdStoreCount:INTEGER#,
+      #thresholdRefreshCount:INTEGER#, #generalCounter:INTEGER#, #storeCounter:INTEGER#,
+      #lastRefreshTime:TIMESTAMP#)
+         <selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+  
+  <insert id="insertSelective" parameterClass="com.mobicart.model.Api" >
+    insert into api
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="userId" >
+        user_id
+      </isNotNull>
+      <isNotNull prepend="," property="apiKey" >
+        api_key
+      </isNotNull>
+      <isNotNull prepend="," property="oauthSecret" >
+        oauth_secret
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdGeneralCount" >
+        threshold_general_count
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdStoreCount" >
+        threshold_store_count
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdRefreshCount" >
+        threshold_refresh_count
+      </isNotNull>
+      <isNotNull prepend="," property="generalCounter" >
+        general_counter
+      </isNotNull>
+      <isNotNull prepend="," property="storeCounter" >
+        store_counter
+      </isNotNull>
+      <isNotNull prepend="," property="lastRefreshTime" >
+        last_refresh_time
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="userId" >
+        #userId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="apiKey" >
+        #apiKey:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="oauthSecret" >
+        #oauthSecret:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdGeneralCount" >
+        #thresholdGeneralCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdStoreCount" >
+        #thresholdStoreCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdRefreshCount" >
+        #thresholdRefreshCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="generalCounter" >
+        #generalCounter:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="storeCounter" >
+        #storeCounter:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="lastRefreshTime" >
+        #lastRefreshTime:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+       <selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+  <select id="countByExample" parameterClass="com.mobicart.model.ApiExample" resultClass="java.lang.Integer" >
+    select count(*) from api
+    <include refid="api.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update api
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.userId" >
+        user_id = #record.userId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.apiKey" >
+        api_key = #record.apiKey:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.oauthSecret" >
+        oauth_secret = #record.oauthSecret:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.thresholdGeneralCount" >
+        threshold_general_count = #record.thresholdGeneralCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.thresholdStoreCount" >
+        threshold_store_count = #record.thresholdStoreCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.thresholdRefreshCount" >
+        threshold_refresh_count = #record.thresholdRefreshCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.generalCounter" >
+        general_counter = #record.generalCounter:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.storeCounter" >
+        store_counter = #record.storeCounter:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.lastRefreshTime" >
+        last_refresh_time = #record.lastRefreshTime:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="api.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  
+  <update id="updateByExample" >
+    update api
+    set id = #record.id:BIGINT#,
+      user_id = #record.userId:BIGINT#,
+      api_key = #record.apiKey:VARCHAR#,
+      oauth_secret = #record.oauthSecret:VARCHAR#,
+      threshold_general_count = #record.thresholdGeneralCount:INTEGER#,
+      threshold_store_count = #record.thresholdStoreCount:INTEGER#,
+      threshold_refresh_count = #record.thresholdRefreshCount:INTEGER#,
+      general_counter = #record.generalCounter:INTEGER#,
+      store_counter = #record.storeCounter:INTEGER#,
+      last_refresh_time = #record.lastRefreshTime:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="api.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.mobicart.model.Api" >
+    update api
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="userId" >
+        user_id = #userId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="apiKey" >
+        api_key = #apiKey:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="oauthSecret" >
+        oauth_secret = #oauthSecret:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdGeneralCount" >
+        threshold_general_count = #thresholdGeneralCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdStoreCount" >
+        threshold_store_count = #thresholdStoreCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="thresholdRefreshCount" >
+        threshold_refresh_count = #thresholdRefreshCount:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="generalCounter" >
+        general_counter = #generalCounter:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="storeCounter" >
+        store_counter = #storeCounter:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="lastRefreshTime" >
+        last_refresh_time = #lastRefreshTime:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterClass="com.mobicart.model.Api" >
+    update api
+    set user_id = #userId:BIGINT#,
+      api_key = #apiKey:VARCHAR#,
+      oauth_secret = #oauthSecret:VARCHAR#,
+      threshold_general_count = #thresholdGeneralCount:INTEGER#,
+      threshold_store_count = #thresholdStoreCount:INTEGER#,
+      threshold_refresh_count = #thresholdRefreshCount:INTEGER#,
+      general_counter = #generalCounter:INTEGER#,
+      store_counter = #storeCounter:INTEGER#,
+      last_refresh_time = #lastRefreshTime:TIMESTAMP#
+    where id = #id:BIGINT#
+  </update>
+  
+   <select id="getAuthSecretByUserName"  parameterClass="java.lang.String" resultClass="java.lang.String">
+    SELECT api_key,
+    oauth_secret
+     FROM api WHERE 
+     user_id=(SELECT  id FROM users WHERE username=#value#)
+     
+  </select>
+  <select id="getAuthSecretByDomainUrl"  parameterClass="java.lang.String" resultClass="java.lang.String" >
+    SELECT api_key,
+    oauth_secret
+     FROM api WHERE 
+     user_id=(SELECT  id FROM users WHERE s_webapp_domain_name=#value#)
+     
+  </select>
+  
+  
+  <select id="getAuthSecretByUserId"  parameterClass="java.lang.Long" resultClass="java.lang.String" >
+    SELECT api_key,
+    oauth_secret
+     FROM api WHERE 
+     user_id=#value#
+     
+  </select>
+  
+  
+</sqlMap>

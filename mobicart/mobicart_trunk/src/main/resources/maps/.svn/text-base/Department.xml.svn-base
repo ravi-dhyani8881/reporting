@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobicart.persistance.DepartmentMapper" >
+
+
+<resultMap id="baseResultMap" type="com.mobicart.model.Department">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="s_name" jdbcType="VARCHAR" property="sName" />
+    <result column="s_status" jdbcType="CHAR" property="sStatus" />
+    <association column="id" property="iCategoryCount" select="selectCategoryCountByDepartment" />
+    <association column="id" property="iProductCount" select="selectProductCountByDepartment" />
+  </resultMap>
+  
+  <resultMap id="APIDepartmentResultMap" type="com.mobicart.model.Department">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="s_name" jdbcType="VARCHAR" property="sName" />
+    <result column="s_status" jdbcType="CHAR" property="sStatus" />
+    
+  </resultMap>
+    
+  <sql id="Example_Where_Clause">
+      <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+  <sql id="Update_By_Example_Where_Clause">
+    
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+  <sql id="Base_Column_List">
+    id, store_id, user_id, s_name, s_status
+  </sql>
+  
+  <select id="selectByExample" parameterType="com.mobicart.model.DepartmentExample" resultMap="baseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from departments
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  <select id="find" parameterType="java.lang.Long" resultMap="baseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from departments
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  
+  <select id="selectProductCountByDepartment" parameterType="long" resultType="java.lang.Integer">
+ 		select count(1) from  products where department_id = #{value,jdbcType=BIGINT} and s_status !='hidden'
+  	</select>
+  
+   <select id="selectCategoryCountByDepartment" parameterType="long" resultType="java.lang.Integer">
+  		select count(1) from categories where department_id = #{value,jdbcType=BIGINT} AND s_status='active' 
+  </select>
+   
+   <select id="findAPIByExample" parameterType="com.mobicart.model.DepartmentExample" resultMap="APIDepartmentResultMap">
+   	select
+	<include refid="Base_Column_List" />
+    from departments
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  <select id="findByExample" parameterType="com.mobicart.model.DepartmentExample" resultMap="baseResultMap">
+  	select
+    <include refid="Base_Column_List" />
+    from departments
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+   <select id="findAll" parameterType="com.mobicart.model.Department" resultMap="baseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from departments 
+  </select>
+  
+  
+   <select id="selectAllJoined" parameterType="com.mobicart.model.Department" resultMap="baseResultMap">
+   	SELECT d.s_name,c.s_name FROM departments d LEFT JOIN  categories c On d.id=c.department_id 
+   </select>
+   
+  
+  
+  <select id="selectDepartmentNameById" parameterType="long" resultType="String">
+    select s_name
+    from departments
+    where id = #{value}
+  </select>
+  
+  
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from departments
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  
+  <delete id="deleteByExample" parameterType="com.mobicart.model.DepartmentExample">
+    delete from departments
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="create" parameterType="com.mobicart.model.Department" >
+     insert into departments (store_id, user_id, s_name, 
+      s_status)
+    values (#{storeId}, #{userId}, #{sName}, #{sStatus})
+    	<selectKey keyProperty="id" resultType="long" >
+        select last_insert_id() as id
+      </selectKey>
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.mobicart.model.Department">
+    insert into departments
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sName != null">
+        s_name,
+      </if>
+      <if test="sStatus != null">
+        s_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="storeId != null">
+        #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="sName != null">
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sStatus != null">
+        #{sStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+    <selectKey keyProperty="id" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.mobicart.model.DepartmentExample" resultType="java.lang.Integer">
+    select count(*) from departments
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update departments
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.storeId != null">
+        store_id = #{record.storeId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.sName != null">
+        s_name = #{record.sName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sStatus != null">
+        s_status = #{record.sStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  <update id="updateByExample" parameterType="map">
+    update departments
+    set id = #{record.id,jdbcType=BIGINT},
+      store_id = #{record.storeId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      s_status = #{record.sStatus,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  <update id="update" parameterType="com.mobicart.model.Department">
+    update departments
+    <set>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="sName != null">
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sStatus != null">
+        s_status = #{sStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.mobicart.model.Department">
+    update departments
+    set store_id = #{storeId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      s_name = #{sName,jdbcType=VARCHAR},
+      s_status = #{sStatus,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+   
+</mapper>

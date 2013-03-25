@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.mobicart.com/flights/v1"
+    xmlns:flights="http://www.mobicart.com/flights/v1"
+    elementFormDefault="qualified">
+ 
+ 
+    <xsd:element name="Flights" type="flights:FlightTypes"/>
+ 
+    <xsd:complexType name="FlightTypes">
+        <xsd:annotation>
+            <xsd:documentation>Represents a project that acme manages.  This data is stored in the Prolog database.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+		</xsd:sequence>
+    </xsd:complexType>
+ 
+</xsd:schema>

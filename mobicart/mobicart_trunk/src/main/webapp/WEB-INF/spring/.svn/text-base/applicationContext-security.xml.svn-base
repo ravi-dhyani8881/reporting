@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:oauth="http://www.springframework.org/schema/security/oauth" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+                        http://www.springframework.org/schema/security/oauth http://www.springframework.org/schema/security/spring-security-oauth.xsd ">
+
+
+	<global-method-security pre-post-annotations="enabled" />
+
+	<beans:bean name="customUserDao"
+		class="com.mobicart.web.security.oauth.CustomUserDaoImpl">
+		<beans:property name="sqlMapClient" ref="sqlMapClient"></beans:property>
+	</beans:bean>
+
+	<beans:bean name="customUserService"
+		class="com.mobicart.web.security.oauth.CustomUserServiceImpl">
+		<beans:property name="customUserDao" ref="customUserDao" />
+	</beans:bean>
+
+
+	<beans:bean name="customConsumerDetailsService"
+		class="com.mobicart.web.security.oauth.CustomConsumerDetailsServiceImpl">
+		<beans:property name="customUserService" ref="customUserService" />
+	</beans:bean>
+
+	<beans:bean name="consumerBasedAuthenticationHandler"
+		class="com.mobicart.web.security.oauth.ConsumerBasedAuthenticationHandler" />
+	
+	<beans:bean name="oauthProcessingFilterEntryPoint"
+		class="org.springframework.security.oauth.provider.OAuthProcessingFilterEntryPoint" />
+	
+	
+
+	<http use-expressions="true" auto-config="true" disable-url-rewriting="true"   entry-point-ref="oauthProcessingFilterEntryPoint">
+
+		<intercept-url pattern="/account/home/**"
+			access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/account/dashboard/**" access="hasRole('ROLE_USER')"   />
+
+		<intercept-url pattern="/app/payment/notification/**"
+			access="permitAll" />
+		<intercept-url pattern="/app/payment/notify/**" access="permitAll" />
+		<intercept-url pattern="/app/payment/return/**" access="permitAll" />
+
+		<intercept-url pattern="/user/*/app-store-user.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/user/*/address.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/user/*/address-webapp.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/user/*/register.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/user/*/details.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/user/*/webapp-merchant-detail.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/user/*/webapp-store-user.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+
+		<intercept-url pattern="/app/*/vitals.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/features.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/disabled-features.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/colorscheme.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"   />
+		<intercept-url pattern="/app/*/encolorscheme.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"   />
+		<intercept-url pattern="/app/*/search/*/products.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/search/*/*/*/*/*/products.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/gallery-images.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"   />
+		<intercept-url pattern="/app/*/gallery-images-webapp.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/static-pages.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/static-pages-webapp.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/page/*/details.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/news-items.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/news-items-webapp.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/featured-products.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/news/*/*/*/search.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/featured-products-webapp.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/*/countries.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"   />
+		<intercept-url pattern="/app/*/store/*/buyer/*/product-order-history.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"   />
+		<intercept-url pattern="/app/*/store/*/buyer/*/product-order-history-webapp.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/app/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/store/push-notify" access="hasRole('ROLE_USER')" />		
+		<intercept-url pattern="/push-notify" access="permitAll" />
+		<intercept-url pattern="/product-order/save"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/product-order-item/save"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/product-order-item-multiple/save"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/product-review-rating/save"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/product-order/*/notify"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/product-order-webapp/save" access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/product-order-item-webapp/save" access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/product-order-item-webapp-multiple/save" access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/product-order-webapp/*/notify" access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+	
+		<intercept-url pattern="/store/*/settings.json" access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/departments.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/store/*/products.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/department/*/categories.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/department/*/products.json"	 access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/store/*/department/*/products-paginated.json"	access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/store/*/department/*/category/*/products.json"		 access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/department/*/category/*/products-paginated.json"		access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')" />
+		<intercept-url pattern="/store/*/country/*/state/*/*.json"	 access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/gallery-images.json"  access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/gallery-images-webapp.json"	 access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		<intercept-url pattern="/store/*/news/*/search.json"	 access="hasRole('ROLE_OAUTH_USER') or hasRole('ROLE_ANONYMOUS')"  />
+		
+		<intercept-url pattern="/api/*/*.json" access="permitAll"		requires-channel="http" />
+		<intercept-url pattern="/api/*/*.xml" access="permitAll"	requires-channel="http" />
+		
+		<intercept-url pattern="/store/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/admin/login/**" access="permitAll" />
+		<intercept-url pattern="/account/login/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/store/create/galleryImages/**" access="permitAll"  />
+		
+		<intercept-url pattern="/account/user/**" access="permitAll"/>
+		<intercept-url pattern="/dwr/test/**" access="permitAll" />
+		<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/static/styles/**" access="permitAll" />
+		<intercept-url pattern="/*.html" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/*.htm" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/features/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/index/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/faqs/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/terms/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/press/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/contact/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/credits/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/blog/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/addons/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/buzz/**" access="permitAll" requires-channel="http"/>
+		<intercept-url pattern="/documentation/**" access="permitAll" requires-channel="http"/>
+			
+
+		<intercept-url pattern="/oauth/**" access="ROLE_USER" />
+    	<intercept-url pattern="/request_token_authorized.jsp" access="ROLE_USER" />
+
+		<form-login login-page="/account/login" default-target-url="/account/home"
+			authentication-failure-url="/account/login" />
+			
+		<logout logout-success-url="/account/login" />
+			
+		<remember-me  token-validity-seconds="31536000" data-source-ref="dataSource" 	/>
+		
+		<access-denied-handler error-page="/account/login" />
+
+		<!-- <session-management invalid-session-url="/account/login">
+			<concurrency-control max-sessions="10"
+				error-if-maximum-exceeded="false" />
+		</session-management> -->
+
+	</http>
+
+<beans:bean id="anonymousAuthFilter"
+    class="org.springframework.security.web.authentication.AnonymousAuthenticationFilter">
+  <beans:property name="key" value="wladimir"/>
+  <beans:property name="userAttribute" value="anonymousUser,ROLE_ANONYMOUS"/>
+</beans:bean>
+
+<beans:bean id="anonymousAuthenticationProvider"
+    class="org.springframework.security.authentication.AnonymousAuthenticationProvider">
+ <beans:property name="key" value="wladimir"/>
+</beans:bean>
+
+		<authentication-manager> 
+		 <authentication-provider user-service-ref="customConsumerDetailsService"> 
+	 		<password-encoder hash="md5"/> 
+		</authentication-provider> 
+	</authentication-manager> 
+
+	<oauth:provider consumer-details-service-ref="customConsumerDetailsService"
+                  auth-handler-ref="consumerBasedAuthenticationHandler"
+                  token-services-ref="tokenServices"
+                  request-token-url="/oauth/request_token"
+                  authenticate-token-url="/oauth/authorize"
+                  authentication-failed-url="/request_failed.jsp"
+                  access-granted-url="/request_token_authorized.jsp"
+                  access-token-url="/oauth/access_token"
+                  require10a="true"  />
+ 
+  <oauth:token-services id="tokenServices"/>
+ 
+</beans:beans>
+	

@@ -1,0 +1,6 @@
+# To use it as an eclipse project 
+mvn -Dwtpversion=2.0 -DdownloadSources compile eclipse:eclipse
+
+
+# To pakage it as war 
+mvn clean package

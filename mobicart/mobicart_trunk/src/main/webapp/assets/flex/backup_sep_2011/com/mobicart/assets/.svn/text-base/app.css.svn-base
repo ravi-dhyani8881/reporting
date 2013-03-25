@@ -1,0 +1,10 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@font-face {
+	src:url("fonts/HelveticaNeueBold.ttf");
+	fontFamily: "myHelv";
+	advancedAntiAliasing: true;
+	font-weight:bold;
+	
+}

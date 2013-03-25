@@ -1,0 +1,698 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.mobicart.dao.ProductDAO">-->
+<!--		-->
+<!--  <resultMap id="BaseResultMap" type="com.mobicart.model.Product">-->
+<!--    <result column="id" jdbcType="BIGINT" property="id" />-->
+<!--    <result column="user_id" jdbcType="BIGINT" property="userId" />-->
+<!--    <result column="store_id" jdbcType="BIGINT" property="storeId" />-->
+<!--    <result column="app_id" jdbcType="BIGINT" property="appId" />-->
+<!--    <result column="department_id" jdbcType="BIGINT" property="departmentId" />-->
+<!--    <result column="category_id" jdbcType="BIGINT" property="categoryId" />-->
+<!--    <result column="s_name" jdbcType="VARCHAR" property="sName" />-->
+<!--    <result column="f_price" jdbcType="DECIMAL" property="fPrice" />-->
+<!--    <result column="s_status" jdbcType="CHAR" property="sStatus" />-->
+<!--    <result column="f_discount" jdbcType="DECIMAL" property="fDiscount" />-->
+<!--    <result column="s_product_url" jdbcType="VARCHAR" property="sProductUrl" />-->
+<!--    <result column="s_video_title" jdbcType="VARCHAR" property="sVideoTitle" />-->
+<!--    <result column="s_video_url" jdbcType="VARCHAR" property="sVideoUrl" />-->
+<!--    <result column="s_sale_label" jdbcType="VARCHAR" property="sSaleLabel" />-->
+<!--    <result column="i_aggregate_quantity" jdbcType="INTEGER" property="iAggregateQuantity" />-->
+<!--    <result column="i_purchase_count" jdbcType="INTEGER" property="iPurchaseCount" />-->
+<!--    <result column="i_view_count" jdbcType="INTEGER" property="iViewCount" />-->
+<!--    <result column="b_stock_control" jdbcType="BIT" property="bStockControl" />-->
+<!--    <result column="b_use_options" jdbcType="BIT" property="bUseOptions" />-->
+<!--    <result column="b_taxable" jdbcType="BIT" property="bTaxable" />-->
+<!--    <result column="b_featured" jdbcType="BIT" property="bFeatured" />-->
+<!--    -->
+<!--    <collection property="productOptions" column="id" select="product_options.selectByProductId"   />-->
+<!--    <collection property="productImages"  column="id" select="product_images.selectByProductId" />-->
+<!--    <collection property="productReviews"  column="id" select="product_reviews.selectByProductId" />-->
+<!--	<collection property="categoryName"  column="category_id" select="categories.selectCategoryNameById" />-->
+<!--	<collection property="departmentName"  column="department_id" select="departments.selectDepartmentNameById" />-->
+<!--	<collection property="iToBeShippedQuantity"  column="id" select="product_options.selectToBeShippedQuantityByProductId" />-->
+<!--    <collection property="fAverageRating"  column="id" select="product_reviews.selectAverageRatingByProductId"/>-->
+<!--    <collection property="bTaxable" column="store_id" select="stores.selectIncludeTaxById" />-->
+<!--    -->
+<!--    -->
+<!--    -->
+<!--  </resultMap>-->
+<!--  -->
+<!--  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.mobicart.model.Product">-->
+<!--    <result column="s_description" jdbcType="LONGVARCHAR" property="sDescription" />-->
+<!--  </resultMap>-->
+<!--  -->
+<!--  -->
+<!--  <resultMap id="APIBaseResultMap" type="com.mobicart.model.api.ProductApi" >-->
+<!--    <result column="id" property="id" jdbcType="BIGINT" />-->
+<!--    <result column="user_id" property="userId" jdbcType="BIGINT" />-->
+<!--    <result column="store_id" property="storeId" jdbcType="BIGINT" />-->
+<!--    <result column="app_id" property="appId" jdbcType="BIGINT" />-->
+<!--    <result column="department_id" property="departmentId" jdbcType="BIGINT" />-->
+<!--    <result column="category_id" property="categoryId" jdbcType="BIGINT" />-->
+<!--    <result column="s_name" property="sName" jdbcType="VARCHAR" />-->
+<!--    <result column="f_price" property="fPrice" jdbcType="DECIMAL" />-->
+<!--    <result column="s_status" property="sStatus" jdbcType="CHAR" />-->
+<!--    <result column="f_discount" property="fDiscount" jdbcType="DECIMAL" />-->
+<!--    <result column="s_product_url" property="sProductUrl" jdbcType="VARCHAR" />-->
+<!--    <result column="s_video_title" property="sVideoTitle" jdbcType="VARCHAR" />-->
+<!--    <result column="s_video_url" property="sVideoUrl" jdbcType="VARCHAR" />-->
+<!--    <result column="s_sale_label" property="sSaleLabel" jdbcType="VARCHAR" />-->
+<!--    <result column="i_aggregate_quantity" property="iAggregateQuantity" jdbcType="INTEGER" />-->
+<!--    <result column="i_purchase_count" property="iPurchaseCount" jdbcType="INTEGER" />-->
+<!--    <result column="i_view_count" property="iViewCount" jdbcType="INTEGER" />-->
+<!--    <result column="b_stock_control" property="bStockControl" jdbcType="BIT" />-->
+<!--    <result column="b_use_options" property="bUseOptions" jdbcType="BIT" />-->
+<!--    <result column="b_featured" property="bFeatured" jdbcType="BIT" />-->
+<!--  </resultMap>-->
+<!--  -->
+<!--   <resultMap id="APIResultMapWithBLOBs" type="com.mobicart.model.api.ProductApi" extends="APIBaseResultMap" >-->
+<!--    <result column="s_description" property="sDescription" jdbcType="LONGVARCHAR" />-->
+<!--  </resultMap>-->
+<!--  -->
+<!--  -->
+<!--  <sql id="Example_Where_Clause">-->
+<!--    <where>-->
+<!--      <foreach collection="oredCriteria" item="criteria" separator="or">-->
+<!--        <if test="criteria.valid">-->
+<!--          <trim prefix="(" prefixOverrides="and" suffix=")">-->
+<!--            <foreach collection="criteria.criteria" item="criterion">-->
+<!--              <choose>-->
+<!--                <when test="criterion.noValue">-->
+<!--                  and ${criterion.condition}-->
+<!--                </when>-->
+<!--                <when test="criterion.singleValue">-->
+<!--                  and ${criterion.condition} #{criterion.value}-->
+<!--                </when>-->
+<!--                <when test="criterion.betweenValue">-->
+<!--                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}-->
+<!--                </when>-->
+<!--                <when test="criterion.listValue">-->
+<!--                  and ${criterion.condition}-->
+<!--                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">-->
+<!--                    #{listItem}-->
+<!--                  </foreach>-->
+<!--                </when>-->
+<!--              </choose>-->
+<!--            </foreach>-->
+<!--          </trim>-->
+<!--        </if>-->
+<!--      </foreach>-->
+<!--    </where>-->
+<!--  </sql>-->
+<!--  <sql id="Update_By_Example_Where_Clause">-->
+<!--    <where>-->
+<!--      <foreach collection="example.oredCriteria" item="criteria" separator="or">-->
+<!--        <if test="criteria.valid">-->
+<!--          <trim prefix="(" prefixOverrides="and" suffix=")">-->
+<!--            <foreach collection="criteria.criteria" item="criterion">-->
+<!--              <choose>-->
+<!--                <when test="criterion.noValue">-->
+<!--                  and ${criterion.condition}-->
+<!--                </when>-->
+<!--                <when test="criterion.singleValue">-->
+<!--                  and ${criterion.condition} #{criterion.value}-->
+<!--                </when>-->
+<!--                <when test="criterion.betweenValue">-->
+<!--                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}-->
+<!--                </when>-->
+<!--                <when test="criterion.listValue">-->
+<!--                  and ${criterion.condition}-->
+<!--                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">-->
+<!--                    #{listItem}-->
+<!--                  </foreach>-->
+<!--                </when>-->
+<!--              </choose>-->
+<!--            </foreach>-->
+<!--          </trim>-->
+<!--        </if>-->
+<!--      </foreach>-->
+<!--    </where>-->
+<!--  </sql>-->
+<!--  <sql id="Base_Column_List">-->
+<!--    id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status, -->
+<!--    f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity, -->
+<!--    i_purchase_count, i_view_count, b_stock_control, b_use_options, b_taxable, b_featured-->
+<!--  </sql>-->
+<!--  <sql id="Blob_Column_List">-->
+<!--    s_description-->
+<!--  </sql>-->
+<!--  -->
+<!--  <select id="selectByExampleWithBLOBs" parameterType="com.mobicart.dao.mybatis.models.ProductExample" resultMap="ResultMapWithBLOBs">-->
+<!--    select-->
+<!--    <if test="distinct">-->
+<!--      distinct-->
+<!--    </if>-->
+<!--    <include refid="Base_Column_List" />-->
+<!--    ,-->
+<!--    <include refid="Blob_Column_List" />-->
+<!--    from products-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Example_Where_Clause" />-->
+<!--    </if>-->
+<!--    <if test="orderByClause != null">-->
+<!--      order by $orderByClause$-->
+<!--    </if>-->
+<!--  </select>-->
+<!--  -->
+<!--  <select id="selectByExample" parameterType="com.mobicart.dao.mybatis.models.ProductExample" resultMap="BaseResultMap">-->
+<!--    select-->
+<!--    <if test="distinct">-->
+<!--      distinct-->
+<!--    </if>-->
+<!--    <include refid="Base_Column_List" />-->
+<!--    from products-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Example_Where_Clause" />-->
+<!--    </if>-->
+<!--    <if test="orderByClause != null">-->
+<!--      order by ${orderByClause}-->
+<!--    </if>-->
+<!--  </select>-->
+<!--  -->
+<!--  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs" flushCache="false" useCache="true">-->
+<!--    select -->
+<!--    <include refid="Base_Column_List" />-->
+<!--    ,-->
+<!--    <include refid="Blob_Column_List" />-->
+<!--    from products-->
+<!--    where id = #{id,jdbcType=BIGINT}-->
+<!--  </select>-->
+<!--  -->
+ 
+<!--  -->
+<!--  <select id="apiSelectByExampleWithBLOBs" resultMap="APIResultMapWithBLOBs" parameterType="com.mobicart.model.ProductExample" >-->
+<!--   select-->
+<!--    <if test="distinct">-->
+<!--      distinct-->
+<!--    </if>-->
+<!--    <include refid="Base_Column_List" />-->
+<!--    ,-->
+<!--    <include refid="Blob_Column_List" />-->
+<!--    from products-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Example_Where_Clause" />-->
+<!--    </if>-->
+<!--    <if test="orderByClause != null">-->
+<!--      order by ${orderByClause}-->
+<!--    </if>-->
+<!--  </select>-->
+<!--  -->
+<!--  -->
+<!--   <select id="apiSelectByPrimaryKey" resultMap="APIResultMapWithBLOBs" parameterType="com.mobicart.model.Product" >-->
+<!--   select-->
+<!--    <if test="distinct">-->
+<!--      distinct-->
+<!--    </if>-->
+<!--    <include refid="Base_Column_List" />-->
+<!--    ,-->
+<!--    <include refid="Blob_Column_List" />-->
+<!--    from products-->
+<!--    where id = #{id,jdbcType=BIGINT}-->
+<!--  </select>-->
+<!--  -->
+<!--  -->
+<!--  <statement id="selectPurchasedByUserId" parametertype="long" resultMap="ResultMapWithBLOBs">-->
+<!--     select distinct(p.id), p.user_id, p.store_id, p.app_id, p.department_id, p.category_id, p.s_name, p.s_description,-->
+<!--      p.f_price, p.s_status, p.f_discount, p.s_product_url, p.s_video_title, p.s_video_url, p.s_sale_label,-->
+<!--      p.i_purchase_count, p.i_view_count,p.b_use_options, p.b_taxable, p.b_featured, p.i_aggregate_quantity, p.b_stock_control-->
+<!--    from products p , product_orders po-->
+<!--     where p.user_id = #value# and p.store_id=po.store_id-->
+<!--  </statement>-->
+<!--  -->
+<!--  -->
+<!--  <select id="selectAll" parameterType="com.mobicart.model.Product" resultMap="baseResultMap">-->
+<!--   select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,-->
+<!--      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,-->
+<!--      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description-->
+<!--    from products-->
+<!--  </select>-->
+<!---->
+<!---->
+<!--	<statement id="selectProductsByCategory" parameterType="long" resultMap="ResultMapWithBLOBs">-->
+<!--    select id, user_id, store_id, app_id, department_id, category_id, s_name, f_price, s_status,-->
+<!--      f_discount, s_product_url, s_video_title, s_video_url, s_sale_label, i_aggregate_quantity,-->
+<!--      i_purchase_count, i_view_count, b_stock_control,b_use_options, b_taxable, b_featured, s_description-->
+<!--     from products -->
+<!--     where category_id = #value#-->
+<!--  </statement>-->
+<!--  -->
+<!---->
+<!--	<statement id="selectProductNameById" resultType="String" parameterType="long" >-->
+<!--    	 select  s_name-->
+<!--     	from products -->
+<!--     	where id = #value#-->
+<!--  	</statement>-->
+<!--    -->
+<!--  -->
+<!--  <statement id="selectProductPriceAfterDiscountById" resultType="java.math.BigDecimal" parameterType="java.lang.Long" >-->
+<!--    	select  ROUND((f_price-(f_price*f_discount)/100),2) from products  -->
+<!--    	where id = #value#-->
+<!--  	</statement>-->
+<!--    -->
+<!--  -->
+<!--  -->
+<!--  	<statement id="selectProductCountByCategory" parameterType="long" resultType="java.lang.Integer">-->
+<!--  			select count(*) from  products where category_id = #value# and s_status !='hidden'-->
+<!--  	</statement>	-->
+<!--  -->
+<!--  -->
+<!--  <statement id="selectProductCountByDepartment" parameterType="long" resultType="java.lang.Integer">-->
+<!--  			select count(*) from  products where department_id = #value# and s_status !='hidden'-->
+<!--  	</statement>-->
+<!--  -->
+<!--  	<statement id="selectProductCountByUserId" parameterType="long" resultType="java.lang.Integer">-->
+<!--  			select count(*) from  products where user_id = #value#-->
+<!--  	</statement>-->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">-->
+<!--    delete from products-->
+<!--    where id = #{id,jdbcType=BIGINT}-->
+<!--  </delete>-->
+<!--  -->
+<!--  <delete id="deleteByExample" parameterType="com.mobicart.dao.mybatis.models.ProductExample">-->
+<!--    delete from products-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Example_Where_Clause" />-->
+<!--    </if>-->
+<!--  </delete>-->
+<!--  -->
+<!--  <insert id="insert" parameterType="com.mobicart.dao.mybatis.models.Product">-->
+<!--    insert into products (user_id, store_id, app_id, -->
+<!--      department_id, category_id, s_name, -->
+<!--      f_price, s_status, f_discount, -->
+<!--      s_product_url, s_video_title, s_video_url, -->
+<!--      s_sale_label, i_aggregate_quantity, i_purchase_count, -->
+<!--      i_view_count, b_stock_control, b_use_options, -->
+<!--      b_taxable, b_featured, s_description-->
+<!--      )-->
+<!--    values (#{userId,jdbcType=BIGINT}, #{storeId,jdbcType=BIGINT}, #{appId,jdbcType=BIGINT}, -->
+<!--      #{departmentId,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}, #{sName,jdbcType=VARCHAR}, -->
+<!--      #{fPrice,jdbcType=DECIMAL}, #{sStatus,jdbcType=CHAR}, #{fDiscount,jdbcType=DECIMAL}, -->
+<!--      #{sProductUrl,jdbcType=VARCHAR}, #{sVideoTitle,jdbcType=VARCHAR}, #{sVideoUrl,jdbcType=VARCHAR}, -->
+<!--      #{sSaleLabel,jdbcType=VARCHAR}, #{iAggregateQuantity,jdbcType=INTEGER}, #{iPurchaseCount,jdbcType=INTEGER}, -->
+<!--      #{iViewCount,jdbcType=INTEGER}, #{bStockControl,jdbcType=BIT}, #{bUseOptions,jdbcType=BIT}, -->
+<!--      #{bTaxable,jdbcType=BIT}, #{bFeatured,jdbcType=BIT}, #{sDescription,jdbcType=LONGVARCHAR}-->
+<!--      )-->
+<!--    <selectKey keyProperty="id" resultType="java.lang.Long">-->
+<!--      SELECT LAST_INSERT_ID()-->
+<!--    </selectKey>-->
+<!--  </insert>-->
+<!-- -->
+<!--  <insert id="insertSelective" parameterType="com.mobicart.dao.mybatis.models.Product">-->
+<!--    insert into products-->
+<!--    <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--      <if test="userId != null">-->
+<!--        user_id,-->
+<!--      </if>-->
+<!--      <if test="storeId != null">-->
+<!--        store_id,-->
+<!--      </if>-->
+<!--      <if test="appId != null">-->
+<!--        app_id,-->
+<!--      </if>-->
+<!--      <if test="departmentId != null">-->
+<!--        department_id,-->
+<!--      </if>-->
+<!--      <if test="categoryId != null">-->
+<!--        category_id,-->
+<!--      </if>-->
+<!--      <if test="sName != null">-->
+<!--        s_name,-->
+<!--      </if>-->
+<!--      <if test="fPrice != null">-->
+<!--        f_price,-->
+<!--      </if>-->
+<!--      <if test="sStatus != null">-->
+<!--        s_status,-->
+<!--      </if>-->
+<!--      <if test="fDiscount != null">-->
+<!--        f_discount,-->
+<!--      </if>-->
+<!--      <if test="sProductUrl != null">-->
+<!--        s_product_url,-->
+<!--      </if>-->
+<!--      <if test="sVideoTitle != null">-->
+<!--        s_video_title,-->
+<!--      </if>-->
+<!--      <if test="sVideoUrl != null">-->
+<!--        s_video_url,-->
+<!--      </if>-->
+<!--      <if test="sSaleLabel != null">-->
+<!--        s_sale_label,-->
+<!--      </if>-->
+<!--      <if test="iAggregateQuantity != null">-->
+<!--        i_aggregate_quantity,-->
+<!--      </if>-->
+<!--      <if test="iPurchaseCount != null">-->
+<!--        i_purchase_count,-->
+<!--      </if>-->
+<!--      <if test="iViewCount != null">-->
+<!--        i_view_count,-->
+<!--      </if>-->
+<!--      <if test="bStockControl != null">-->
+<!--        b_stock_control,-->
+<!--      </if>-->
+<!--      <if test="bUseOptions != null">-->
+<!--        b_use_options,-->
+<!--      </if>-->
+<!--      <if test="bTaxable != null">-->
+<!--        b_taxable,-->
+<!--      </if>-->
+<!--      <if test="bFeatured != null">-->
+<!--        b_featured,-->
+<!--      </if>-->
+<!--      <if test="sDescription != null">-->
+<!--        s_description,-->
+<!--      </if>-->
+<!--    </trim>-->
+<!--    <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--      <if test="userId != null">-->
+<!--        #{userId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="storeId != null">-->
+<!--        #{storeId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="appId != null">-->
+<!--        #{appId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="departmentId != null">-->
+<!--        #{departmentId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="categoryId != null">-->
+<!--        #{categoryId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="sName != null">-->
+<!--        #{sName,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="fPrice != null">-->
+<!--        #{fPrice,jdbcType=DECIMAL},-->
+<!--      </if>-->
+<!--      <if test="sStatus != null">-->
+<!--        #{sStatus,jdbcType=CHAR},-->
+<!--      </if>-->
+<!--      <if test="fDiscount != null">-->
+<!--        #{fDiscount,jdbcType=DECIMAL},-->
+<!--      </if>-->
+<!--      <if test="sProductUrl != null">-->
+<!--        #{sProductUrl,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="sVideoTitle != null">-->
+<!--        #{sVideoTitle,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="sVideoUrl != null">-->
+<!--        #{sVideoUrl,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="sSaleLabel != null">-->
+<!--        #{sSaleLabel,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="iAggregateQuantity != null">-->
+<!--        #{iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="iPurchaseCount != null">-->
+<!--        #{iPurchaseCount,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="iViewCount != null">-->
+<!--        #{iViewCount,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="bStockControl != null">-->
+<!--        #{bStockControl,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="bUseOptions != null">-->
+<!--        #{bUseOptions,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="bTaxable != null">-->
+<!--        #{bTaxable,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="bFeatured != null">-->
+<!--        #{bFeatured,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="sDescription != null">-->
+<!--        #{sDescription,jdbcType=LONGVARCHAR},-->
+<!--      </if>-->
+<!--    </trim>-->
+<!--    <selectKey keyProperty="id" resultType="java.lang.Long">-->
+<!--      SELECT LAST_INSERT_ID()-->
+<!--    </selectKey>-->
+<!--  </insert>-->
+<!--  <select id="countByExample" parameterType="com.mobicart.dao.mybatis.models.ProductExample" resultType="java.lang.Integer">-->
+<!--    select count(*) from products-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Example_Where_Clause" />-->
+<!--    </if>-->
+<!--  </select>-->
+<!--  -->
+<!--  <update id="updateByExampleSelective" parameterType="map">-->
+<!--    update products-->
+<!--    <set>-->
+<!--      <if test="record.id != null">-->
+<!--        id = #{record.id,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="record.userId != null">-->
+<!--        user_id = #{record.userId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="record.storeId != null">-->
+<!--        store_id = #{record.storeId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="record.appId != null">-->
+<!--        app_id = #{record.appId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="record.departmentId != null">-->
+<!--        department_id = #{record.departmentId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="record.categoryId != null">-->
+<!--        category_id = #{record.categoryId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="record.sName != null">-->
+<!--        s_name = #{record.sName,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="record.fPrice != null">-->
+<!--        f_price = #{record.fPrice,jdbcType=DECIMAL},-->
+<!--      </if>-->
+<!--      <if test="record.sStatus != null">-->
+<!--        s_status = #{record.sStatus,jdbcType=CHAR},-->
+<!--      </if>-->
+<!--      <if test="record.fDiscount != null">-->
+<!--        f_discount = #{record.fDiscount,jdbcType=DECIMAL},-->
+<!--      </if>-->
+<!--      <if test="record.sProductUrl != null">-->
+<!--        s_product_url = #{record.sProductUrl,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="record.sVideoTitle != null">-->
+<!--        s_video_title = #{record.sVideoTitle,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="record.sVideoUrl != null">-->
+<!--        s_video_url = #{record.sVideoUrl,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="record.sSaleLabel != null">-->
+<!--        s_sale_label = #{record.sSaleLabel,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="record.iAggregateQuantity != null">-->
+<!--        i_aggregate_quantity = #{record.iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="record.iPurchaseCount != null">-->
+<!--        i_purchase_count = #{record.iPurchaseCount,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="record.iViewCount != null">-->
+<!--        i_view_count = #{record.iViewCount,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="record.bStockControl != null">-->
+<!--        b_stock_control = #{record.bStockControl,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="record.bUseOptions != null">-->
+<!--        b_use_options = #{record.bUseOptions,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="record.bTaxable != null">-->
+<!--        b_taxable = #{record.bTaxable,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="record.bFeatured != null">-->
+<!--        b_featured = #{record.bFeatured,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="record.sDescription != null">-->
+<!--        s_description = #{record.sDescription,jdbcType=LONGVARCHAR},-->
+<!--      </if>-->
+<!--    </set>-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Update_By_Example_Where_Clause" />-->
+<!--    </if>-->
+<!--  </update>-->
+<!--  -->
+<!--  <update id="updateByExampleWithBLOBs" parameterType="map">-->
+<!--    update products-->
+<!--    set id = #{record.id,jdbcType=BIGINT},-->
+<!--      user_id = #{record.userId,jdbcType=BIGINT},-->
+<!--      store_id = #{record.storeId,jdbcType=BIGINT},-->
+<!--      app_id = #{record.appId,jdbcType=BIGINT},-->
+<!--      department_id = #{record.departmentId,jdbcType=BIGINT},-->
+<!--      category_id = #{record.categoryId,jdbcType=BIGINT},-->
+<!--      s_name = #{record.sName,jdbcType=VARCHAR},-->
+<!--      f_price = #{record.fPrice,jdbcType=DECIMAL},-->
+<!--      s_status = #{record.sStatus,jdbcType=CHAR},-->
+<!--      f_discount = #{record.fDiscount,jdbcType=DECIMAL},-->
+<!--      s_product_url = #{record.sProductUrl,jdbcType=VARCHAR},-->
+<!--      s_video_title = #{record.sVideoTitle,jdbcType=VARCHAR},-->
+<!--      s_video_url = #{record.sVideoUrl,jdbcType=VARCHAR},-->
+<!--      s_sale_label = #{record.sSaleLabel,jdbcType=VARCHAR},-->
+<!--      i_aggregate_quantity = #{record.iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      i_purchase_count = #{record.iPurchaseCount,jdbcType=INTEGER},-->
+<!--      i_view_count = #{record.iViewCount,jdbcType=INTEGER},-->
+<!--      b_stock_control = #{record.bStockControl,jdbcType=BIT},-->
+<!--      b_use_options = #{record.bUseOptions,jdbcType=BIT},-->
+<!--      b_taxable = #{record.bTaxable,jdbcType=BIT},-->
+<!--      b_featured = #{record.bFeatured,jdbcType=BIT},-->
+<!--      s_description = #{record.sDescription,jdbcType=LONGVARCHAR}-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Update_By_Example_Where_Clause" />-->
+<!--    </if>-->
+<!--  </update>-->
+<!--  <update id="updateByExample" parameterType="map">-->
+<!--    update products-->
+<!--    set id = #{record.id,jdbcType=BIGINT},-->
+<!--      user_id = #{record.userId,jdbcType=BIGINT},-->
+<!--      store_id = #{record.storeId,jdbcType=BIGINT},-->
+<!--      app_id = #{record.appId,jdbcType=BIGINT},-->
+<!--      department_id = #{record.departmentId,jdbcType=BIGINT},-->
+<!--      category_id = #{record.categoryId,jdbcType=BIGINT},-->
+<!--      s_name = #{record.sName,jdbcType=VARCHAR},-->
+<!--      f_price = #{record.fPrice,jdbcType=DECIMAL},-->
+<!--      s_status = #{record.sStatus,jdbcType=CHAR},-->
+<!--      f_discount = #{record.fDiscount,jdbcType=DECIMAL},-->
+<!--      s_product_url = #{record.sProductUrl,jdbcType=VARCHAR},-->
+<!--      s_video_title = #{record.sVideoTitle,jdbcType=VARCHAR},-->
+<!--      s_video_url = #{record.sVideoUrl,jdbcType=VARCHAR},-->
+<!--      s_sale_label = #{record.sSaleLabel,jdbcType=VARCHAR},-->
+<!--      i_aggregate_quantity = #{record.iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      i_purchase_count = #{record.iPurchaseCount,jdbcType=INTEGER},-->
+<!--      i_view_count = #{record.iViewCount,jdbcType=INTEGER},-->
+<!--      b_stock_control = #{record.bStockControl,jdbcType=BIT},-->
+<!--      b_use_options = #{record.bUseOptions,jdbcType=BIT},-->
+<!--      b_taxable = #{record.bTaxable,jdbcType=BIT},-->
+<!--      b_featured = #{record.bFeatured,jdbcType=BIT}-->
+<!--    <if test="_parameter != null">-->
+<!--      <include refid="Update_By_Example_Where_Clause" />-->
+<!--    </if>-->
+<!--  </update>-->
+<!--  <update id="updateByPrimaryKeySelective" parameterType="com.mobicart.dao.mybatis.models.Product">-->
+<!--     update products-->
+<!--    <set>-->
+<!--      <if test="userId != null">-->
+<!--        user_id = #{userId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="storeId != null">-->
+<!--        store_id = #{storeId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="appId != null">-->
+<!--        app_id = #{appId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="departmentId != null">-->
+<!--        department_id = #{departmentId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="categoryId != null">-->
+<!--        category_id = #{categoryId,jdbcType=BIGINT},-->
+<!--      </if>-->
+<!--      <if test="sName != null">-->
+<!--        s_name = #{sName,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="fPrice != null">-->
+<!--        f_price = #{fPrice,jdbcType=DECIMAL},-->
+<!--      </if>-->
+<!--      <if test="sStatus != null">-->
+<!--        s_status = #{sStatus,jdbcType=CHAR},-->
+<!--      </if>-->
+<!--      <if test="fDiscount != null">-->
+<!--        f_discount = #{fDiscount,jdbcType=DECIMAL},-->
+<!--      </if>-->
+<!--      <if test="sProductUrl != null">-->
+<!--        s_product_url = #{sProductUrl,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="sVideoTitle != null">-->
+<!--        s_video_title = #{sVideoTitle,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="sVideoUrl != null">-->
+<!--        s_video_url = #{sVideoUrl,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="sSaleLabel != null">-->
+<!--        s_sale_label = #{sSaleLabel,jdbcType=VARCHAR},-->
+<!--      </if>-->
+<!--      <if test="iAggregateQuantity != null">-->
+<!--        i_aggregate_quantity = #{iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="iPurchaseCount != null">-->
+<!--        i_purchase_count = #{iPurchaseCount,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="iViewCount != null">-->
+<!--        i_view_count = #{iViewCount,jdbcType=INTEGER},-->
+<!--      </if>-->
+<!--      <if test="bStockControl != null">-->
+<!--        b_stock_control = #{bStockControl,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="bUseOptions != null">-->
+<!--        b_use_options = #{bUseOptions,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="bTaxable != null">-->
+<!--        b_taxable = #{bTaxable,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="bFeatured != null">-->
+<!--        b_featured = #{bFeatured,jdbcType=BIT},-->
+<!--      </if>-->
+<!--      <if test="sDescription != null">-->
+<!--        s_description = #{sDescription,jdbcType=LONGVARCHAR},-->
+<!--      </if>-->
+<!--    </set>-->
+<!--    where id = #{id,jdbcType=BIGINT}-->
+<!--  </update>-->
+<!--  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mobicart.dao.mybatis.models.Product">-->
+<!--    update products-->
+<!--    set user_id = #{userId,jdbcType=BIGINT},-->
+<!--      store_id = #{storeId,jdbcType=BIGINT},-->
+<!--      app_id = #{appId,jdbcType=BIGINT},-->
+<!--      department_id = #{departmentId,jdbcType=BIGINT},-->
+<!--      category_id = #{categoryId,jdbcType=BIGINT},-->
+<!--      s_name = #{sName,jdbcType=VARCHAR},-->
+<!--      f_price = #{fPrice,jdbcType=DECIMAL},-->
+<!--      s_status = #{sStatus,jdbcType=CHAR},-->
+<!--      f_discount = #{fDiscount,jdbcType=DECIMAL},-->
+<!--      s_product_url = #{sProductUrl,jdbcType=VARCHAR},-->
+<!--      s_video_title = #{sVideoTitle,jdbcType=VARCHAR},-->
+<!--      s_video_url = #{sVideoUrl,jdbcType=VARCHAR},-->
+<!--      s_sale_label = #{sSaleLabel,jdbcType=VARCHAR},-->
+<!--      i_aggregate_quantity = #{iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      i_purchase_count = #{iPurchaseCount,jdbcType=INTEGER},-->
+<!--      i_view_count = #{iViewCount,jdbcType=INTEGER},-->
+<!--      b_stock_control = #{bStockControl,jdbcType=BIT},-->
+<!--      b_use_options = #{bUseOptions,jdbcType=BIT},-->
+<!--      b_taxable = #{bTaxable,jdbcType=BIT},-->
+<!--      b_featured = #{bFeatured,jdbcType=BIT},-->
+<!--      s_description = #{sDescription,jdbcType=LONGVARCHAR}-->
+<!--    where id = #{id,jdbcType=BIGINT}-->
+<!--  </update>-->
+<!--  <update id="updateByPrimaryKey" parameterType="com.mobicart.dao.mybatis.models.Product">-->
+<!--    update products-->
+<!--    set user_id = #{userId,jdbcType=BIGINT},-->
+<!--      store_id = #{storeId,jdbcType=BIGINT},-->
+<!--      app_id = #{appId,jdbcType=BIGINT},-->
+<!--      department_id = #{departmentId,jdbcType=BIGINT},-->
+<!--      category_id = #{categoryId,jdbcType=BIGINT},-->
+<!--      s_name = #{sName,jdbcType=VARCHAR},-->
+<!--      f_price = #{fPrice,jdbcType=DECIMAL},-->
+<!--      s_status = #{sStatus,jdbcType=CHAR},-->
+<!--      f_discount = #{fDiscount,jdbcType=DECIMAL},-->
+<!--      s_product_url = #{sProductUrl,jdbcType=VARCHAR},-->
+<!--      s_video_title = #{sVideoTitle,jdbcType=VARCHAR},-->
+<!--      s_video_url = #{sVideoUrl,jdbcType=VARCHAR},-->
+<!--      s_sale_label = #{sSaleLabel,jdbcType=VARCHAR},-->
+<!--      i_aggregate_quantity = #{iAggregateQuantity,jdbcType=INTEGER},-->
+<!--      i_purchase_count = #{iPurchaseCount,jdbcType=INTEGER},-->
+<!--      i_view_count = #{iViewCount,jdbcType=INTEGER},-->
+<!--      b_stock_control = #{bStockControl,jdbcType=BIT},-->
+<!--      b_use_options = #{bUseOptions,jdbcType=BIT},-->
+<!--      b_taxable = #{bTaxable,jdbcType=BIT},-->
+<!--      b_featured = #{bFeatured,jdbcType=BIT}-->
+<!--    where id = #{id,jdbcType=BIGINT}-->
+<!--  </update>-->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--</mapper>-->

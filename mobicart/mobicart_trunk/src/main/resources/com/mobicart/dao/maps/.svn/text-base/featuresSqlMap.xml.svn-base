@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="features" >
+  <resultMap id="baseResultMap" class="com.mobicart.model.Feature" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="s_description" property="sDescription" jdbcType="VARCHAR" />
+    <result column="s_iphone_handle" property="sIphoneHandle" jdbcType="VARCHAR" />
+    <result column="f_fee" property="fFee" jdbcType="REAL" />
+    <result column="b_enabled" property="bEnabled" jdbcType="BIT" />
+  </resultMap>
+
+
+	<select id="selectAll" parameterClass="com.mobicart.model.Feature" resultMap="baseResultMap">
+    	select * from features order by id
+  	</select>
+
+
+	<select id="selectByAppId" parameterClass="long" resultMap="baseResultMap">
+    	select id, s_name, s_description, s_iphone_handle, f_fee, b_enabled
+    	from features 
+    	LEFT JOIN app_features
+    	on features.id=app_features.feature_id
+    	where app_features.app_id=#value#
+    	order by features.id
+ 	</select>
+  
+
+ </sqlMap> 

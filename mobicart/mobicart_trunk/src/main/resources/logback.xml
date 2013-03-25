@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss} %5level [%file:%line] - %msg%n</Pattern>
+		</layout>
+	</appender>
+	
+	<appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+		<SMTPHost>smtp.emailsrvr.com</SMTPHost>
+		<From>admin@mobi-cart.com</From>
+		<To>narender.rana@netsolutionsindia.com</To>
+		<Subject>local-instance ${HOSTNAME}:  %logger{20} - %m</Subject>
+		<Username>smtp@mobi-cart.com</Username>
+		<Password>AdmiN12</Password>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date %-5level %logger{35} - %message%n</Pattern>
+		</layout>
+		<layout class="ch.qos.logback.classic.html.HTMLLayout"/>
+	</appender>
+
+	<appender name="R"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<File>${user.dir}/logs/mobicart.log</File>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d %p - %m%n</Pattern>
+		</layout>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<maxIndex>4</maxIndex>
+			<FileNamePattern>${user.dir}/logs/mobicart.log.%i</FileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>500KB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+
+	
+
+	<logger name="com.mobicart">
+		<level value="error" />
+	</logger>
+
+	<logger name="com.mobicart.web">
+		<level value="debug" />
+	</logger>
+
+
+	<logger name="com.mobicart.service.ImplStoreService">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.mobicart.web.internal">
+		<level value="debug" />
+	</logger>
+
+	<logger name="com.mobicart.web.app">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.mobicart.web.app.AppController">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.mobicart.web.internal.BackroomWebServiceController">
+		<level value="debug" />
+	</logger>
+
+	
+	<logger name="com.mobicart.web.StoreController">
+		<level value="debug" />
+	</logger>
+
+	<logger name="com.mobicart.web.FileUploadController">
+		<level value="debug" />
+	</logger>
+
+	<logger name="com.mobicart.util.client">
+		<level value="debug" />
+	</logger>
+
+	<logger name="javapns">
+		<level value="info" />
+	</logger>
+
+
+	<logger name="org.springframework.security" >
+		<level value="error" />
+	</logger>
+
+	<logger name="com.mobicart.util.MagicalPower">
+	
+		<level value="all" />
+		
+	</logger>
+	  
+	<logger name="com.mobicart.web.account.UserController">
+        <level value="all" />
+
+        </logger>
+	  
+	  
+	<logger name="com.mobicart.util.CoachBaseCacheManager">
+	
+		<level value="all" />
+		
+	</logger>  
+   
+    <logger name="com.mobicart.util.FeedParserUtils" >
+		<level value="all" />
+	</logger>
+	<logger name="com.mobicart.bo.PushNotificationBO">
+		<level value="debug" />
+	</logger>
+
+    
+	<root level="error">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="EMAIL" />
+		<appender-ref ref="R" />
+	</root>
+
+
+<!--mybatis logging -->
+<logger name="org.apache.ibatis">
+      <level value="debug"       />
+      <appender-ref ref="db_log" />
+    </logger>
+
+    <logger name="java.sql">
+      <level value="debug"       />
+      <appender-ref ref="db_log" />
+    </logger>
+
+    <logger name="java.sql.Statement">
+      <level value="debug"       />
+      <appender-ref ref="db_log" />
+    </logger> 
+    <!-- end -->
+
+</configuration>

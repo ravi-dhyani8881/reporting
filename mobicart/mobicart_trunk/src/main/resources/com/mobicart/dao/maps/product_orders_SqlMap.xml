@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="product_orders">
+  <resultMap class="com.mobicart.model.ProductOrder" id="BaseResultMap">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="merchant_id" jdbcType="BIGINT" property="merchantId" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="app_id" jdbcType="BIGINT" property="appId" />
+    <result column="s_merchant_paypal_email" jdbcType="VARCHAR" property="sMerchantPaypalEmail" />
+    <result column="f_amount" jdbcType="DECIMAL" property="fAmount" />
+    <result column="f_shipping_amount" jdbcType="DECIMAL" property="fShippingAmount" />
+    <result column="f_tax_amount" jdbcType="DECIMAL" property="fTaxAmount" />
+    <result column="f_total_amount" jdbcType="DECIMAL" property="fTotalAmount" />
+    <result column="s_buyer_name" jdbcType="VARCHAR" property="sBuyerName" />
+    <result column="s_buyer_email" jdbcType="VARCHAR" property="sBuyerEmail" />
+    <result column="i_buyer_phone" jdbcType="BIGINT" property="iBuyerPhone" />
+    <result column="s_shipping_street" jdbcType="VARCHAR" property="sShippingStreet" />
+    <result column="s_shipping_city" jdbcType="VARCHAR" property="sShippingCity" />
+    <result column="s_shipping_state" jdbcType="VARCHAR" property="sShippingState" />
+    <result column="s_shipping_postal_code" jdbcType="VARCHAR" property="sShippingPostalCode" />
+    <result column="s_shipping_country" jdbcType="VARCHAR" property="sShippingCountry" />
+    <result column="s_billing_street" jdbcType="VARCHAR" property="sBillingStreet" />
+    <result column="s_billing_city" jdbcType="VARCHAR" property="sBillingCity" />
+    <result column="s_billing_state" jdbcType="VARCHAR" property="sBillingState" />
+    <result column="s_billing_postal_code" jdbcType="VARCHAR" property="sBillingPostalCode" />
+    <result column="s_billing_country" jdbcType="VARCHAR" property="sBillingCountry" />
+    <result column="s_status" jdbcType="CHAR" property="sStatus" />
+    <result column="d_order_date" jdbcType="TIMESTAMP" property="dOrderDate" />
+    <result property="productOrderItems" column="id" select="product_order_items.selectByOrderId" />
+  </resultMap>
+  
+
+  <resultMap  id="APIResultMap" class="com.mobicart.model.ProductOrder" >
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="merchant_id" jdbcType="BIGINT" property="merchantId" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="app_id" jdbcType="BIGINT" property="appId" />
+    <result column="s_merchant_paypal_email" jdbcType="VARCHAR" property="sMerchantPaypalEmail" />
+    <result column="f_amount" jdbcType="DECIMAL" property="fAmount" />
+    <result column="f_shipping_amount" jdbcType="DECIMAL" property="fShippingAmount" />
+    <result column="f_tax_amount" jdbcType="DECIMAL" property="fTaxAmount" />
+    <result column="f_total_amount" jdbcType="DECIMAL" property="fTotalAmount" />
+    <result column="s_buyer_name" jdbcType="VARCHAR" property="sBuyerName" />
+    <result column="s_buyer_email" jdbcType="VARCHAR" property="sBuyerEmail" />
+    <result column="i_buyer_phone" jdbcType="BIGINT" property="iBuyerPhone" />
+    <result column="s_shipping_street" jdbcType="VARCHAR" property="sShippingStreet" />
+    <result column="s_shipping_city" jdbcType="VARCHAR" property="sShippingCity" />
+    <result column="s_shipping_state" jdbcType="VARCHAR" property="sShippingState" />
+    <result column="s_shipping_postal_code" jdbcType="VARCHAR" property="sShippingPostalCode" />
+    <result column="s_shipping_country" jdbcType="VARCHAR" property="sShippingCountry" />
+    <result column="s_billing_street" jdbcType="VARCHAR" property="sBillingStreet" />
+    <result column="s_billing_city" jdbcType="VARCHAR" property="sBillingCity" />
+    <result column="s_billing_state" jdbcType="VARCHAR" property="sBillingState" />
+    <result column="s_billing_postal_code" jdbcType="VARCHAR" property="sBillingPostalCode" />
+    <result column="s_billing_country" jdbcType="VARCHAR" property="sBillingCountry" />
+    <result column="s_status" jdbcType="CHAR" property="sStatus" />
+    <result column="d_order_date" jdbcType="TIMESTAMP" property="dOrderDate" />
+    <result property="productOrderItems" column="id" select="product_order_items.selectByOrderId" />
+  </resultMap>
+  
+  
+  <resultMap  id="apiMap" class="com.mobicart.model.api.ProductOrderApi" >
+    <result column="id" jdbcType="BIGINT" property="orderId" />
+    <result column="merchant_id" jdbcType="BIGINT" property="merchantId" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="s_merchant_paypal_email" jdbcType="VARCHAR" property="merchantPayPalEmail" />
+    <result column="f_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="f_shipping_amount" jdbcType="DECIMAL" property="orderShippingAmount" />
+    <result column="f_tax_amount" jdbcType="DECIMAL" property="orderTaxAmount" />
+    <result column="f_total_amount" jdbcType="DECIMAL" property="orderGrandTotalAmount" />
+    <result column="s_buyer_name" jdbcType="VARCHAR" property="buyerName" />
+    <result column="s_buyer_email" jdbcType="VARCHAR" property="buyerEmail" />
+    <result column="i_buyer_phone" jdbcType="BIGINT" property="buyerPhone" />
+    <result column="s_shipping_street" jdbcType="VARCHAR" property="shippingStreet" />
+    <result column="s_shipping_city" jdbcType="VARCHAR" property="shippingCity" />
+    <result column="s_shipping_state" jdbcType="VARCHAR" property="shippingState" />
+    <result column="s_shipping_postal_code" jdbcType="VARCHAR" property="shippingPostalCode" />
+    <result column="s_shipping_country" jdbcType="VARCHAR" property="shippingCountry" />
+    <result column="s_billing_street" jdbcType="VARCHAR" property="billingStreet" />
+    <result column="s_billing_city" jdbcType="VARCHAR" property="billingCity" />
+    <result column="s_billing_state" jdbcType="VARCHAR" property="billingState" />
+    <result column="s_billing_postal_code" jdbcType="VARCHAR" property="billingPostalCode" />
+    <result column="s_billing_country" jdbcType="VARCHAR" property="billingCountry" />
+    <result column="s_status" jdbcType="CHAR" property="orderStatus" />
+    <result column="d_order_date" jdbcType="TIMESTAMP" property="orderDate" />
+    <result property="productOrderItems" column="id" select="product_order_items.selectByOrderIdForApi" />
+  </resultMap>
+  
+  
+  
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    <iterate conjunction="or" prepend="where" property="oredCriteria" removeFirstPrepend="iterate">
+      <isEqual compareValue="true" property="oredCriteria[].valid">
+        (
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithoutValue">
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithSingleValue">
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithListValue">
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate close=")" conjunction="," open="(" property="oredCriteria[].criteriaWithListValue[].values">
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithBetweenValue">
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  
+    <select id="apiSelectByExample" parameterClass="com.mobicart.model.ProductOrderExample" resultMap="APIResultMap">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    select id, merchant_id, store_id, app_id, s_merchant_paypal_email, f_amount, f_shipping_amount,
+      f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email, i_buyer_phone, s_shipping_street,
+      s_shipping_city, s_shipping_state, s_shipping_postal_code, s_shipping_country,
+      s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code, s_billing_country,
+      s_status, d_order_date
+    from product_orders 
+    <isParameterPresent>
+      <include refid="product_orders.Example_Where_Clause" />
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  <select id="selectByExample" parameterClass="com.mobicart.model.ProductOrderExample" resultMap="BaseResultMap">
+    select id, merchant_id, store_id, app_id, s_merchant_paypal_email, f_amount, f_shipping_amount,
+      f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email, i_buyer_phone, s_shipping_street,
+      s_shipping_city, s_shipping_state, s_shipping_postal_code, s_shipping_country,
+      s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code, s_billing_country,
+      s_status, d_order_date
+    from product_orders 
+    <isParameterPresent>
+      <include refid="product_orders.Example_Where_Clause" />
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterClass="com.mobicart.model.ProductOrder" resultMap="BaseResultMap">
+    select id, merchant_id, store_id, app_id, s_merchant_paypal_email, f_amount, f_shipping_amount,
+      f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email, i_buyer_phone, s_shipping_street,
+      s_shipping_city, s_shipping_state, s_shipping_postal_code, s_shipping_country,
+      s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code, s_billing_country,
+      s_status, d_order_date
+    from product_orders
+    where id = #id:BIGINT#
+  </select>
+  
+  
+  
+  <select id="selectByExampleForApi" parameterClass="com.mobicart.model.ProductOrderExample" resultMap="apiMap">
+    select id, merchant_id, store_id,  s_merchant_paypal_email, f_amount, f_shipping_amount,
+      f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email, i_buyer_phone, s_shipping_street,
+      s_shipping_city, s_shipping_state, s_shipping_postal_code, s_shipping_country,
+      s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code, s_billing_country,
+      s_status, d_order_date
+    from product_orders 
+    <isParameterPresent>
+      <include refid="product_orders.Example_Where_Clause" />
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  
+  <select id="selectByPrimaryKeyForApi" parameterClass="long" resultMap="apiMap">
+    select id, merchant_id,  store_id,  s_merchant_paypal_email, f_amount, f_shipping_amount,
+      f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email, i_buyer_phone, s_shipping_street,
+      s_shipping_city, s_shipping_state, s_shipping_postal_code, s_shipping_country,
+      s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code, s_billing_country,
+      s_status, d_order_date
+    from product_orders
+    where id = #id:BIGINT#
+  </select>
+  
+  
+  
+  
+  
+  <select id="selectAll" parameterClass="com.mobicart.model.ProductOrder" resultMap="BaseResultMap">
+    select id, merchant_id, store_id, app_id, s_merchant_paypal_email, f_amount, f_shipping_amount,
+      f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email, i_buyer_phone, s_shipping_street,
+      s_shipping_city, s_shipping_state, s_shipping_postal_code, s_shipping_country,
+      s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code, s_billing_country,
+      s_status, d_order_date
+    from product_orders
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterClass="com.mobicart.model.ProductOrder">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    delete from product_orders
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.mobicart.model.ProductOrderExample">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    delete from product_orders
+    <include refid="product_orders.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.mobicart.model.ProductOrder">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    insert into product_orders (id, merchant_id, store_id, app_id, s_merchant_paypal_email,
+      f_amount, f_shipping_amount, f_tax_amount, f_total_amount, s_buyer_name, s_buyer_email,
+      i_buyer_phone, s_shipping_street, s_shipping_city, s_shipping_state, s_shipping_postal_code,
+      s_shipping_country, s_billing_street, s_billing_city, s_billing_state, s_billing_postal_code,
+      s_billing_country, s_status, d_order_date)
+    values (#id:BIGINT#, #merchantId:BIGINT#, #storeId:BIGINT#, #appId:BIGINT#,
+      #sMerchantPaypalEmail:VARCHAR#, #fAmount:DECIMAL#, #fShippingAmount:DECIMAL#,
+      #fTaxAmount:DECIMAL#, #fTotalAmount:DECIMAL#, #sBuyerName:VARCHAR#, #sBuyerEmail:VARCHAR#,
+      #iBuyerPhone:BIGINT#, #sShippingStreet:VARCHAR#, #sShippingCity:VARCHAR#,
+      #sShippingState:VARCHAR#, #sShippingPostalCode:VARCHAR#, #sShippingCountry:VARCHAR#,
+      #sBillingStreet:VARCHAR#, #sBillingCity:VARCHAR#, #sBillingState:VARCHAR#,
+      #sBillingPostalCode:VARCHAR#, #sBillingCountry:VARCHAR#, #sStatus:CHAR#,
+      #dOrderDate:TIMESTAMP#)
+          <selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterClass="com.mobicart.model.ProductOrder">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    insert into product_orders
+    <dynamic prepend="(">
+      <isNotNull prepend="," property="id">
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="merchantId">
+        merchant_id
+      </isNotNull>
+      <isNotNull prepend="," property="storeId">
+        store_id
+      </isNotNull>
+      <isNotNull prepend="," property="appId">
+        app_id
+      </isNotNull>
+      <isNotNull prepend="," property="sMerchantPaypalEmail">
+        s_merchant_paypal_email
+      </isNotNull>
+      <isNotNull prepend="," property="fAmount">
+        f_amount
+      </isNotNull>
+      <isNotNull prepend="," property="fShippingAmount">
+        f_shipping_amount
+      </isNotNull>
+      <isNotNull prepend="," property="fTaxAmount">
+        f_tax_amount
+      </isNotNull>
+      <isNotNull prepend="," property="fTotalAmount">
+        f_total_amount
+      </isNotNull>
+      <isNotNull prepend="," property="sBuyerName">
+        s_buyer_name
+      </isNotNull>
+      <isNotNull prepend="," property="sBuyerEmail">
+        s_buyer_email
+      </isNotNull>
+      <isNotNull prepend="," property="iBuyerPhone">
+        i_buyer_phone
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingStreet">
+        s_shipping_street
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingCity">
+        s_shipping_city
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingState">
+        s_shipping_state
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingPostalCode">
+        s_shipping_postal_code
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingCountry">
+        s_shipping_country
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingStreet">
+        s_billing_street
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingCity">
+        s_billing_city
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingState">
+        s_billing_state
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingPostalCode">
+        s_billing_postal_code
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingCountry">
+        s_billing_country
+      </isNotNull>
+      <isNotNull prepend="," property="sStatus">
+        s_status
+      </isNotNull>
+      <isNotNull prepend="," property="dOrderDate">
+        d_order_date
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(">
+      <isNotNull prepend="," property="id">
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="merchantId">
+        #merchantId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="storeId">
+        #storeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="appId">
+        #appId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="sMerchantPaypalEmail">
+        #sMerchantPaypalEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fAmount">
+        #fAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="fShippingAmount">
+        #fShippingAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="fTaxAmount">
+        #fTaxAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="fTotalAmount">
+        #fTotalAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="sBuyerName">
+        #sBuyerName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBuyerEmail">
+        #sBuyerEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="iBuyerPhone">
+        #iBuyerPhone:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingStreet">
+        #sShippingStreet:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingCity">
+        #sShippingCity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingState">
+        #sShippingState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingPostalCode">
+        #sShippingPostalCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingCountry">
+        #sShippingCountry:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingStreet">
+        #sBillingStreet:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingCity">
+        #sBillingCity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingState">
+        #sBillingState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingPostalCode">
+        #sBillingPostalCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingCountry">
+        #sBillingCountry:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sStatus">
+        #sStatus:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="dOrderDate">
+        #dOrderDate:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.mobicart.model.ProductOrderExample" resultClass="java.lang.Integer">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    select count(*) from product_orders
+    <include refid="product_orders.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    update product_orders
+    <dynamic prepend="set">
+      <isNotNull prepend="," property="record.id">
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.merchantId">
+        merchant_id = #record.merchantId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.storeId">
+        store_id = #record.storeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.appId">
+        app_id = #record.appId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sMerchantPaypalEmail">
+        s_merchant_paypal_email = #record.sMerchantPaypalEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fAmount">
+        f_amount = #record.fAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fShippingAmount">
+        f_shipping_amount = #record.fShippingAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fTaxAmount">
+        f_tax_amount = #record.fTaxAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fTotalAmount">
+        f_total_amount = #record.fTotalAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBuyerName">
+        s_buyer_name = #record.sBuyerName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBuyerEmail">
+        s_buyer_email = #record.sBuyerEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.iBuyerPhone">
+        i_buyer_phone = #record.iBuyerPhone:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sShippingStreet">
+        s_shipping_street = #record.sShippingStreet:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sShippingCity">
+        s_shipping_city = #record.sShippingCity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sShippingState">
+        s_shipping_state = #record.sShippingState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sShippingPostalCode">
+        s_shipping_postal_code = #record.sShippingPostalCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sShippingCountry">
+        s_shipping_country = #record.sShippingCountry:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBillingStreet">
+        s_billing_street = #record.sBillingStreet:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBillingCity">
+        s_billing_city = #record.sBillingCity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBillingState">
+        s_billing_state = #record.sBillingState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBillingPostalCode">
+        s_billing_postal_code = #record.sBillingPostalCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sBillingCountry">
+        s_billing_country = #record.sBillingCountry:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sStatus">
+        s_status = #record.sStatus:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.dOrderDate">
+        d_order_date = #record.dOrderDate:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent>
+      <include refid="product_orders.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    update product_orders
+    set id = #record.id:BIGINT#,
+      merchant_id = #record.merchantId:BIGINT#,
+      store_id = #record.storeId:BIGINT#,
+      app_id = #record.appId:BIGINT#,
+      s_merchant_paypal_email = #record.sMerchantPaypalEmail:VARCHAR#,
+      f_amount = #record.fAmount:DECIMAL#,
+      f_shipping_amount = #record.fShippingAmount:DECIMAL#,
+      f_tax_amount = #record.fTaxAmount:DECIMAL#,
+      f_total_amount = #record.fTotalAmount:DECIMAL#,
+      s_buyer_name = #record.sBuyerName:VARCHAR#,
+      s_buyer_email = #record.sBuyerEmail:VARCHAR#,
+      i_buyer_phone = #record.iBuyerPhone:BIGINT#,
+      s_shipping_street = #record.sShippingStreet:VARCHAR#,
+      s_shipping_city = #record.sShippingCity:VARCHAR#,
+      s_shipping_state = #record.sShippingState:VARCHAR#,
+      s_shipping_postal_code = #record.sShippingPostalCode:VARCHAR#,
+      s_shipping_country = #record.sShippingCountry:VARCHAR#,
+      s_billing_street = #record.sBillingStreet:VARCHAR#,
+      s_billing_city = #record.sBillingCity:VARCHAR#,
+      s_billing_state = #record.sBillingState:VARCHAR#,
+      s_billing_postal_code = #record.sBillingPostalCode:VARCHAR#,
+      s_billing_country = #record.sBillingCountry:VARCHAR#,
+      s_status = #record.sStatus:CHAR#,
+      d_order_date = #record.dOrderDate:TIMESTAMP#
+    <isParameterPresent>
+      <include refid="product_orders.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.mobicart.model.ProductOrder">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    update product_orders
+    <dynamic prepend="set">
+      <isNotNull prepend="," property="merchantId">
+        merchant_id = #merchantId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="storeId">
+        store_id = #storeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="appId">
+        app_id = #appId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="sMerchantPaypalEmail">
+        s_merchant_paypal_email = #sMerchantPaypalEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fAmount">
+        f_amount = #fAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="fShippingAmount">
+        f_shipping_amount = #fShippingAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="fTaxAmount">
+        f_tax_amount = #fTaxAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="fTotalAmount">
+        f_total_amount = #fTotalAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="sBuyerName">
+        s_buyer_name = #sBuyerName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBuyerEmail">
+        s_buyer_email = #sBuyerEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="iBuyerPhone">
+        i_buyer_phone = #iBuyerPhone:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingStreet">
+        s_shipping_street = #sShippingStreet:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingCity">
+        s_shipping_city = #sShippingCity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingState">
+        s_shipping_state = #sShippingState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingPostalCode">
+        s_shipping_postal_code = #sShippingPostalCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sShippingCountry">
+        s_shipping_country = #sShippingCountry:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingStreet">
+        s_billing_street = #sBillingStreet:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingCity">
+        s_billing_city = #sBillingCity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingState">
+        s_billing_state = #sBillingState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingPostalCode">
+        s_billing_postal_code = #sBillingPostalCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sBillingCountry">
+        s_billing_country = #sBillingCountry:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sStatus">
+        s_status = #sStatus:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="dOrderDate">
+        d_order_date = #dOrderDate:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.mobicart.model.ProductOrder">
+    <!--
+      WARNING - This element is automatically generated by Apache iBATIS ibator, do not modify.
+      This element was generated on Tue Oct 05 12:13:44 IST 2010.
+    -->
+    update product_orders
+    set merchant_id = #merchantId:BIGINT#,
+      store_id = #storeId:BIGINT#,
+      app_id = #appId:BIGINT#,
+      s_merchant_paypal_email = #sMerchantPaypalEmail:VARCHAR#,
+      f_amount = #fAmount:DECIMAL#,
+      f_shipping_amount = #fShippingAmount:DECIMAL#,
+      f_tax_amount = #fTaxAmount:DECIMAL#,
+      f_total_amount = #fTotalAmount:DECIMAL#,
+      s_buyer_name = #sBuyerName:VARCHAR#,
+      s_buyer_email = #sBuyerEmail:VARCHAR#,
+      i_buyer_phone = #iBuyerPhone:BIGINT#,
+      s_shipping_street = #sShippingStreet:VARCHAR#,
+      s_shipping_city = #sShippingCity:VARCHAR#,
+      s_shipping_state = #sShippingState:VARCHAR#,
+      s_shipping_postal_code = #sShippingPostalCode:VARCHAR#,
+      s_shipping_country = #sShippingCountry:VARCHAR#,
+      s_billing_street = #sBillingStreet:VARCHAR#,
+      s_billing_city = #sBillingCity:VARCHAR#,
+      s_billing_state = #sBillingState:VARCHAR#,
+      s_billing_postal_code = #sBillingPostalCode:VARCHAR#,
+      s_billing_country = #sBillingCountry:VARCHAR#,
+      s_status = #sStatus:CHAR#,
+      d_order_date = #dOrderDate:TIMESTAMP#
+    where id = #id:BIGINT#
+  </update>
+  
+  
+</sqlMap>

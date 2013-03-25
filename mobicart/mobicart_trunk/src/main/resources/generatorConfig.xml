@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+  "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+	<classPathEntry location="C:\Documents and Settings\vidyakar.sharma\Desktop\desktop\MyDemo\WEB-INF\lib\mysql-connector-java-5.1.6-bin.jar"/>
+  	
+  	<context id="mobicart" targetRuntime="MyBatis3" >
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+    connectionURL="jdbc:mysql://192.168.0.240:3306/dpi_mobicart" 
+    userId="java" password="JavA_123#" />
+    
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="true" />
+    </javaTypeResolver>
+    
+    <javaModelGenerator targetPackage="com.mobicart.model" targetProject="src/main/java" >
+    	<property name="enableSubPackages" value="true" />
+		<property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    
+
+    <sqlMapGenerator targetPackage="maps" targetProject="src/main/resources" >
+    	<property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    
+    <javaClientGenerator targetPackage="com.mobicart.dao" targetProject="src/main/java" type="XMLMAPPER">
+    	<property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    
+    
+    
+<!--    <table tableName="users" domainObjectName="User">-->
+<!--	    <generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--    </table>-->
+<!--    <table tableName="authorities" domainObjectName="Authority">-->
+<!--    	<generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--    </table>-->
+<!--    <table tableName="products" domainObjectName="Product" >-->
+<!--			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--		</table>-->
+    
+<!--    	<table tableName="users" domainObjectName="User"></table>-->
+    
+<!--    <table tableName="users_address" domainObjectName="Address"></table>-->
+<!--    <table tableName="users_payment_card" domainObjectName="PaymentCard"></table>-->
+<!--    <table tableName="app" domainObjectName="App"></table>-->
+<!--    <table tableName="features" domainObjectName="Feature" ></table>-->
+<!--    <table tableName="app_features" domainObjectName="AppFeatures" ></table>-->
+ <!--   <table tableName="color_schemes" domainObjectName="ColorScheme" ></table>-->
+<!--    <table tableName="app_color_schemes" domainObjectName="AppColorScheme" ></table>-->
+<!--    <table tableName="static_pages" domainObjectName="StaticPage" ></table>-->
+<!--	<table tableName="territories" domainObjectName="Territory" ></table>    -->
+<!--    <table tableName="app_territories" domainObjectName="AppTerritory" ></table>-->
+<!--		<table tableName="merchant_services" domainObjectName="MerchantService" ></table>-->
+<!--		<table tableName="categories" domainObjectName="Category" ></table>-->
+<!--		<table tableName="departments" domainObjectName="Department" >-->
+<!--		    <generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--		</table>-->
+		
+<!--		<table tableName="gallery_images" domainObjectName="GalleryImage" ></table>-->
+<!--		<table tableName="videos" domainObjectName="Video" ></table>-->
+<!--		<table tableName="product_videos" domainObjectName="ProductVideo" ></table>-->
+<!--		<table tableName="product_images" domainObjectName="ProductImage" ></table>-->
+<!--		<table tableName="product_options" domainObjectName="ProductOption" ></table>-->
+<!--		<table tableName="product_departments" domainObjectName="ProductDepartment" ></table>-->
+<!--		<table tableName="product_reviews" domainObjectName="ProductReview" ></table>-->
+<!--		<table tableName="shipping" domainObjectName="Shipping" ></table>-->
+<!--		<table tableName="tax" domainObjectName="Tax" ></table>-->
+<!--		<table tableName="states" domainObjectName="State" ></table>-->
+<!--		<table tableName="news" domainObjectName="News" ></table>-->
+<!--		<table tableName="product_orders" domainObjectName="ProductOrder" ></table>-->
+<!--		<table tableName="product_order_items" domainObjectName="ProductOrderItem" ></table>-->
+<!--			<table tableName="site_constants" domainObjectName="SiteConstant" ></table>	-->
+<!--		<table tableName="site_static_pages" domainObjectName="SiteStaticPage" ></table>-->
+<!--		<table tableName="billing" domainObjectName="Billing" ></table>-->
+<!--		<table tableName="contacts" domainObjectName="Contact" ></table>-->
+<!--		<table tableName="orders" domainObjectName="Order" ></table>-->
+	
+<!--	-->
+<!--	<table tableName="users" domainObjectName="User">-->
+<!--	    <generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--	</table>-->
+<!--	-->
+<!--	<table tableName="features" domainObjectName="Feature">-->
+<!--	    <generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--    </table>-->
+<!--	-->
+<!--	<table tableName="territories" domainObjectName="Territory">-->
+<!--	    <generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--    </table>-->
+<!--    -->
+<!--    <table tableName="site_constants" domainObjectName="SiteConstant">-->
+<!--	    <generatedKey column="id" sqlStatement="MYSQL" identity="true" />-->
+<!--    </table>-->
+    
+	
+	<!--<table tableName="color_schemes" domainObjectName="ColorScheme" >
+		<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+	</table>-->
+	
+	<table tableName="api_partner" domainObjectName="ApiPartner" >
+		<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+	</table>
+	
+  </context>
+  
+</generatorConfiguration>

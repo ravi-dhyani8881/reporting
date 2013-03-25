@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Wed Apr 27 12:22:24 GMT+05:30 2011-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobicart.dao.ContactDAO">
+  <resultMap id="BaseResultMap" type="com.mobicart.model.Contact">
+    <result property="id" column="id" jdbcType="BIGINT"/>
+    <result property="sName" column="s_name" jdbcType="VARCHAR"/>
+    <result property="sEmail" column="s_email" jdbcType="VARCHAR"/>
+    <result property="sPhone" column="s_phone" jdbcType="INTEGER"/>
+    <result property="sHeardFrom" column="s_heard_from" jdbcType="VARCHAR"/>
+    <result property="dSentOn" column="d_sent_on" jdbcType="TIMESTAMP"/>
+  </resultMap>
+  
+  <resultMap id="ResultMapWithBLOBs" type="com.mobicart.model.Contact" extends="contacts.BaseResultMap">
+    <result property="sMessage" column="s_message" jdbcType="LONGVARCHAR"/>
+  </resultMap>
+  
+  
+  <select id="selectById" parameterType="com.mobicart.model.Contact" resultMap="ResultMapWithBLOBs">
+    select id, s_name, s_email, s_phone, s_heard_from, d_sent_on, s_message
+    from contacts
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAll" parameterType="com.mobicart.model.Contact" resultMap="ResultMapWithBLOBs">
+    select id, s_name, s_email, s_phone, s_heard_from, d_sent_on, s_message
+    from contacts
+  </select>
+
+  
+  <delete id="delete" parameterType="com.mobicart.model.Contact">
+    delete from contacts
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="com.mobicart.model.Contact">
+    insert into contacts (id, s_name, s_email, s_phone, s_heard_from, d_sent_on, s_message)
+    values (#{id,jdbcType=BIGINT}, #{sName,jdbcType=VARCHAR}, #{sEmail,jdbcType=VARCHAR}, #{sPhone,jdbcType=INTEGER}, #{sHeardFrom,jdbcType=VARCHAR},
+      #{dSentOn,jdbcType=TIMESTAMP}, #{sMessage,jdbcType=LONGVARCHAR})
+      <selectKey keyProperty="id" resultType="long">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+  </insert>
+  
+  
+  <update id="update" parameterType="com.mobicart.model.Contact">
+    update contacts
+    set s_name = #{sName,jdbcType=VARCHAR},
+      s_email = #{sEmail,jdbcType=VARCHAR},
+      s_phone = #{sPhone,jdbcType=INTEGER},
+      s_heard_from = #{sHeardFrom,jdbcType=VARCHAR},
+      d_sent_on = #{dSentOn,jdbcType=TIMESTAMP},
+      s_message = #{sMessage,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  
+</mapper>

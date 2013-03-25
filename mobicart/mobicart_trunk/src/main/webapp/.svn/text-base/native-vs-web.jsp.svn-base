@@ -1,0 +1,239 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<title>Native apps vs web apps, iPhone, iPad, Android, HTML5, mobile</title>
+  <meta name="description" content="Native mobile apps vs HTML5 web apps. What are the advantages and disadvantages of each platform and solution." > 
+  <meta name="keywords" content="Mcommerce, m-commerce, mobile commerce, shopping cart, ecommerce, e-commerce, app builder, native apps, HTML5, web apps, IOS, Apple, iPhone, iPad, Android, app store, easy to use, store, shop, API, USA, UK." > 
+  <meta name="robots" content="all" > 
+  <meta name="Revisit-After" content="7 days" > 
+  <meta name="author" content="MobiCart" >
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="static/assets/home/css/style.css">
+   <link rel="stylesheet" href="static/assets/home/css/fonts.css">
+  <!-- end CSS-->
+
+  <script src="static/assets/home/js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+  <header>
+  <div class="inner">
+    <h2 class="logo"><a href="/"><span>Native IOS and Android apps versus HTML5 web apps</span></a></h2>
+    <nav role="primary" class="primary">
+      <ul>
+        <li id="nav-tour"><a href="tour.jsp" class="selected"><span>Tour</span></a></li>
+        <li id="nav-signup"><a href="pricing.jsp"><span>Pricing</span></a></li>
+        <li id="nav-gallery"><a href="gallery.jsp"><span>Gallery</span></a></li>
+        <li id="nav-blog"><a href="http://blog.mobi-cart.com/"><span>Blog</span></a></li>
+        <li id="nav-support"><a href="contact.jsp"><span>Contact</span></a></li>
+        <li id="nav-community"><a href="addons/index.jsp"><span>Extras</span></a></li>
+      </ul>
+    </nav>
+
+    </div>
+  </header>
+  <div class="content clearfix">
+
+  <div class="titleblock">
+  <h1>Native Apps vs Web Apps</h1>
+  <p>MobiCart supports both native and web apps</p>
+      
+    </div>
+    
+    <nav role="secondary" class="secondary">
+    <ul>
+      <li><a href="tour.jsp">What is mobicart?</a></li>
+      <li><a href="getting-started.jsp">Getting started</a></li>
+      <li><a href="screenshots.jsp">Screenshots</a></li>
+      <li><a href="features.jsp">Feature list</a></li>
+      <li><a href="native-vs-web.jsp" class="selected">Native vs web apps</a></li>
+    </ul>
+    </nav>
+    
+  <div class="page clearfix">
+  
+<p>Mobile commerce should not be about native apps vs web apps. It should be about offering the best possible experience to your customers on any mobile device. Retailers need to have a strategy for both options. </p>
+
+<p>Native IOS and Android apps are downloaded from the Apple and Google app stores and offer an unparalleled user experience with incredible browsing feeds.</p>
+
+<p>Native apps utilise your phones full hardware and operating system to deliver powerful features which drive brand loyalty. Send push notifications by location, offer loyalty check-ins, enable QR code scanning and more.</p>
+
+<p>HTML5 web apps on the other hand can be accessed from any mobile browser without the need to download any app.  Although not as powerful as native apps, web apps offer that all important immediate mobile access to your store. Web apps also work across all platforms and are not device dependant.</p>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="standard">
+  <tr>
+    <th width="28%" class="tablehead2" scope="row">Features</th>
+    <th width="24%"  class="tablehead2" scope="col">Native apps</th>
+    <th width="21%"  class="tablehead2" scope="col">Web apps</th>
+    <th width="27%" class="tablehead2" scope="col">Standard website</th>
+  </tr>
+  <tr>
+    <th  scope="row">Optimised for mobile</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th  scope="row">Browsing speed</th>
+    <td>Very fast</td>
+    <td>Fast</td>
+    <td>Slow</td>
+  </tr>
+  <tr>
+    <th  scope="row">Internet connection</th>
+    <td>Limited to none</td>
+    <td>Required</td>
+    <td>Required</td>
+  </tr>
+    <tr>
+    <th  scope="row">Offline storage</th>
+    <td>Very good</td>
+    <td>Limited</td>
+    <td>None</td>
+  </tr>
+    <tr>
+    <th scope="row">User interface (UI)</th>
+    <td>Very good</td>
+    <td>Good</td>
+    <td>Clunky on small screens</td>
+  </tr>
+  <tr>
+    <th scope="row">User experience (UX)</th>
+    <td>Very good</td>
+    <td>Good</td>
+    <td>Clunky on small screens</td>
+  </tr>
+  <tr>
+    <th scope="row">Push notifications</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+    <tr>
+    <th scope="row">Geolocation aware</th>
+    <td>Yes</td>
+    <td>Limited</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th scope="row">Access to phone hardware</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th scope="row">App submissions</th>
+    <td>Required</td>
+    <td>Not required</td>
+    <td>Not required</td>
+  </tr>
+  <tr>
+    <th scope="row">Access to app stores</th>
+    <td>Yes Apple and Google</td>
+    <td>Not available</td>
+    <td>Not available</td>
+  </tr>
+  <tr>
+    <th scope="row">Barcode scanning</th>
+    <td>Available</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+    <tr>
+    <th scope="row">QR code scanning</th>
+    <td>Available</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th scope="row">Voice recognition</th>
+    <td>Available</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+   <tr>
+    <th scope="row">Augmented reality</th>
+    <td>Available</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+    <tr>
+    <th scope="row">Access to phone camera</th>
+    <td>Available</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+    <tr>
+    <th scope="row">Access to address book</th>
+    <td>Available</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+</table>
+
+  </div>
+  
+  </div>
+  <footer>
+    <div class="inner clearfix">
+      <div class="social clearfix">
+        <p class="socialblock twitter"><a href="http://twitter.com/mobicart">Follow Us<br>
+          <span>MobiCart</span></a></p>
+        <p class="socialblock newsletter">Newsletter Signup<br>
+          <span>Enter your Email Address</span></p>   <div class="newsletterbox">
+<form action="http://mobicart.createsend.com/t/r/s/kkyhti/" method="post" id="subForm"> 
+<p><input type="email" name="cm-kkyhti-kkyhti" id="kkyhti-kkyhti" placeholder="Enter your email address" required> 
+<button class="btn">Sign up</button></p> 
+</form>   
+</div>
+      </div>
+      <ul>
+        <li><a href="http://mobicart.zendesk.com/forums/20298521-faqs">FAQ</a></li>
+        <li><a href="press.jsp">Press</a></li>
+        <li><a href="terms.jsp">Terms</a></li>
+        <li><a href="http://www.mobi-cart.com/docs/api/index.html">API</a></li>
+        <li><a href="http://www.mobi-cart.com/account/login">Login</a></li>
+      </ul>
+      <p>All text and design is &copy; Copyright MobiCart. All rights reserved. </p>
+    </div>
+  </footer>
+</div>
+<!--! end of #wrapper -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="static/assets/home/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="static/assets/home/js/plugins.js"></script>
+  <script defer src="static/assets/home/js/script.js"></script>
+  <!-- end scripts-->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17710648-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>
