@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client
+END
+SearchDiscussionQuestionClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ytk-platform/!svn/ver/4057/SOLR/branches/digital/src/com/ytk/client/SearchDiscussionQuestionClient.java
+END
+SearchPlansClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/SearchPlansClient.java
+END
+SearchContactsClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/client/SearchContactsClient.java
+END
+PlatformFaceActionControllerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/PlatformFaceActionControllerClient.java
+END
+CustomClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/CustomClient.java
+END
+PlaceReviewControllerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/PlaceReviewControllerClient.java
+END
+SearchCommunityClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ytk-platform/!svn/ver/3536/SOLR/branches/digital/src/com/ytk/client/SearchCommunityClient.java
+END
+FolderClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/FolderClient.java
+END
+DateClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/DateClient.java
+END
+PrivacyClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ytk-platform/!svn/ver/3625/SOLR/branches/digital/src/com/ytk/client/PrivacyClient.java
+END
+UpdatePrivacyClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ytk-platform/!svn/ver/3972/SOLR/branches/digital/src/com/ytk/client/UpdatePrivacyClient.java
+END
+UpdateClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/UpdateClient.java
+END
+SearchThingsClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ytk-platform/!svn/ver/4000/SOLR/branches/digital/src/com/ytk/client/SearchThingsClient.java
+END
+DemoClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/client/DemoClient.java
+END
+NeibhourhoodClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/NeibhourhoodClient.java
+END
+PlatformPlaceControllerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ytk-platform/!svn/ver/4014/SOLR/branches/digital/src/com/ytk/client/PlatformPlaceControllerClient.java
+END
+MamCacheClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/MamCacheClient.java
+END
+ConnectionClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/client/ConnectionClient.java
+END

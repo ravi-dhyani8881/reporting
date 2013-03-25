@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="yettoknow" basedir="." default="compile">
+
+<!--	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${ant.home}/lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+-->
+	<property name="deploy.env" value="local" />
+	
+	<!-- Read properties from property files if any property files found.
+        Since these files are included in this build file before inline
+        property definitions, any property values found in property file
+        will take precedence over the properties specified later in this file. -->
+
+	<!-- check for shared/non-user specific property file -->
+	<!--<property file="build.properties" />-->
+
+	<property name="src.dir" value="src" />
+	<property name="web.dir" value="WebContent" />	
+
+	<!-- Directory where the ids Logger API writes log files. 
+       The ids Logger API is a wrapper for the JDK Logger. Due to the way
+       the Logger is integrated into the web application, the web application 
+       will not start due to an uncaught exception if this directory does not
+       exist. This Ant property is used by the init Ant target to create this
+       directory if it does not already exist. -->
+    <property name="logfile.base-dir" value="c:/temp"/>
+	
+	<property name="dist.dir" value="dist/${deploy.env}" />
+	<property name="jdk.version" value="1.6" />
+	<property name="javadoc.dir" value="javadoc" />
+	<property name="build.dir" value="build" />
+	<property name="build.web.dir" value="${build.dir}" />
+	<property name="build.classes.dir" value="${build.web.dir}/WEB-INF/classes" />
+	
+	<!-- Load environment variables as properties -->
+	<property environment="env" />
+
+	<property name="ant.home" value="${env.ANT_HOME}" />
+
+	<!-- Default tomcat home directory to the CATALINA_HOME environment variable.
+        If CATALINE_HOME not found, then try setting it to TOMCAT_HOME environment variable.
+        Preferrably, tomcat.home will be overriden by a value specified in a property file
+        so that we don't rely on system environment variables. -->
+<!--	<property name="tomcat.home" value="${env.CATALINA_HOME}" />
+	<property name="tomcat.home" value="${env.TOMCAT_HOME}" />
+	--><property name="tomcat.home" value="d:\usr\local\tomcat" />
+	<!-- Memory min and max for starting tomcat -->
+	<property name="tomcat.memory-min" value="256m" />
+	<property name="tomcat.memory-max" value="512m" />
+	<!-- The port that port that Tomcat listens to for 
+	    "remote debug connection" as it is called in Eclipse can be changed. -->
+    <property name="tomcat.debug-port" value="8000" />
+
+	<!-- Reassign the Ant provided ant.project.name property to project.name
+        Ant automatically to provide a means to pick a different name for
+        use in generated filenames such as jar file, war file, zip file, etc. -->
+	<property name="project.name" value="${ant.project.name}" />
+	<property name="webapp.name" value="${project.name}" />
+	<property name="project.version" value="0.1" />
+	<property name="webapp.deploy.dir" value="${tomcat.home}/webapps/${webapp.name}" />
+
+	<!-- Text to be displayed as part of fail message if a required 
+         Ant property is not defined.
+         e.g. <fail message="database.username ${msg.no-property}" unless="database.username"/>
+         -->
+	<property name="msg.no-property" value="must be defined. " />
+
+	<property name="msg.directory-does-not-exist" value="Directory does not exist. "/>
+    <property name="msg.file-does-not-exist" value="File does not exist. "/>
+	
+	<!-- Build a customized short filename for the jar filename for
+        use when creating a jar.  -->
+	<property name="jarfile.name" value="${project.name}-${project.version}.jar" />
+
+	<!-- The full path of jar filename for use by the <jar> task.  -->
+	<!--<property name="jarfile.path" location="${dist.dir}/${jarfile.name}" />-->
+
+	<!-- lib.properties defines an Ant variable for each jar file as a means
+         to manage the version of each jar. This approach based on a technique
+         from the book Java Development with Ant that helps manage the version of
+          each jar file used in a project. 
+          
+          These values are currently only used for managing jar files used for
+          testing. See test.classpath path definition, which is used by the 
+          test-compile target. -->
+	<property name="lib.dir" value="lib" />
+	<!--<property file="lib.properties" />-->
+	<!--<property file="${lib.dir}/lib.properties" />-->
+
+	<!--  Default values for servlet spec and jsp spec jars. Should
+		be set for each development environment depending on the application
+		server being used. -->
+	<property name="servlet.jar" value="${tomcat.home}/lib/servlet-api.jar" />
+	<property name="jsp.jar" value="${tomcat.home}/lib/jsp-api.jar" />
+
+	<path id="classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${servlet.jar}" />
+		<pathelement location="${jsp.jar}" />
+		<pathelement path="${build.classes.dir}" />
+	</path>
+
+	
+
+	<target name="init" description="Perform initialization required by other targets, such as creating directories.">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${build.classes.dir}" />
+		<mkdir dir="${logfile.base-dir}" />
+		<fail message="tomcat.home ${msg.no-property}" unless="tomcat.home" />
+        <!-- Verify that tomcat.home is a valid directory -->
+        <available file="${tomcat.home}" type="dir" property="valid.tomcat.home"/>
+        <fail unless="valid.tomcat.home" message="${msg.directory-does-not-exist} tomcat.home: ${tomcat.home}"/>		
+	</target>
+
+	<!--         
+        If you need to delete all previously generated .class files, 
+        execute the clean target before the compile target, e.g. ant clean, compile.
+        The compile target should not depend on the clean target else it will
+        re-compile all files any time any change is made, which is usually not necessary.
+        However, it may make sense for the war targets to depend on both
+        clean and compile to ensure that there is a clean compile before distributing. -->
+	<target name="compile" depends="init" description="Compile main source tree java files">
+		<!-- When this task finds out-of-date classes, it removes the .class files of
+        any other classes that depend on them. To determine dependencies, this task
+        analyzes the classes in all files passed to it, using the class references
+        encoded into .class files by the compiler. -->
+		<depend srcdir="${src.dir}" destdir="${build.classes.dir}" closure="yes" />
+		<javac destdir="${build.classes.dir}" debug="true" source="${jdk.version}" target="${jdk.version}" deprecation="false" nowarn="true" memoryinitialsize="128m" memorymaximumsize="512m" fork="true" optimize="false" failonerror="true">
+			<src path=" ${src.dir}" />
+			<classpath refid="classpath" />
+		</javac>
+		<!-- copy all non-java files, such as .property and .xml files
+			e.g. Hibernate mapping xml files -->
+		<copy todir="${build.classes.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
+	</target>	
+
+	<target name="generate-buildinfo" description="Used by other targets to generate build ID">
+		<!-- Set build.id property to generated value based on date -->
+		<tstamp>
+			<format property="buildid" pattern="yyyy-MM-dd_HHmmss" />
+		</tstamp>
+		<!-- Update the values contained in the build.properties -->
+		<property name="build.id" value="${buildid}" />
+		<tstamp>
+			<format property="builddate" pattern="MM/dd/yyyy HH:mm:ss" />
+		</tstamp>
+		<property name="build.date" value="${builddate}" />
+		<mkdir dir="${build.web.dir}/WEB-INF/buildinfo" />
+		<propertyfile comment="Build Information File" file="${build.web.dir}/WEB-INF/buildinfo/build.properties">
+			<entry key="project.version" value="${project.version}" />
+			<entry key="build.id" value="${build.id}" />
+			<entry key="build.date" value="${build.date}" />
+			<entry key="deploy.env" value="${deploy.env}" />
+			<entry key="jdk.version" value="${jdk.version}" />
+		</propertyfile>
+	</target>
+
+	<target name="war" depends="compile, generate-buildinfo" description="Packages app as WAR">
+		<mkdir dir="${dist.dir}" />
+		<!--  Copy .xml and .property files in /WEB-INF and subdirectories with replacing values
+            according to the following filterset definition. Need to be sure to not include the
+            jar files in this copy statement because filterset task will corrupt binary files. 
+            
+            Don't copy files from WEB-INF/classes. Eclipse or other IDE may have been used to put
+            them there and may not have the same version of the JDK that the Ant build is setup for.
+            Ant will compile and put them in ${build.classes.dir}.
+            -->
+		<copy todir="${build.web.dir}/WEB-INF" overwrite="true" failonerror="false">
+			<fileset dir="${web.dir}/WEB-INF" includes="**/*.properties,**/*.xml" excludes="WEB-INF/classes/**" />
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+			<!--<filterset refid="global.config-filterset" />-->
+		</copy>
+		<!--  Copy all other files under /WEB-INF except for .property, .xml files. 
+        The .property and .xml files have already been copied and 
+        the .xml and .property files under /WEB-INF are "templates" in that they have 
+        placeholder Ant variables (e.g. @database.name@) and
+        therefore cannot be used without running through a filterset first. -->
+		<copy todir="${build.web.dir}/WEB-INF">
+			<fileset dir="${web.dir}/WEB-INF" excludes="**/*.properties, classes/**" />
+		</copy>
+		<copy todir="${build.web.dir}">
+			<fileset dir="${web.dir}">
+				<exclude name="WEB-INF/**" />
+			</fileset>
+		</copy>
+		<property name="warfile.name" value="${webapp.name}-${project.version}-${build.id}.war" />
+		<war destfile="${dist.dir}/${warfile.name}" webxml="${build.web.dir}/WEB-INF/web.xml">
+			<classes dir="${build.classes.dir}" />
+			<fileset dir="${build.web.dir}" excludes="WEB-INF/web.xml" />
+		</war>
+	</target>
+
+	<target name="deploy" depends="compile, generate-buildinfo" description="Deploy application">
+		<!--  Copy .xml and .property files in /WEB-INF and subdirectories with replacing values
+			according to the following filterset definition. Need to be sure to not include the
+			jar files in this copy statement because filterset task will corrupt binary files. 
+			
+			Don't copy files from WEB-INF/classes. Eclipse or other IDE may have been used to put
+			them there and may not have the same version of the JDK that the Ant build is setup for.
+			Ant will compile and put them in ${build.classes.dir}.
+			-->
+		<echo message="Copying .xml and .property files in /WEB-INF with property replacement" />
+		<copy todir="${webapp.deploy.dir}/WEB-INF"  failonerror="false">
+			<fileset dir="${web.dir}/WEB-INF" includes="**/*.properties, **/*.xml" excludes="classes/**" />
+			
+		</copy>
+		<!-- copy buildinfo.properties file to deploy directory -->
+		<mkdir dir="${webapp.deploy.dir}/WEB-INF/buildinfo" />
+		<copy file="${build.web.dir}/WEB-INF/buildinfo/build.properties" todir="${webapp.deploy.dir}/WEB-INF/buildinfo" />
+		<!--  Copy all other files under /WEB-INF except for .property, .xml files. 
+		The .property and .xml files have already been copied and 
+		the .xml and .property files under /WEB-INF are "templates" in that they have 
+		placeholder Ant variables (e.g. @database.name@) and
+		therefore cannot be used without running through a filterset first. -->
+		<echo message="Copying /WEB-INF other than .property and .xml files" />
+		<copy todir="${webapp.deploy.dir}/WEB-INF">
+			<fileset dir="${web.dir}/WEB-INF" excludes="**/*.properties,**/*.xml, classes/**" />
+		</copy>
+		<echo message="Coping web resources" />
+		<copy todir="${webapp.deploy.dir}">
+			<fileset dir="${web.dir}">
+				<exclude name="WEB-INF/**" />
+			</fileset>
+		</copy>
+		<echo message="Copying class files" />
+		<copy todir="${webapp.deploy.dir}/WEB-INF/classes">
+			<fileset dir="${build.classes.dir}" />
+		</copy>		
+	</target>
+
+			
+	<target name="deploy-web" description="Copy web resources to deploy directory">
+	        <!--  Copy all other files under /WEB-INF except for .property, .xml files. 
+	        The .property and .xml files have already been copied and 
+	        the .xml and .property files under /WEB-INF are "templates" in that they have 
+	        placeholder Ant variables (e.g. @database.name@) and
+	        therefore cannot be used without running through a filterset first. -->
+	        <echo message="Copying /WEB-INF other than .property and .xml files" />
+	        <copy todir="${webapp.deploy.dir}/WEB-INF" verbose="true">
+	            <fileset dir="${web.dir}/WEB-INF" excludes="**/*.properties,**/*.xml, classes/**" />
+	        </copy>
+	        <echo message="Coping all files from ${web.dir} other than files under /WEB-INF" />
+			<copy todir="${webapp.deploy.dir}" verbose="true">
+             <fileset dir="${web.dir}">
+                 <exclude name="WEB-INF/**" />
+             </fileset>
+         </copy>
+	</target>
+	
+	<!-- Creates release (source) distribution -->
+	<target name="dist" depends="clean, war" description="create zip of all source code for distribution">
+		<mkdir dir="${dist.dir}" />
+		<zip zipfile="${dist.dir}/${project.name}-${project.version}-${build.id}.zip">
+		  <!-- Put war file into the zip file -->
+		  <fileset file="${dist.dir}/${warfile.name}"/>
+		  <!-- Put source code into the zip file -->
+		  <zipfileset prefix="${project.name}" dir="${basedir}">
+			 <patternset id="srcfiles">
+			     <exclude name="*.log" />
+				    <exclude name="**/*~" />
+					<exclude name="**/*.bak" />
+					<exclude name="*/**.java.txt" />
+					<exclude name=".#**" />
+					<exclude name="${web.dir}/WEB-INF/reports/**" />
+					<exclude name="${web.dir}/WEB-INF/classes/**" />
+					<include name="${javadoc.dir}/**" />
+					<include name="${src.dir}/**" />
+					<include name="${web.dir}/**" />
+					<include name="build.xml" />
+				</patternset>
+		  </zipfileset>
+		</zip>
+		<!-- Delete the war file since we have put it into to zip file -->
+        <delete file="${dist.dir}/${warfile.name}"/>
+	</target>
+
+	<target name="javadoc" depends="compile" description="generate javadoc">
+		<mkdir dir="${javadoc.dir}" />
+		<javadoc access="private" destdir="${javadoc.dir}" maxmemory="512m" linksource="true" source="${jdk.version}" 
+			sourcepath="${src.dir}" verbose="false" windowtitle="documentation">
+			<classpath refid="classpath" />
+			<package name="*" />
+		</javadoc>
+	</target>
+
+	<!--<target name="jar" depends="compile" description="make a jar file of Repository Model objects for use by Legacy Analyzers">-->
+		<!--&lt;!&ndash; Index attribute used in the following jar command creates an index of the jar file content-->
+            <!--in the META-INF file in the jar. This probably doesn't matter in many cases, but can-->
+            <!--improve run-time performance when using the jar in some cases.-->
+            <!--See Section 6.3.2 in the book "Java Development with Ant" for details. &ndash;&gt;-->
+		<!--<jar destfile="${jarfile.path}" index="true">-->
+			<!--<fileset dir="${build.classes.dir}">-->
+			<!--</fileset>-->
+		<!--</jar>-->
+	<!--</target>-->
+
+	<target name="tomcat-start" description="starts tomcat">
+		<java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+			<jvmarg value="-Xms${tomcat.memory-min}" />
+			<jvmarg value="-Xmx${tomcat.memory-max}" />
+			<!-- Following settings configure Tomcat so that
+                 the Eclipse debugger can connect to Tomcat in order
+                 to debug a web application from Eclipse. 
+                 See "Remove Java Application launch Configuration" in
+                 Eclipse Help for details on debugging a webapp in Eclipse. -->
+			<jvmarg value="-Djava.edorsed.dirs=${tomcat.home}\common\endorsed" />
+			<jvmarg value="-Djava.io.tmpdir=${tomcat.home}" />
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,address=${tomcat.debug-port},server=y,suspend=n" />
+		</java>
+	</target>
+
+	<!--
+	    This target stop the application server.
+	  -->
+	<target name="tomcat-stop">
+		<echo message="If a Connection refused message is displayed, that is OK because Tomcat was not running anyway." />
+		<java jar="${tomcat.home}/bin/bootstrap.jar" failonerror="false" fork="true" resultproperty="tomcat.stop.result">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+			<arg line="stop" />
+		</java>
+		<!-- Sleep a couple of seconds to make sure that Tomcat is stopped
+            in case other targets depend on this one that try to restart tomcat
+            or delete files from under Tomcat, e.g. tomcat-clean. -->
+
+		<if>
+			<equals arg1="${tomcat.stop.result}" arg2="1" />
+			    <then>
+				    <echo message="Tomcat didn't need to be stoped" />
+			    </then>
+			<else>
+				<echo message="Tomcat needed to be stopped. Time for the waiting game." />
+				<for list="30,30,30,30,30,30,30,30,30,30" param="sec" keepgoing="true">
+					<sequential>
+						<if>
+							<available file="${webapp.deploy.dir}" type="dir" />
+							<then>
+								<echo message="Trying to delete ${webapp.deploy.dir}" />
+								<delete dir="${webapp.deploy.dir}" failonerror="false" />
+								<if>
+									<available file="${webapp.deploy.dir}" type="dir" />
+									<then>
+										<echo message="Tomcat still hasn't stoped." />
+										<sleep seconds="@{sec}" />
+									</then>
+								</if>
+							</then>
+						</if>
+					</sequential>
+				</for>
+			</else>
+		</if>
+	</target>
+
+	<target name="tomcat-clean"  description="Stops tomcat and deletes webapp files from Tomcat webapps directory and also Tomcat work files for a webapp">
+		<delete dir="${tomcat.home}/webapps/${webapp.name}" />
+		<delete dir="${tomcat.home}/work/catalina/localhost/${webapp.name}" />
+	</target>
+
+	<target name="clean-all" depends="clean, tomcat-clean" />
+
+	<property name="reports.dir" value="reports" />
+		
+	<target name="deploy-clean" depends="clean, deploy" description="clean and then deploy" />
+
+	<target name="clean" description="Clean output directories">
+		<delete dir="${build.dir}" />
+		<delete dir="${javadoc.dir}" />
+	</target>
+	
+	<target name="deploy-start" depends="deploy-clean,tomcat-start"  />
+	
+</project>

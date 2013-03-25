@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/config
+END
+daoContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/config/daoContext.xml
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/config/jdbc.properties
+END

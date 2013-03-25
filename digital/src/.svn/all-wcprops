@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/log4j.properties
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/jdbc.properties
+END
+mail.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/mail.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/application.properties
+END

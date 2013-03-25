@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/models
+END
+Profile.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Profile.java
+END
+Users.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Users.java
+END
+PlanGuest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/models/PlanGuest.java
+END
+ListMember.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ListMember.java
+END
+PCommunity.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3851/SOLR/branches/digital/src/com/ytk/models/PCommunity.java
+END
+HeaderThings.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/models/HeaderThings.java
+END
+PlaceReview.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/PlaceReview.java
+END
+Messages.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/models/Messages.java
+END
+Member.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Member.java
+END
+ResponseHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ResponseHeader.java
+END
+MemberEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/MemberEvent.java
+END
+Custom.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Custom.java
+END
+Folder.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Folder.java
+END
+Plans.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/models/Plans.java
+END
+ListMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ListMessage.java
+END
+AutoCompleteResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/AutoCompleteResponse.java
+END
+Params.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Params.java
+END
+Neibhourhood.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Neibhourhood.java
+END
+CommunityEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/CommunityEvent.java
+END
+ListContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ListContact.java
+END
+ForumEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ForumEvent.java
+END
+Contact.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Contact.java
+END
+Things.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/models/Things.java
+END
+ThingsFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ytk-platform/!svn/ver/4000/SOLR/branches/digital/src/com/ytk/models/ThingsFilter.java
+END
+ResultDoc.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ResultDoc.java
+END
+Updates.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ytk-platform/!svn/ver/3536/SOLR/branches/digital/src/com/ytk/models/Updates.java
+END
+ListCollege.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ListCollege.java
+END
+HeaderFace.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/models/HeaderFace.java
+END
+AllSearchableObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/AllSearchableObject.java
+END
+DiscussionQuestion.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ytk-platform/!svn/ver/4057/SOLR/branches/digital/src/com/ytk/models/DiscussionQuestion.java
+END
+PThings.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/PThings.java
+END
+HeaderQuestion.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/models/HeaderQuestion.java
+END
+ListCommunity.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ListCommunity.java
+END
+Faces.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/models/Faces.java
+END
+Place.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/models/Place.java
+END
+Community.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Community.java
+END
+CollectionList.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/CollectionList.java
+END
+Forum.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/Forum.java
+END
+PlaceFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3973/SOLR/branches/digital/src/com/ytk/models/PlaceFilter.java
+END
+ListConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/models/ListConnection.java
+END
+HeaderPlace.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/models/HeaderPlace.java
+END

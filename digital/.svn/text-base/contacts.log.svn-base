@@ -1,0 +1,933 @@
+11:50:29,863  INFO ContextLoader,main:187 - Root WebApplicationContext: initialization started
+11:50:30,066  INFO XmlWebApplicationContext,main:456 - Refreshing Root WebApplicationContext: startup date [Wed Mar 23 11:50:30 IST 2011]; root of context hierarchy
+11:50:30,690  INFO XmlBeanDefinitionReader,main:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext-security.xml]
+11:50:30,690 DEBUG DefaultDocumentLoader,main:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+11:50:30,690 DEBUG PluggableSchemaResolver,main:140 - Loading schema mappings from [META-INF/spring.schemas]
+11:50:30,706 DEBUG PluggableSchemaResolver,main:146 - Loaded schema mappings: {http://www.springframework.org/schema/security/spring-security-3.0.4.xsd=org/springframework/security/config/spring-security-3.0.4.xsd, http://www.springframework.org/schema/util/spring-util.xsd=org/springframework/beans/factory/xml/spring-util-3.0.xsd, http://www.springframework.org/schema/task/spring-task.xsd=org/springframework/scheduling/config/spring-task-3.0.xsd, http://www.springframework.org/schema/security/spring-security-2.0.2.xsd=org/springframework/security/config/spring-security-2.0.2.xsd, http://www.springframework.org/schema/aop/spring-aop-3.0.xsd=org/springframework/aop/config/spring-aop-3.0.xsd, http://www.springframework.org/schema/aop/spring-aop-2.0.xsd=org/springframework/aop/config/spring-aop-2.0.xsd, http://www.springframework.org/schema/tool/spring-tool-2.5.xsd=org/springframework/beans/factory/xml/spring-tool-2.5.xsd, http://www.springframework.org/schema/beans/spring-beans.xsd=org/springframework/beans/factory/xml/spring-beans-3.0.xsd, http://www.springframework.org/schema/jee/spring-jee-2.5.xsd=org/springframework/ejb/config/spring-jee-2.5.xsd, http://www.springframework.org/schema/security/spring-security-3.0.3.xsd=org/springframework/security/config/spring-security-3.0.3.xsd, http://www.springframework.org/schema/aop/spring-aop.xsd=org/springframework/aop/config/spring-aop-3.0.xsd, http://www.springframework.org/schema/beans/spring-beans-2.0.xsd=org/springframework/beans/factory/xml/spring-beans-2.0.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd=org/springframework/web/servlet/config/spring-mvc-3.0.xsd, http://www.springframework.org/schema/beans/spring-beans-3.0.xsd=org/springframework/beans/factory/xml/spring-beans-3.0.xsd, http://www.springframework.org/schema/security/spring-security-2.0.1.xsd=org/springframework/security/config/spring-security-2.0.1.xsd, http://www.springframework.org/schema/task/spring-task-3.0.xsd=org/springframework/scheduling/config/spring-task-3.0.xsd, http://www.springframework.org/schema/security/spring-security-2.0.xsd=org/springframework/security/config/spring-security-2.0.xsd, http://www.springframework.org/schema/security/spring-security-3.0.xsd=org/springframework/security/config/spring-security-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, http://www.springframework.org/schema/context/spring-context-2.5.xsd=org/springframework/context/config/spring-context-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd=org/springframework/jdbc/config/spring-jdbc-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool-3.0.xsd=org/springframework/beans/factory/xml/spring-tool-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx.xsd=org/springframework/transaction/config/spring-tx-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool-2.0.xsd=org/springframework/beans/factory/xml/spring-tool-2.0.xsd, http://www.springframework.org/schema/util/spring-util-2.5.xsd=org/springframework/beans/factory/xml/spring-util-2.5.xsd, http://www.springframework.org/schema/lang/spring-lang.xsd=org/springframework/scripting/config/spring-lang-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-2.5.xsd=org/springframework/scripting/config/spring-lang-2.5.xsd, http://www.springframework.org/schema/security/spring-security-2.0.4.xsd=org/springframework/security/config/spring-security-2.0.4.xsd, http://www.springframework.org/schema/jee/spring-jee-3.0.xsd=org/springframework/ejb/config/spring-jee-3.0.xsd, http://www.springframework.org/schema/jee/spring-jee-2.0.xsd=org/springframework/ejb/config/spring-jee-2.0.xsd, http://www.springframework.org/schema/security/spring-security.xsd=org/springframework/security/config/spring-security-3.0.4.xsd, http://www.springframework.org/schema/context/spring-context.xsd=org/springframework/context/config/spring-context-3.0.xsd, http://www.springframework.org/schema/jee/spring-jee.xsd=org/springframework/ejb/config/spring-jee-3.0.xsd, http://www.springframework.org/schema/aop/spring-aop-2.5.xsd=org/springframework/aop/config/spring-aop-2.5.xsd, http://www.springframework.org/schema/mvc/spring-mvc.xsd=org/springframework/web/servlet/config/spring-mvc-3.0.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc.xsd=org/springframework/jdbc/config/spring-jdbc-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-2.0.xsd=org/springframework/transaction/config/spring-tx-2.0.xsd, http://www.springframework.org/schema/tx/spring-tx-3.0.xsd=org/springframework/transaction/config/spring-tx-3.0.xsd, http://www.springframework.org/schema/context/spring-context-3.0.xsd=org/springframework/context/config/spring-context-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool.xsd=org/springframework/beans/factory/xml/spring-tool-3.0.xsd, http://www.springframework.org/schema/util/spring-util-3.0.xsd=org/springframework/beans/factory/xml/spring-util-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.0.xsd=org/springframework/scripting/config/spring-lang-3.0.xsd, http://www.springframework.org/schema/util/spring-util-2.0.xsd=org/springframework/beans/factory/xml/spring-util-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang-2.0.xsd=org/springframework/scripting/config/spring-lang-2.0.xsd, http://www.springframework.org/schema/beans/spring-beans-2.5.xsd=org/springframework/beans/factory/xml/spring-beans-2.5.xsd}
+11:50:30,722 DEBUG PluggableSchemaResolver,main:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.0.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.0.xsd
+11:50:30,737 DEBUG PluggableSchemaResolver,main:118 - Found XML schema [http://www.springframework.org/schema/security/spring-security-3.0.xsd] in classpath: org/springframework/security/config/spring-security-3.0.xsd
+11:50:30,769 DEBUG DefaultBeanDefinitionDocumentReader,main:87 - Loading bean definitions
+11:50:30,878 DEBUG DefaultNamespaceHandlerResolver,main:156 - Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/mvc=org.springframework.web.servlet.config.MvcNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/security=org.springframework.security.config.SecurityNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+11:50:30,956  INFO SpringSecurityCoreVersion,main:22 - You are running with Spring Security Core 3.0.5.RELEASE
+11:50:30,956  INFO SecurityNamespaceHandler,main:57 - Spring Security 'config' module version is 3.0.5.RELEASE
+11:50:31,065  INFO GlobalMethodSecurityBeanDefinitionParser,main:132 - Using bean 'expressionHandler' as method ExpressionHandler implementation
+11:50:31,331  INFO HttpSecurityBeanDefinitionParser,main:188 - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 300, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1500, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1600, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 1900, <switchUserProcessingFilter>, order = 2000]
+11:50:31,487 DEBUG XmlBeanDefinitionReader,main:185 - Loaded 28 bean definitions from location pattern [/WEB-INF/applicationContext-security.xml]
+11:50:31,487  INFO XmlBeanDefinitionReader,main:315 - Loading XML bean definitions from class path resource [applicationContext-common-business.xml]
+11:50:31,503 DEBUG DefaultDocumentLoader,main:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+11:50:31,503 DEBUG PluggableSchemaResolver,main:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.0.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.0.xsd
+11:50:31,549 DEBUG PluggableSchemaResolver,main:118 - Found XML schema [http://www.springframework.org/schema/tx/spring-tx-3.0.xsd] in classpath: org/springframework/transaction/config/spring-tx-3.0.xsd
+11:50:31,549 DEBUG PluggableSchemaResolver,main:118 - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.0.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.0.xsd
+11:50:31,565 DEBUG DefaultBeanDefinitionDocumentReader,main:87 - Loading bean definitions
+11:50:31,612 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [sample.contact.ContactDaoSpring#1c47983]
+11:50:31,643 DEBUG XmlBeanDefinitionReader,main:185 - Loaded 7 bean definitions from location pattern [classpath:applicationContext-common-business.xml]
+11:50:31,643  INFO XmlBeanDefinitionReader,main:315 - Loading XML bean definitions from class path resource [applicationContext-common-authorization.xml]
+11:50:31,643 DEBUG DefaultDocumentLoader,main:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+11:50:31,659 DEBUG PluggableSchemaResolver,main:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.0.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.0.xsd
+11:50:31,674 DEBUG DefaultBeanDefinitionDocumentReader,main:87 - Loading bean definitions
+11:50:31,674 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b]
+11:50:31,752 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.cache.ehcache.EhCacheFactoryBean#1258381]
+11:50:31,752 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.security.core.authority.GrantedAuthorityImpl#1dcab91]
+11:50:31,752 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.security.core.authority.GrantedAuthorityImpl#83bf98]
+11:50:31,752 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.security.core.authority.GrantedAuthorityImpl#197c294]
+11:50:31,846 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.security.acls.domain.AclAuthorizationStrategyImpl#67c3fd]
+11:50:31,846 DEBUG BeanDefinitionParserDelegate,main:417 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.security.acls.domain.ConsoleAuditLogger#743a20]
+11:50:31,846 DEBUG XmlBeanDefinitionReader,main:185 - Loaded 3 bean definitions from location pattern [classpath:applicationContext-common-authorization.xml]
+11:50:31,846 DEBUG XmlWebApplicationContext,main:470 - Bean factory for Root WebApplicationContext: org.springframework.beans.factory.support.DefaultListableBeanFactory@9448a8: defining beans [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0,org.springframework.security.access.vote.AffirmativeBased#0,org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0,org.springframework.security.methodSecurityMetadataSourceAdvisor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.security.web.PortMapperImpl#0,org.springframework.security.web.context.HttpSessionSecurityContextRepository#0,org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0,org.springframework.security.authentication.ProviderManager#0,org.springframework.security.access.vote.AffirmativeBased#1,org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0,org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0,org.springframework.security.authentication.AnonymousAuthenticationProvider#0,org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0,org.springframework.security.authentication.RememberMeAuthenticationProvider#0,org.springframework.security.web.savedrequest.HttpSessionRequestCache#0,org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint#0,org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0,org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0,org.springframework.security.filterChainProxy,org.springframework.security.provisioning.JdbcUserDetailsManager#0,org.springframework.security.authentication.dao.DaoAuthenticationProvider#0,org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0,org.springframework.security.authenticationManager,loggerListener,switchUserProcessingFilter,expressionHandler,permissionEvaluator,dataSource,transactionManager,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,dataSourcePopulator,contactManager,aclCache,lookupStrategy,aclService]; root of factory hierarchy
+11:50:32,205 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'dataSourcePopulator'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:394)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:594)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:407)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 33 more
+11:50:32,299 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'contactManager'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.ContactManagerBackend] for bean with name 'contactManager' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:394)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:594)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:407)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 33 more
+11:50:32,424 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'dataSourcePopulator'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:614)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:407)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 32 more
+11:50:32,533 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'contactManager'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.ContactManagerBackend] for bean with name 'contactManager' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:614)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:407)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 32 more
+11:50:32,643 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'dataSourcePopulator'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:673)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:410)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 32 more
+11:50:32,752 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'contactManager'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.ContactManagerBackend] for bean with name 'contactManager' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:673)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:410)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 32 more
+11:50:32,861 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+11:50:32,861 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.aop.config.internalAutoProxyCreator'
+11:50:32,986 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.aop.config.internalAutoProxyCreator' to allow for resolving potential circular references
+11:50:33,049 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.aop.config.internalAutoProxyCreator'
+11:50:33,049 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0'
+11:50:33,049 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0'
+11:50:33,174 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0' to allow for resolving potential circular references
+11:50:33,189 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'dataSourcePopulator'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:185)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:73)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:100)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:86)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:68)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:407)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1418)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:722)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:410)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 47 more
+11:50:33,283 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'contactManager'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.ContactManagerBackend] for bean with name 'contactManager' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:185)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:73)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:100)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:86)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:68)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:407)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1418)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:722)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:410)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 47 more
+11:50:33,377 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:33,377 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:33,377 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0'
+11:50:33,377 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0'
+11:50:33,392 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0' to allow for resolving potential circular references
+11:50:33,423 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)'
+11:50:33,423 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)'
+11:50:33,423 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'expressionHandler'
+11:50:33,423 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'expressionHandler'
+11:50:33,439 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'expressionHandler' to allow for resolving potential circular references
+11:50:33,455 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'permissionEvaluator'
+11:50:33,517 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'permissionEvaluator'
+11:50:33,517 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'aclService'
+11:50:33,517 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'aclService'
+11:50:33,517 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'dataSource'
+11:50:33,517 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'dataSource'
+11:50:33,517 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'dataSource' to allow for resolving potential circular references
+11:50:33,548  INFO DriverManagerDataSource,main:153 - Loaded JDBC driver: org.hsqldb.jdbcDriver
+11:50:33,611  INFO XmlWebApplicationContext,main:1332 - Bean 'dataSource' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:33,611 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:33,611 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:33,642 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.transaction.config.internalTransactionAdvisor' to allow for resolving potential circular references
+11:50:33,751 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+11:50:33,751 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+11:50:33,767 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' to allow for resolving potential circular references
+11:50:33,829  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:33,845 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+11:50:33,845  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.transaction.config.internalTransactionAdvisor' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:33,923 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:33,939 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'dataSource'
+11:50:33,939 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'lookupStrategy'
+11:50:33,939 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'lookupStrategy'
+11:50:33,939 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'dataSource'
+11:50:34,017 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'aclCache'
+11:50:34,017 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'aclCache'
+11:50:34,017 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.cache.ehcache.EhCacheFactoryBean#1258381'
+11:50:34,064 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b'
+11:50:34,095 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b'
+11:50:34,095  INFO EhCacheManagerFactoryBean,main:99 - Initializing EHCache CacheManager
+11:50:34,235  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,235 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,235 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b'
+11:50:34,235  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,235 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,345 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.cache.ehcache.EhCacheFactoryBean#1258381'
+11:50:34,345 DEBUG EhCacheFactoryBean,main:299 - Creating new EHCache cache region 'aclCache'
+11:50:34,376  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.cache.ehcache.EhCacheFactoryBean#1258381' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,376 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,438 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.cache.ehcache.EhCacheFactoryBean#1258381'
+11:50:34,438  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.cache.ehcache.EhCacheFactoryBean#1258381' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,438 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,470 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'aclCache' to allow for resolving potential circular references
+11:50:34,548  INFO XmlWebApplicationContext,main:1332 - Bean 'aclCache' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,548 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,548 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'aclCache'
+11:50:34,548 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.acls.domain.AclAuthorizationStrategyImpl#67c3fd'
+11:50:34,641 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#1dcab91'
+11:50:34,673  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#1dcab91' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,673 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,735 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#1dcab91'
+11:50:34,735 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#83bf98'
+11:50:34,751  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#83bf98' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,844 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,844 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#83bf98'
+11:50:34,844 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#197c294'
+11:50:34,844  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#197c294' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:34,954 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:34,954 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#197c294'
+11:50:35,048  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.acls.domain.AclAuthorizationStrategyImpl#67c3fd' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,048 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:35,048 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.acls.domain.AclAuthorizationStrategyImpl#67c3fd'
+11:50:35,141 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.acls.domain.ConsoleAuditLogger#743a20'
+11:50:35,172  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.acls.domain.ConsoleAuditLogger#743a20' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,172 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:35,172 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.acls.domain.ConsoleAuditLogger#743a20'
+11:50:35,344 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'lookupStrategy' to allow for resolving potential circular references
+11:50:35,360  INFO XmlWebApplicationContext,main:1332 - Bean 'lookupStrategy' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,360 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:35,360 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'lookupStrategy'
+11:50:35,360 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'aclCache'
+11:50:35,375 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'aclService' to allow for resolving potential circular references
+11:50:35,469  INFO XmlWebApplicationContext,main:1332 - Bean 'aclService' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,469 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:35,469 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'aclService'
+11:50:35,485 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'permissionEvaluator' to allow for resolving potential circular references
+11:50:35,563  INFO XmlWebApplicationContext,main:1332 - Bean 'permissionEvaluator' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,563 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'permissionEvaluator'
+11:50:35,563  INFO XmlWebApplicationContext,main:1332 - Bean 'expressionHandler' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,563 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'expressionHandler'
+11:50:35,688  INFO XmlWebApplicationContext,main:1332 - Bean '(inner bean)' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,688 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)'
+11:50:35,703  INFO XmlWebApplicationContext,main:1332 - Bean '(inner bean)' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,703 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)'
+11:50:35,766 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0'
+11:50:35,766  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,766 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0'
+11:50:35,860 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor' to allow for resolving potential circular references
+11:50:35,891  INFO XmlWebApplicationContext,main:1332 - Bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor' is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+11:50:35,891 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:35,969 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:35,969 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0'
+11:50:35,985 DEBUG XmlWebApplicationContext,main:776 - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@48172]
+11:50:36,000 DEBUG XmlWebApplicationContext,main:800 - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@67c4b4]
+11:50:36,078 DEBUG UiApplicationContextUtils,main:85 - Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@12f41ec]
+11:50:36,078 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'dataSourcePopulator'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:1136)
+	at org.springframework.context.support.AbstractApplicationContext.registerListeners(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:422)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 33 more
+11:50:36,188 DEBUG DefaultListableBeanFactory,main:334 - Ignoring bean class loading failure for bean 'contactManager'
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.ContactManagerBackend] for bean with name 'contactManager' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:1136)
+	at org.springframework.context.support.AbstractApplicationContext.registerListeners(AbstractApplicationContext.java:856)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:422)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.lang.ClassNotFoundException: sample.contact.ContactManagerBackend
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 33 more
+11:50:36,188  INFO DefaultListableBeanFactory,main:549 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@9448a8: defining beans [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0,org.springframework.security.access.vote.AffirmativeBased#0,org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0,org.springframework.security.methodSecurityMetadataSourceAdvisor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.security.web.PortMapperImpl#0,org.springframework.security.web.context.HttpSessionSecurityContextRepository#0,org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0,org.springframework.security.authentication.ProviderManager#0,org.springframework.security.access.vote.AffirmativeBased#1,org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0,org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0,org.springframework.security.authentication.AnonymousAuthenticationProvider#0,org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0,org.springframework.security.authentication.RememberMeAuthenticationProvider#0,org.springframework.security.web.savedrequest.HttpSessionRequestCache#0,org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint#0,org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0,org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0,org.springframework.security.filterChainProxy,org.springframework.security.provisioning.JdbcUserDetailsManager#0,org.springframework.security.authentication.dao.DaoAuthenticationProvider#0,org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0,org.springframework.security.authenticationManager,loggerListener,switchUserProcessingFilter,expressionHandler,permissionEvaluator,dataSource,transactionManager,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,dataSourcePopulator,contactManager,aclCache,lookupStrategy,aclService]; root of factory hierarchy
+11:50:36,203 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0'
+11:50:36,203 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.access.vote.AffirmativeBased#0'
+11:50:36,203 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.access.vote.AffirmativeBased#0'
+11:50:36,219 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.access.vote.AffirmativeBased#0' to allow for resolving potential circular references
+11:50:36,234 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#1'
+11:50:36,250 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#1'
+11:50:36,250 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'expressionHandler'
+11:50:36,312 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#1'
+11:50:36,312 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:36,328 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:36,328 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#1'
+11:50:36,328 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#2'
+11:50:36,422 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:36,422 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:36,422 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#2'
+11:50:36,422 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#3'
+11:50:36,437 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:36,515 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:36,515 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#3'
+11:50:36,515 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.access.vote.AffirmativeBased#0'
+11:50:36,515 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:36,515 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:36,640 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.access.vote.AffirmativeBased#0'
+11:50:36,640 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0'
+11:50:36,640 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0'
+11:50:36,656 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0' to allow for resolving potential circular references
+11:50:36,734 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.access.vote.AffirmativeBased#0'
+11:50:36,734 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#4'
+11:50:36,750 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:36,750 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:36,828 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#4'
+11:50:36,828 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0'
+11:50:36,828 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#5'
+11:50:36,828 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#5'
+11:50:36,828 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#5'
+11:50:36,921 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'expressionHandler'
+11:50:36,937 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#5'
+11:50:36,937 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:36,937 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:36,953 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#5'
+11:50:36,953 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name '(inner bean)#5'
+11:50:37,015 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,015 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:37,031 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#5'
+11:50:37,031 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0'
+11:50:37,031  INFO MethodSecurityInterceptor,main:156 - Validated configuration attributes
+11:50:37,031 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0'
+11:50:37,031 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,125 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+11:50:37,125 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.web.PortMapperImpl#0'
+11:50:37,125 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.web.PortMapperImpl#0'
+11:50:37,125 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.web.PortMapperImpl#0' to allow for resolving potential circular references
+11:50:37,156 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,156 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:37,156 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.web.PortMapperImpl#0'
+11:50:37,156 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.web.context.HttpSessionSecurityContextRepository#0'
+11:50:37,156 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.web.context.HttpSessionSecurityContextRepository#0'
+11:50:37,171 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.web.context.HttpSessionSecurityContextRepository#0' to allow for resolving potential circular references
+11:50:37,281 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,281 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:37,296 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.web.context.HttpSessionSecurityContextRepository#0'
+11:50:37,296 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0'
+11:50:37,359 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0'
+11:50:37,359 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0' to allow for resolving potential circular references
+11:50:37,406 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,406 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:37,421 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0'
+11:50:37,421 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.authentication.ProviderManager#0'
+11:50:37,468 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.authentication.ProviderManager#0'
+11:50:37,515 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.authentication.ProviderManager#0' to allow for resolving potential circular references
+11:50:37,531 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#6'
+11:50:37,546 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,546 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:37,577 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#6'
+11:50:37,577 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.authenticationManager'
+11:50:37,577 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.authenticationManager'
+11:50:37,577 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.authenticationManager' to allow for resolving potential circular references
+11:50:37,671 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.authentication.dao.DaoAuthenticationProvider#0'
+11:50:37,671 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.authentication.dao.DaoAuthenticationProvider#0'
+11:50:37,702 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.authentication.dao.DaoAuthenticationProvider#0' to allow for resolving potential circular references
+11:50:37,734 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#7'
+11:50:37,812 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,812 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:37,827 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#7'
+11:50:37,827 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.provisioning.JdbcUserDetailsManager#0'
+11:50:37,874 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.provisioning.JdbcUserDetailsManager#0'
+11:50:37,890 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.provisioning.JdbcUserDetailsManager#0' to allow for resolving potential circular references
+11:50:37,921 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'dataSource'
+11:50:37,921 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.provisioning.JdbcUserDetailsManager#0'
+11:50:37,983  INFO JdbcUserDetailsManager,main:130 - No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+11:50:37,983 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:37,983 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,124 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.provisioning.JdbcUserDetailsManager#0'
+11:50:38,140 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.authentication.dao.DaoAuthenticationProvider#0'
+11:50:38,140 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,140 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,233 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.authentication.dao.DaoAuthenticationProvider#0'
+11:50:38,233 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0'
+11:50:38,233 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0'
+11:50:38,265 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0' to allow for resolving potential circular references
+11:50:38,296 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,296 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,311 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0'
+11:50:38,311 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.authenticationManager'
+11:50:38,389 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,389 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,421 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.authenticationManager'
+11:50:38,421 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,499 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,499 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.authentication.AnonymousAuthenticationProvider#0'
+11:50:38,499 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.authentication.AnonymousAuthenticationProvider#0'
+11:50:38,499 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.authentication.AnonymousAuthenticationProvider#0' to allow for resolving potential circular references
+11:50:38,514 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.authentication.AnonymousAuthenticationProvider#0'
+11:50:38,592 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,592 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,608 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.authentication.AnonymousAuthenticationProvider#0'
+11:50:38,608 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.authentication.RememberMeAuthenticationProvider#0'
+11:50:38,608 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.authentication.RememberMeAuthenticationProvider#0'
+11:50:38,608 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.authentication.RememberMeAuthenticationProvider#0' to allow for resolving potential circular references
+11:50:38,717 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.authentication.RememberMeAuthenticationProvider#0'
+11:50:38,717 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,717 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,733 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.authentication.RememberMeAuthenticationProvider#0'
+11:50:38,811 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#8'
+11:50:38,827 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#8'
+11:50:38,827 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,827 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,842 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#8'
+11:50:38,842 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.authenticationManager'
+11:50:38,905 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,905 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,905 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name '(inner bean)#8'
+11:50:38,905 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:38,905 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:38,952 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#8'
+11:50:38,952 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,014 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,030 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.authentication.ProviderManager#0'
+11:50:39,030 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,030 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,108 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.authentication.ProviderManager#0'
+11:50:39,108 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.access.vote.AffirmativeBased#1'
+11:50:39,108 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.access.vote.AffirmativeBased#1'
+11:50:39,108 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.access.vote.AffirmativeBased#1' to allow for resolving potential circular references
+11:50:39,108 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#9'
+11:50:39,123 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,123 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,123 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#9'
+11:50:39,123 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#10'
+11:50:39,123 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,123 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,217 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#10'
+11:50:39,217 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.access.vote.AffirmativeBased#1'
+11:50:39,217 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,217 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,217 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.access.vote.AffirmativeBased#1'
+11:50:39,326 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0'
+11:50:39,326 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0'
+11:50:39,326 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0' to allow for resolving potential circular references
+11:50:39,358 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.access.vote.AffirmativeBased#1'
+11:50:39,358 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.authentication.ProviderManager#0'
+11:50:39,420 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#11'
+11:50:39,420 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#11'
+11:50:39,436 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,436 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,436 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#11'
+11:50:39,529 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#12'
+11:50:39,576 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,576 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,779 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#12'
+11:50:39,795 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#13'
+11:50:39,795 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,795 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,795 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#13'
+11:50:39,826 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#14'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#14'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#15'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,842 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#15'
+11:50:39,936 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#16'
+11:50:39,936 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:39,936 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:39,936 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#16'
+11:50:39,936 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#17'
+11:50:39,936 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,045 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,045 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#17'
+11:50:40,045 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#18'
+11:50:40,045 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,045 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,139 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#18'
+11:50:40,139 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#19'
+11:50:40,139 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,154 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,154 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#19'
+11:50:40,154 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#20'
+11:50:40,154 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,154 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,154 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#20'
+11:50:40,248 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#21'
+11:50:40,248 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,248 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,248 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#21'
+11:50:40,248 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#22'
+11:50:40,248 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,357 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,357 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#22'
+11:50:40,357 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#23'
+11:50:40,357 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,357 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,451 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#23'
+11:50:40,451 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean '(inner bean)#24'
+11:50:40,451 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,451 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,451 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#24'
+11:50:40,560 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /; attributes: [IS_AUTHENTICATED_ANONYMOUSLY]
+11:50:40,560 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /index.jsp; attributes: [IS_AUTHENTICATED_ANONYMOUSLY]
+11:50:40,560 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /hello.htm; attributes: [IS_AUTHENTICATED_ANONYMOUSLY]
+11:50:40,560 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /login.jsp*; attributes: [IS_AUTHENTICATED_ANONYMOUSLY]
+11:50:40,654 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /switchuser.jsp; attributes: [ROLE_SUPERVISOR]
+11:50:40,654 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /j_spring_security_switch_user; attributes: [ROLE_SUPERVISOR]
+11:50:40,654 DEBUG DefaultFilterInvocationSecurityMetadataSource,main:98 - Added URL pattern: /**; attributes: [ROLE_USER]
+11:50:40,669 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean '(inner bean)#11'
+11:50:40,669 DEBUG DefaultListableBeanFactory,main:1453 - Invoking afterPropertiesSet() on bean with name 'org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0'
+11:50:40,748  INFO FilterSecurityInterceptor,main:156 - Validated configuration attributes
+11:50:40,748 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,748 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,841 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0'
+11:50:40,841 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0'
+11:50:40,841 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0'
+11:50:40,841 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0'
+11:50:40,872 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0' to allow for resolving potential circular references
+11:50:40,888 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.methodSecurityMetadataSourceAdvisor'
+11:50:40,888 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+11:50:40,888 DEBUG DefaultListableBeanFactory,main:458 - Finished creating instance of bean 'org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0'
+11:50:40,966 DEBUG DefaultListableBeanFactory,main:242 - Returning cached instance of singleton bean 'org.springframework.security.authentication.AnonymousAuthenticationProvider#0'
+11:50:40,966 DEBUG DefaultListableBeanFactory,main:214 - Creating shared instance of singleton bean 'org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0'
+11:50:40,966 DEBUG DefaultListableBeanFactory,main:430 - Creating instance of bean 'org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0'
+11:50:40,997 DEBUG DefaultListableBeanFactory,main:504 - Eagerly caching bean 'org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0' to allow for resolving potential circular references
+11:50:41,122  INFO DefaultListableBeanFactory,main:422 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@9448a8: defining beans [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0,org.springframework.security.access.vote.AffirmativeBased#0,org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0,org.springframework.security.methodSecurityMetadataSourceAdvisor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.security.web.PortMapperImpl#0,org.springframework.security.web.context.HttpSessionSecurityContextRepository#0,org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0,org.springframework.security.authentication.ProviderManager#0,org.springframework.security.access.vote.AffirmativeBased#1,org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0,org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0,org.springframework.security.authentication.AnonymousAuthenticationProvider#0,org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0,org.springframework.security.authentication.RememberMeAuthenticationProvider#0,org.springframework.security.web.savedrequest.HttpSessionRequestCache#0,org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint#0,org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0,org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor#0,org.springframework.security.filterChainProxy,org.springframework.security.provisioning.JdbcUserDetailsManager#0,org.springframework.security.authentication.dao.DaoAuthenticationProvider#0,org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0,org.springframework.security.authenticationManager,loggerListener,switchUserProcessingFilter,expressionHandler,permissionEvaluator,dataSource,transactionManager,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,dataSourcePopulator,contactManager,aclCache,lookupStrategy,aclService]; root of factory hierarchy
+11:50:41,169 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b': [org.springframework.cache.ehcache.EhCacheFactoryBean#1258381]
+11:50:41,169 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'org.springframework.cache.ehcache.EhCacheFactoryBean#1258381': [aclCache]
+11:50:41,169 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'aclCache': [lookupStrategy, aclService]
+11:50:41,169 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'lookupStrategy': [aclService]
+11:50:41,263 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'aclService': [permissionEvaluator]
+11:50:41,263 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'permissionEvaluator': [expressionHandler]
+11:50:41,263 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'expressionHandler': [(inner bean), (inner bean)#1, (inner bean)#5]
+11:50:41,263 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean '(inner bean)': [(inner bean), org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0]
+11:50:41,372 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0': [org.springframework.security.methodSecurityMetadataSourceAdvisor, org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0]
+11:50:41,372 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean '(inner bean)#4': [org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0]
+11:50:41,372 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean '(inner bean)#5': [(inner bean)#5]
+11:50:41,466 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean '(inner bean)#1': [(inner bean)#1, org.springframework.security.access.vote.AffirmativeBased#0]
+11:50:41,466 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean '(inner bean)#2': [org.springframework.security.access.vote.AffirmativeBased#0]
+11:50:41,466 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'org.springframework.security.acls.domain.AclAuthorizationStrategyImpl#67c3fd': [lookupStrategy]
+11:50:41,466 DEBUG DefaultListableBeanFactory,main:477 - Retrieved dependent beans for bean 'org.springframework.security.core.authority.GrantedAuthorityImpl#1dcab91': [org.springframework.security.acls.domain.AclAuthorizationStrategyImpl#67c3fd]
+11:50:41,466 DEBUG DisposableBeanAdapter,main:172 - Invoking destroy() on bean with name 'org.springframework.cache.ehcache.EhCacheManagerFactoryBean#378d6b'
+11:50:41,482  INFO EhCacheManagerFactoryBean,main:138 - Shutting down EHCache CacheManager
+11:50:41,482 ERROR ContextLoader,main:220 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices#0': Initialization of bean failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:574)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:276)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:197)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3972)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4467)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:526)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1041)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:964)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:502)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:722)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:443)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:516)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:593)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [sample.contact.DataSourcePopulator] for bean with name 'dataSourcePopulator' defined in class path resource [applicationContext-common-business.xml]; nested exception is java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1304)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:315)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:394)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:388)
+	at org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor.getBeansOfType(UserDetailsServiceInjectionBeanPostProcessor.java:165)
+	at org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor.getUserDetailsService(UserDetailsServiceInjectionBeanPostProcessor.java:132)
+	at org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor.injectUserDetailsServiceIntoRememberMeServices(UserDetailsServiceInjectionBeanPostProcessor.java:84)
+	at org.springframework.security.config.http.UserDetailsServiceInjectionBeanPostProcessor.postProcessBeforeInitialization(UserDetailsServiceInjectionBeanPostProcessor.java:58)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:394)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	... 35 more
+Caused by: java.lang.ClassNotFoundException: sample.contact.DataSourcePopulator
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1484)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1329)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:257)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:408)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1256)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1227)
+	... 47 more

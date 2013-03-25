@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF
+END
+yettoknow-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/yettoknow-servlet.xml
+END
+response-header-filter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/response-header-filter.xml
+END
+yettoknow-security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/yettoknow-security.xml
+END
+yettoknow-business.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/yettoknow-business.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/WebContent/WEB-INF/web.xml
+END

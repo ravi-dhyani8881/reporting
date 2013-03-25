@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+      xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	        http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    ">
+
+ <import resource="config/daoContext.xml"/>
+
+     <context:component-scan   base-package="com"/>
+	<mvc:annotation-driven  />  
+ 	<mvc:interceptors>         
+		<bean id="webContentInterceptor"  class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+			<property name="cacheSeconds" value="120"/>
+			<property name="useExpiresHeader" value="true"/>
+			<property name="useCacheControlHeader" value="true"/>
+			<property name="requireSession" value="false"/>
+			<property name="useCacheControlNoStore" value="true" />
+			<property name="cacheMappings">
+				<props>
+					 <prop key="/**/*.html">2592000</prop>
+				</props>
+			</property>
+		</bean>	   
+	</mvc:interceptors>	  
+   
+   <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+   
+   <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+   
+
+   
+ <!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+-->
+
+
+ <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+<property name="location" value="classpath:application.properties">  <!--reads config.properties file-->
+   </property></bean>
+
+
+
+<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+ 		<property name="viewClass"  
+ 			value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+   <!--<bean id="userService" class="com.ytk.service.impl.UserServiceImpl"/>
+   --><bean id="AddingService" class="com.ytk.service.impl.AddingServiceImpl"/>
+   
+   <bean id="DeletingService" class="com.ytk.service.impl.DeletingServiceImpl"/>
+    
+    
+ 	     
+	     
+	     
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="html" value="text/html" />
+			</map>
+		</property>
+
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="com.ytk.utility.MappingJacksonJsonpView" />
+
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<constructor-arg>
+						<bean class="org.springframework.oxm.xstream.XStreamMarshaller" p:autodetectAnnotations="true" >
+                            <property name="aliases">	
+				  				<map>
+				  					<entry key="list" value="java.util.List" />
+				  				</map>
+			     			</property>
+							<property name="supportedClasses">
+	  							<list>
+	    							<value>java.util.List</value>
+	    							<value>java.lang.String</value>
+	  							</list>
+							</property>	
+						</bean>
+											
+					</constructor-arg>
+				</bean>
+
+			</list>
+		</property>
+		<property name="defaultContentType" ref="htmlMediaType" />
+		<property name="ignoreAcceptHeader" value="true" />
+	</bean>
+	     
+	     
+	<bean id="htmlMediaType" class="org.springframework.http.MediaType" >
+		<constructor-arg value="text" />
+		<constructor-arg value="html" />
+	</bean>
+
+	<bean id="jsonMediaType" class="org.springframework.http.MediaType">
+		<constructor-arg value="application" />
+		<constructor-arg value="json" />
+	</bean>
+
+	     
+	     
+	 	<!-- Load messages   -->
+     	 <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
+		 	<property name="basename">
+		 	<value>classpath:com/message</value>		 	
+		 	</property>
+         </bean>	
+	     
+</beans>

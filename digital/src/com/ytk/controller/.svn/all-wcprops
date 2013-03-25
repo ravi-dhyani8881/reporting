@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/controller
+END
+SearchUpdatesController.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ytk-platform/!svn/ver/3972/SOLR/branches/digital/src/com/ytk/controller/SearchUpdatesController.java
+END
+SearchMessagesController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/controller/SearchMessagesController.java
+END
+SearchDiscussionQuestionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ytk-platform/!svn/ver/3851/SOLR/branches/digital/src/com/ytk/controller/SearchDiscussionQuestionController.java
+END
+PlatformThingsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/controller/PlatformThingsController.java
+END
+PlatformFaceActionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ytk-platform/!svn/ver/3919/SOLR/branches/digital/src/com/ytk/controller/PlatformFaceActionController.java
+END
+SearchPlansController.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ytk-platform/!svn/ver/3820/SOLR/branches/digital/src/com/ytk/controller/SearchPlansController.java
+END
+SearchActionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/controller/SearchActionController.java
+END
+SearchContactsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ytk-platform/!svn/ver/3446/SOLR/branches/digital/src/com/ytk/controller/SearchContactsController.java
+END
+PlaceReviewController.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/controller/PlaceReviewController.java
+END
+demoControler.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/controller/demoControler.java
+END
+SearchCommunityController.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/controller/SearchCommunityController.java
+END
+MainSearchController.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/controller/MainSearchController.java
+END
+FolderController.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/controller/FolderController.java
+END
+UserActionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/controller/UserActionController.java
+END
+SearchThingsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ytk-platform/!svn/ver/4014/SOLR/branches/digital/src/com/ytk/controller/SearchThingsController.java
+END
+NeibhourhoodController.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/controller/NeibhourhoodController.java
+END
+SearchProfileController.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/controller/SearchProfileController.java
+END
+PlatformPlaceController.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ytk-platform/!svn/ver/4039/SOLR/branches/digital/src/com/ytk/controller/PlatformPlaceController.java
+END

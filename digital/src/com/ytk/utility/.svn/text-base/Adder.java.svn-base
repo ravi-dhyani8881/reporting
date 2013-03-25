@@ -1,0 +1,931 @@
+package com.ytk.utility;
+
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.io.IOException;
+
+import com.ytk.models.Users;
+import com.ytk.models.Member;
+import com.ytk.models.MemberEvent;
+import com.ytk.models.Community;
+import com.ytk.models.CommunityEvent;
+import com.ytk.models.Contact;
+import com.ytk.models.Forum;
+import com.ytk.models.ForumEvent;
+import com.ytk.models.AllSearchableObject;
+import com.ytk.models.ListContact.Contacts;
+
+import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.common.SolrInputDocument;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+
+
+
+public class Adder{
+	
+	@Autowired
+	ServerurlConstants serverurlConstants;
+	
+	public static String escapeQueryChars(String s)
+	{
+		         StringBuilder sb = new StringBuilder();
+		         for (int i = 0; i < s.length(); i++)
+		         {
+		           char c = s.charAt(i);
+		           // These characters are part of the query syntax and must be escaped
+		           if (c == '\\' || c == '+' || c == '-' || c == '!'  || c == '(' || c == ')' || c == ':'
+		             || c == '^' || c == '[' || c == ']' || c == '\"' || c == '{' || c == '}' || c == '~'
+		             || c == '*' || c == '?' || c == '|' || c == '&'  || c == ';'
+		             )
+		           {
+		             sb.append('\\');
+		           }
+		           if(Character.isWhitespace(c))
+		           {
+		        	   sb.append(" \\ ");
+		           }
+		           sb.append(c);
+		         }
+		         return sb.toString();
+		       }
+
+//	public static String escapeSolrValue(String string)
+//    {
+//        match   = array('\\', '+', '-', '&', '|', '!', '(', ')', '{', '}', '[', ']', '^', '~', '*', '?', ':', '"', ';', ' ');
+//        replace = array('\\\\', '\\+', '\\-', '\\&', '\\|', '\\!', '\\(', '\\)', '\\{', '\\}', '\\[', '\\]', '\\^', '\\~', '\\*', '\\?', '\\:', '\\"', '\\;', '\\ ');
+//        string  = string.($match, $replace, $string);
+// 
+//        return string;
+//    }
+	
+	public static SolrServer getSolrServer(String url){
+	    //the instance can be reused
+		
+		 SolrServer server = null;
+		try {
+			server = new CommonsHttpSolrServer( url );
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return server;
+	}
+	public static void addContacts(String addContactUrl ,SolrInputDocument contacts)
+	{		 
+		SolrServer server = getSolrServer(addContactUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( contacts );
+	    try {
+	    	server.deleteById(contacts.get("id").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void addFaces(String addFacesUrl ,SolrInputDocument faces)
+	{		 
+		SolrServer server = getSolrServer(addFacesUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( faces );
+	    try {
+	    	server.deleteById(faces.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+
+	public static void addPConnection(String addPConnectionUrl ,SolrInputDocument connections)
+	{		 
+		SolrServer server = getSolrServer(addPConnectionUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( connections );
+	    try {
+	    	server.deleteById(connections.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void addPlaces(String addPlacesUrl ,SolrInputDocument place)
+	{
+		
+		SolrServer server = getSolrServer(addPlacesUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( place );
+	    try {
+	    	server.deleteById(place.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void addProfiles(String addProfileUrl , SolrInputDocument contacts)
+	{
+		 
+		SolrServer server = getSolrServer(addProfileUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( contacts );
+	    try {
+	    	server.deleteById(contacts.get("iMemberID_PK").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+
+	public static void addConnection(String addConnectionUrl ,SolrInputDocument connection)
+	{
+		
+		SolrServer server = getSolrServer(addConnectionUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( connection );
+	    try {
+	    	server.deleteById(connection.get("connectionid").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void addMessage(String addMessagesUrl , SolrInputDocument connection)
+	{
+		String url = "http://localhost:8986/solr";
+		SolrServer server = getSolrServer(addMessagesUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( connection );
+	    try {
+	    	server.deleteById(connection.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+
+	public static void addThings(String addThingsUrl , SolrInputDocument thing)
+	{
+		
+		SolrServer server = getSolrServer(addThingsUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( thing );
+	    try {
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deleteConnection(String deleteconnectionUrl ,SolrInputDocument connection)
+	{
+		String url = "http://localhost:8984/solr";
+		SolrServer server = getSolrServer(deleteconnectionUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( connection );
+	    try {
+	    	server.deleteById(connection.get("connectionid").toString());
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void deleteThing(String deleteThingUrl ,SolrInputDocument thing)
+	{
+		String url = "http://localhost:8987/solr";
+		SolrServer server = getSolrServer(deleteThingUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( thing );
+	    try {
+	    	server.deleteById(thing.get("ThingsId").toString());
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deleteMember(String deleteMemberUrl ,SolrInputDocument connection)
+	{
+		 String url = "http://localhost:8983/solr";
+			SolrServer server = getSolrServer(deleteMemberUrl);
+			Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+		    docs.add( connection );
+		    try {
+		    	server.deleteById(connection.get("id").toString());
+				 server.commit();
+			} catch (SolrServerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+	public static void deleteMessage(String deleteMessageUrl , String ID)
+	{
+		 String url = "http://localhost:8986/solr";
+			SolrServer server = getSolrServer(deleteMessageUrl);
+		    try {
+		    	server.deleteByQuery("ID:"+ID);
+		    	server.deleteByQuery("StartMessageID:"+ID);
+				 server.commit();
+			} catch (SolrServerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+
+	public static void deleteFace( String deleteFacesUrl,SolrInputDocument connection)
+	{
+
+		SolrServer server = getSolrServer(deleteFacesUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( connection );
+	    try {
+	    	server.deleteByQuery("ID:"+connection.get("ID").toString());
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void deletePConnection(String deletePConnection , String ID)
+	{
+		
+		SolrServer server = getSolrServer(deletePConnection);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    try {
+	    	server.deleteByQuery("ID:"+ID);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void deletePlace(String deletePlaceUrl , SolrInputDocument place)
+	{
+		
+		SolrServer server = getSolrServer(deletePlaceUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( place );
+	    try {
+	    	server.deleteByQuery("ID:"+place.get("ID").toString());
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	public static void deleteThings(String deleteThingUrl ,SolrInputDocument thing)
+	{
+		String url = "http://localhost:8992/solr";
+		SolrServer server = getSolrServer(deleteThingUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( thing );
+	    try {
+	    	server.deleteByQuery("ID:"+thing.get("ID").toString());
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void addPThings(String addThingsUrl , SolrInputDocument thing)
+	{
+		
+		SolrServer server = getSolrServer(addThingsUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( thing );
+	    try {
+	    	server.deleteById(thing.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deleteUpdates(String deleteUpdatesUrl, String updateId)
+	{
+		
+		SolrServer server = getSolrServer(deleteUpdatesUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	  //  docs.add( update );
+	    try {
+	    	server.deleteByQuery("ID:"+updateId);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void deleteUpdatesByAccountType(String deleteUpdateByAccountUrl ,SolrInputDocument update,String query)
+	{
+		
+		SolrServer server = getSolrServer(deleteUpdateByAccountUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( update );
+	    try {
+	    	server.deleteByQuery(query);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+		
+
+	
+	public static void addUpdates(String addUpdatesUrl , SolrInputDocument updates)
+	{
+		
+		SolrServer server = getSolrServer(addUpdatesUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( updates );
+	    try {
+	    	//server.deleteById(updates.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+
+	public static void addDiscussionQuestions(String addDiscussionQuestionsUrl ,SolrInputDocument question)
+	{
+	
+		SolrServer server = getSolrServer(addDiscussionQuestionsUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( question );
+	    try {
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void addMessages(String addMessagesUrl , SolrInputDocument message)
+	{
+		
+		SolrServer server = getSolrServer(addMessagesUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( message );
+	    try {
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void addPlans(String addPlansUrl  , SolrInputDocument plans)
+	{
+		 String url = "http://localhost:8996/solr";
+		SolrServer server = getSolrServer(addPlansUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( plans );
+	    try {
+	    	server.deleteById(plans.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void addPlanGuest(String addPlanGuestUrl  , SolrInputDocument planGuest)
+	{
+		 String url = "http://localhost:8997/solr";
+		SolrServer server = getSolrServer(addPlanGuestUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( planGuest );
+	    try {
+	    	server.deleteById(planGuest.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+
+	public static void addNeibhourhood(String neibourhoodUrl, SolrInputDocument neibhourhood)
+	{
+		String url = "http://localhost:8998/solr";
+		SolrServer server = getSolrServer(neibourhoodUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( neibhourhood );
+	    try {
+	    	//server.deleteById(updates.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deleteMessages(String deleteMessagesUrl,  String ID)
+	{
+		 String url = "http://localhost:8995/solr";
+			SolrServer server = getSolrServer(deleteMessagesUrl);
+		    try {
+		    	server.deleteByQuery("ID:"+ID);
+				 server.commit();
+			} catch (SolrServerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+	public static void deletePlans(String deletePlansUrl ,  String planId)
+	{
+		String url = "http://localhost:8996/solr";
+		SolrServer server = getSolrServer(deletePlansUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	  //  docs.add( update );
+	    try {
+	    	server.deleteByQuery("ID:"+planId);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deletePlanGuest(String deletePlanGuestUrl , String planGuestId)
+	{
+		String url = "http://localhost:8997/solr";
+		SolrServer server = getSolrServer(deletePlanGuestUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	  //  docs.add( update );
+	    try {
+	    	server.deleteByQuery("ID:"+planGuestId);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deleteNeibhourhood(String neibourhoodUrl,String neibhorhoodId)
+	{
+		String url = "http://localhost:8998/solr";
+		SolrServer server = getSolrServer(neibourhoodUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	  //  docs.add( update );
+	    try {
+	    	server.deleteByQuery("ID:"+neibhorhoodId);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void deleteAllInstances(String url)
+	{
+		
+		SolrServer server = getSolrServer(url);
+	    try {
+	    	String query = "*:*";
+	    	server.deleteByQuery(query);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+		
+	public static void add(Object obj){
+		SolrServer solrServer = null;
+		if(obj instanceof Contacts){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8983/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				Contacts member = (Contacts)obj;
+				solrServer.addBean(member);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof MemberEvent){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8984/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				MemberEvent memEvent = (MemberEvent)obj;
+				solrServer.addBean(memEvent);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof Community){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8985/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				Community comm = (Community)obj;
+				solrServer.addBean(comm);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof CommunityEvent){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8986/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				CommunityEvent commEvent = (CommunityEvent)obj;
+				solrServer.addBean(commEvent);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof Contact){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8987/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				Contact contact = (Contact)obj;
+				solrServer.addBean(contact);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof Forum){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8988/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				Forum forum = (Forum)obj;
+				solrServer.addBean(forum);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof ForumEvent){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8989/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				ForumEvent forumEvent = (ForumEvent)obj;
+				solrServer.addBean(forumEvent);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}else if(obj instanceof AllSearchableObject){
+			try{
+				solrServer = new CommonsHttpSolrServer("http://localhost:8981/solr");
+			}catch(MalformedURLException mue){
+				mue.printStackTrace();
+			}
+			try{
+				AllSearchableObject allSearchableObject = (AllSearchableObject)obj;
+				solrServer.addBean(allSearchableObject);
+				solrServer.commit(true, true);
+			}catch(SolrServerException sse){
+				sse.printStackTrace();
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+		}
+	}
+	
+	
+	public static void addPlacesReview(String addPlacesReviewUrl ,SolrInputDocument placereview)
+	{
+		
+		SolrServer server = getSolrServer(addPlacesReviewUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( placereview );
+	    try {
+	    	server.deleteById(placereview.get("ID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	public static void deletePlaceReview(String deletePlaceUrl , SolrInputDocument placereview)
+	{
+		String url = deletePlaceUrl;
+		SolrServer server = getSolrServer(deletePlaceUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( placereview );
+	    try {
+	    	server.deleteByQuery("ID:"+placereview.get("ID").toString());
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+
+	
+	public static void addPlacesReviewPlaceID(String addPlacesReviewUrl ,SolrInputDocument placereview)
+	{
+		
+		SolrServer server = getSolrServer(addPlacesReviewUrl);
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( placereview );
+	    try {
+	    	server.deleteById(placereview.get("PlaceID").toString());
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	public static void deleteFolder( String deleteFacesUrl,String connection)
+	{
+
+		SolrServer server = getSolrServer(deleteFacesUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    try {
+	    	server.deleteByQuery("ID:"+connection);
+			server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+	
+	
+	public static void addFolder(String addFolderUrl ,SolrInputDocument question)
+	{
+	
+		SolrServer server = getSolrServer(addFolderUrl);
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+	    docs.add( question );
+	    try {
+			server.add(docs);
+			 server.commit();
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+	}
+	
+}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

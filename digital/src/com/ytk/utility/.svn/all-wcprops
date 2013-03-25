@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ytk-platform/!svn/ver/3695/SOLR/branches/digital/src/com/ytk/utility
+END
+DeleteSolrUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ytk-platform/!svn/ver/3740/SOLR/branches/digital/src/com/ytk/utility/DeleteSolrUtil.java
+END
+ApplicationContextUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/ApplicationContextUtil.java
+END
+MappingJacksonJsonpView.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/MappingJacksonJsonpView.java
+END
+Remover.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/Remover.java
+END
+DwServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/DwServlet.java
+END
+Adder.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/Adder.java
+END
+XMLReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/XMLReader.java
+END
+SMTPSSLAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ytk-platform/!svn/ver/3536/SOLR/branches/digital/src/com/ytk/utility/SMTPSSLAppender.java
+END
+Deleter.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/Deleter.java
+END
+PropertyFeedParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/PropertyFeedParser.java
+END
+ServerurlConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ytk-platform/!svn/ver/3851/SOLR/branches/digital/src/com/ytk/utility/ServerurlConstants.java
+END
+LogDetails.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ytk-platform/!svn/ver/3740/SOLR/branches/digital/src/com/ytk/utility/LogDetails.java
+END
+ApplicationLifecycleListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/ApplicationLifecycleListener.java
+END
+JsonUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/JsonUtils.java
+END
+SimplePostTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/SimplePostTool.java
+END
+DocumentCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ytk-platform/!svn/ver/3321/SOLR/branches/digital/src/com/ytk/utility/DocumentCreator.java
+END

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<response-header-mapper>
+  <!-- generic rule for all html requests -->
+	<mapping url="/json/(.*)">
+	    <default>
+	      <response-headers>
+	        <header key="Content-Type" value="application/json"/>
+	        <header key="Connection" value="Keep-Alive"/>
+	        <header key="Cache-Control" value="private, max-age=120"/>
+	      </response-headers>
+	    </default>
+	  </mapping>
+</response-header-mapper>

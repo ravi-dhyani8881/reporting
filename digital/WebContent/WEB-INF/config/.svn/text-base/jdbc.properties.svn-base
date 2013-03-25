@@ -1,0 +1,10 @@
+jdbc.driverClassName=com.mysql.jdbc.Driver
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+
+#--local server--
+
+jdbc.url=jdbc:mysql://192.168.0.226/test
+jdbc.username=silver
+jdbc.password=SilveR
+
